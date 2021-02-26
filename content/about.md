@@ -3,7 +3,7 @@
 +++
 # Introduction
 
-I am a 28-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves mainly around Azure and PowerShell, and I couldn't be more happy with the combination! Below is a short overview of my past experience with the current experience being empty due to my short time being there, but I soon hope to tell tales of my achievements.
+I am a 29-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves mainly around Azure and PowerShell, and I couldn't be more happy with the combination! Below is a short overview of my past experience with the current experience being empty due to my short time being there, but I soon hope to tell tales of my achievements.
 
 ## Contacts
 
