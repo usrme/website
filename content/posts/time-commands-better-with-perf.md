@@ -1,6 +1,5 @@
 +++
 date = 2021-03-25T07:33:00Z
-draft = true
 title = "Time commands better with 'perf'"
 
 +++
@@ -82,6 +81,6 @@ After that I finally felt that I had a robust case to present with all the comma
 ## Notes
 
 * If the command or tool you are timing doesn't natively support something like `--output none` you can just use the following to redirect _everything_ to `/dev/null`: `cmd > /dev/null 2>&1`
-  * This isn't an issue with commands with sparse output and few repeated runs, but becomes a major eyesore otherwise.
-* I am not at all sure why the output of `perf-stat` is formatted so strangely, especially with the `--table` option doing such a clean job otherwise
+  * This isn't an issue with commands with sparse output and few repeated runs, but becomes a major eyesore otherwise
+* I am not at all sure why the output of `perf-stat` is formatted so strangely, especially with the `--table` option doing such a clean job in all other respects
   * In the original linked GitHub issue I cleaned up the formatting myself, but I really do wonder whether there's a way to automatically get the output into a nicer format
