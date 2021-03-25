@@ -77,7 +77,7 @@ I feel like a veil has been lifted! For so many years I've relied on ad hoc repe
                 # Final result:
                 2,5857 +- 0,0677 seconds time elapsed  ( +-  2,62% )
 
-After that I finally felt that I had a robust case to present with all the commands necessary to reach the same conclusion I did. I'll still probably use `time` when I need a single measurement of how quick some command runs, I'll never go back to repeating that arcane process ever again; it's way quicker to utilize an alias such as `alias perfs='perf stat --null --table --repeat '`.
+After that I finally felt that I had a robust case to present with all the commands necessary to reach the same conclusion I did. I'll still probably use `time` when I need a single measurement of how quick some command runs, but I'll never go back to repeating that arcane process for repeated measurements ever again; it's way quicker to utilize a nifty alias such as `alias perfs='perf stat --null --table --repeat '`.
 
 ## Notes
 
