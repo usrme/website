@@ -23,3 +23,7 @@ That's _much_ better, but I am still left with the presence of those pesky CPU c
 **TODO**: add output of `perf stat --repeat 5 --null az tag create ...`
 
 I feel like a veil has been lifted! For so many years I've relied on ad hoc repeated executions of the `time` command all the while being oblivious to such a great tool such as `perf`.
+
+Somewhere along the line I came across a [subtly different manual page](https://www.man7.org/linux/man-pages/man1/perf-stat.1.html "Different Linux man page for 'perf-stat' command") for `perf-stat`, which made me aware of an additional option called `--table` that displays the time for each run in a table format; the missing link in the ultimately pretty output:
+
+**TODO**: add output of `perf stat --repeat 5 --null --table az tag create ...`
