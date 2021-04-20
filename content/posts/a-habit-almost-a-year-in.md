@@ -9,3 +9,7 @@ To those that know me it's a well-known fact that I am quite partial to the "ene
 Near the end of February last year I decided to really lean in to my habit and start noting down my purchases as I thought that if I am to ever be determined enough to kick this, then I'm much more likely to do so if I have some numbers to fall back on.
 
 I took my last sip of Belief on the 29th of December, 2020, which leaves the experiment, barring any setbacks, at 306 days starting from the 28th of February, 2020. During that time I wrote down the date, time, and location of the purchase of every bottle; also the chosen flavor, price, and whether it was discounted or not. What follows is a mishmash of facts based on those data points.
+
+***
+
+When I started writing this blog post in January I had imagined that I wrangle the data all sorts of interesting ways myself, but picking this thing up again much later, now nearing the end of April, I'm much more inclined to leverage the wonderful [Datasette](https://datasette.io/ "Datasette - An open source multi-tool for exploring and publishing data") project along with the even more wonderful [Glitch](https://glitch.com/ "Glitch - Build fast, full-stack web apps in your browser for free"). The former will take care of handling all of the data and the latter will make things easily shareable and re-editable.
