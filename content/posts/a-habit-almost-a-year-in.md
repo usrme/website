@@ -12,4 +12,21 @@ I took my last sip of Belief on the 29th of December, 2020, which leaves the exp
 
 ***
 
-When I started writing this blog post in January I had imagined that I wrangle the data all sorts of interesting ways myself, but picking this thing up again much later, now nearing the end of April, I'm much more inclined to leverage the wonderful [Datasette](https://datasette.io/ "Datasette - An open source multi-tool for exploring and publishing data") project along with the even more wonderful [Glitch](https://glitch.com/ "Glitch - Build fast, full-stack web apps in your browser for free"). The former will take care of handling all of the data and the latter will make things easily shareable and re-editable.
+When I started writing this blog post in January I had imagined that I wrangle the data all sorts of interesting ways myself, but picking this thing up again much later, now nearing the end of April, I'm much more inclined to leverage the wonderful [Datasette](https://datasette.io/ "Datasette - An open source multi-tool for exploring and publishing data") project along with the even more wonderful [Glitch](https://glitch.com/ "Glitch - Build fast, full-stack web apps in your browser for free"). The former will take care of handling all of the data and the latter will make things easily shareable and re-editable, but seeing as just linking to the Glitch instance would make this post terribly short I'll go over some of the key findings.
+
+***
+
+Most of my purchases were made from a single location, a gas station near where I live. While it's not exactly on my commute as I have to make a conscious effort to go that route, it's _close enough_ to my commute that more often than not I opted to pop by and succumb to my addiction in ever increasing amounts.
+
+What's interesting is that despite there being a clear place, the second most visited location, where I could have gotten a better deal, I still went to that gas station instead. Why? I'm not a 100% privy to my psyche, but I think it has to do with a compounding of the following factors:
+
+* it was closer to my home;
+* out of the 171 purchases made there (the image conflates two additional locations into that 216 you see), 163 were made whilst the drink was discounted, which seemed to be pretty much permanent;
+* in my mind if I had opted to buy in bulk from the aforementioned second most visited that would have in one or another made much more cognizant of my inability to not kick this habit;
+* it was a routine that had developed and _not_ going a little out of my way to buy from there would have been an aberration.
+
+ ![The most frequented locations for purchases](/uploads/screenshot_2021-04-21-data-belief-349-rows.png "Cluster map of purchases")
+
+It's interesting to note that the 163 individual bottles purchased from that gas station at a discounted price of 1.50€ cost me 244.5€, whereas if I had bought them directly from the source, the second most visited place, then the price of each bottle would have been 1.15€ at the most, thus saving me 57.05€. Something to consider the next time I really want to lean in on a habit again...
+
+***
