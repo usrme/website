@@ -30,3 +30,7 @@ What's interesting is that despite there being a clear place, the second most vi
 It's interesting to note that the 163 individual bottles purchased from that gas station at a discounted price of 1.50€ cost me 244.5€, whereas if I had bought them directly from the source, the second most visited place, then the price of each bottle would have been 1.15€ at the most, thus saving me 57.05€. Something to consider the next time I really want to lean in on a habit again...
 
 ***
+
+Aside from just summing everything up I'm curious to know that I had I not put my 512€ and 87 cents into something as obviously detrimental (though it sure as heck tasted delightful!) and had instead increased my position in the Vanguard S&P 500 UCITS ETF, then how much would I have actually potentially earned?
+
+When I started noting down my purchases the price of a single share closed at 50.45€ and when I stopped the price of a single share closed at 57.89€, which means that the stock appreciated at around 14.7% over that period of time. Given that my bank does not support buying fractional shares then that
