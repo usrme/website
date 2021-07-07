@@ -1,6 +1,5 @@
 +++
 date = 2021-07-07T13:08:00Z
-draft = true
 title = "The horror of quoting"
 
 +++
