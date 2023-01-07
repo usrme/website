@@ -12,15 +12,11 @@ import '../styles/global.css';
 		<title>Üllar Seerme</title>
 	</head>
 	<body>
-		<h1 class="title">Üllar Seerme<ThemeIcon /></h1>
+		<span id="container">
+			<h1 class="title">Üllar Seerme</h1>
+			<ThemeIcon />
+		</span>
 		<Navigation />
 		<slot />
 	</body>
 </html>
-<style>
-	.title {
-		text-decoration-line: underline;
-		text-decoration-thickness: 2px;
-		text-underline-offset: 10px;
-	}
-</style>

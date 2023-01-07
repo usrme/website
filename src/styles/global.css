@@ -16,6 +16,7 @@
 }
 
 html {
+	font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
 	line-height: 1.5;
 }
 
@@ -97,6 +98,23 @@ h1 {
 	}
 }
 
+/* miscellaneous styles */
+
+#container {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.title {
+	font-size: 2em;
+	font-weight: 700;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	box-sizing: border-box;
+	margin: .67em 0;
+	line-height: 1.15;
+}
+
 /* dark styles */
 
 .dark body {
@@ -104,6 +122,6 @@ h1 {
 	color: var(--off-white-color);
 }
 
-.dark .nav-links a {
+.dark .title .nav-links a {
 	color: var(--off-white-color);
 }
