@@ -37,67 +37,6 @@ h1 {
 	padding-bottom: .25rem;
 }
 
-/* nav styles */
-
-.hamburger {
-	padding-right: 20px;
-	cursor: pointer;
-}
-
-.hamburger .line {
-	display: block;
-	width: 40px;
-	height: 5px;
-	margin-bottom: 10px;
-	background-color: #ff9776;
-}
-
-.nav-links {
-	width: 100%;
-	top: 5rem;
-	left: 48px;
-	background-color: #ff9776;
-	display: none;
-	margin: 0;
-}
-
-.nav-links a {
-	display: block;
-	text-align: center;
-	padding: 10px 0;
-	text-decoration: none;
-	font-size: 1.2rem;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.nav-links a:hover, a:focus {
-	background-color: #ff9776;
-}
-
-.expanded {
-	display: unset;
-}
-
-@media screen and (min-width: 636px) {
-	.nav-links {
-		margin-left: 5em;
-		display: block;
-		position: static;
-		width: auto;
-		background: none;
-	}
-
-	.nav-links a {
-		display: inline-block;
-		padding: 15px 20px;
-	}
-
-	.hamburger {
-		display: none;
-	}
-}
-
 /* miscellaneous styles */
 
 #container {
@@ -126,18 +65,30 @@ a.title {
 	padding-left: 0;
 }
 
+/* For some reason 'border-style' needs to be above other 'border-*' attributes */
 .element {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	line-height: 1.5;
 	border-style: dotted;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
 	border-width: 1px;
 }
 
-li > a {
+li.element > a {
 	color: inherit;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
+	font-weight: 700;
 	padding: .25rem;
+}
+
+li.element > a.content {
+	text-decoration: none;
+}
+
+.pubdate {
+	padding-left: 5px;
 }
 
 /* dark styles */
@@ -156,6 +107,6 @@ li > a {
 	border-color: var(--dark-separator-color);
 }
 
-.dark li > a {
+.dark li.element > a {
 	color: var(--mid-gray-color);
 }
