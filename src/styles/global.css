@@ -22,9 +22,16 @@ html {
 
 body {
 	margin: 0 auto;
+	margin-top: 4rem;
 	width: 100%;
 	max-width: 100ch;
 	padding: 1rem;
+}
+
+@media screen and (max-width: 636px) {
+	body {
+		margin-top: 0;
+	}
 }
 
 * {
