@@ -105,6 +105,7 @@ h1 {
 	align-items: center;
 	gap: 10px;
 }
+
 .title {
 	font-size: 2em;
 	font-weight: 700;
@@ -113,6 +114,11 @@ h1 {
 	box-sizing: border-box;
 	margin: .67em 0;
 	line-height: 1.15;
+}
+
+a.title {
+	text-decoration: none;
+	color: inherit;
 }
 
 /* dark styles */

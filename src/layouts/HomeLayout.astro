@@ -1,6 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
-import ThemeIcon from '../components/ThemeIcon.astro';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
 ---
 <html lang="en">
@@ -12,10 +12,7 @@ import '../styles/global.css';
 		<title>Üllar Seerme</title>
 	</head>
 	<body>
-		<span id="container">
-			<h1 class="title">Üllar Seerme</h1>
-			<ThemeIcon />
-		</span>
+		<Header />
 		<Navigation />
 		<slot />
 	</body>
