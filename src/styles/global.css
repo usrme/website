@@ -121,6 +121,25 @@ a.title {
 	color: inherit;
 }
 
+.list {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.element {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	line-height: 1.5;
+	border-style: dotted;
+	border-width: 1px;
+}
+
+li > a {
+	color: inherit;
+	font-size: 1.5rem;
+	padding: .25rem;
+}
+
 /* dark styles */
 
 .dark body {
@@ -130,4 +149,13 @@ a.title {
 
 .dark .title .nav-links a {
 	color: var(--off-white-color);
+}
+
+.dark .element {
+	color: var(--dark-primary-text-color);
+	border-color: var(--dark-separator-color);
+}
+
+.dark li > a {
+	color: var(--mid-gray-color);
 }
