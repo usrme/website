@@ -39,9 +39,22 @@ body {
 }
 
 h1 {
-	font-size: 2rem;
-	margin: 1rem 0;
+	font-size: 2em;
+	margin: .67em 0;
 	padding-bottom: .25rem;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+/* Ignore, for example, spans within list elements when listing posts */
+li:not(.element) {
+	font-size: 1.05em;
+}
+
+li > a, p > a {
+	color: var(--accent-color);
 }
 
 /* miscellaneous styles */
@@ -106,6 +119,10 @@ li.element > a.content {
 	color: var(--off-white-color);
 }
 
+.dark p {
+	color: var(--dark-primary-text-color)
+}
+
 .dark .title .nav-links a {
 	color: var(--off-white-color);
 }
@@ -117,4 +134,8 @@ li.element > a.content {
 
 .dark li.element > a {
 	color: var(--mid-gray-color);
+}
+
+.dark li > a, .dark p > a {
+	color: var(--dark-accent-color);
 }
