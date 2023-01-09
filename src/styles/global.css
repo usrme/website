@@ -23,9 +23,9 @@ html {
 body {
 	margin: 0 auto;
 	margin-top: 4rem;
-	width: 100%;
 	max-width: 100ch;
 	padding: 1rem;
+	width: 100%;
 }
 
 @media screen and (max-width: 636px) {
@@ -39,33 +39,33 @@ body {
 }
 
 h1 {
-	margin: 1rem 0;
 	font-size: 2rem;
+	margin: 1rem 0;
 	padding-bottom: .25rem;
 }
 
 /* miscellaneous styles */
 
 #container {
-	justify-content: center;
-	display: flex;
 	align-items: center;
+	display: flex;
 	gap: 10px;
+	justify-content: center;
 }
 
 .title {
-	font-size: 2em;
-	font-weight: 700;
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 	box-sizing: border-box;
-	margin: .67em 0;
+	font-size: 2em;
+	font-weight: 700;
 	line-height: 1.15;
+	margin: .67em 0;
 }
 
 a.title {
-	text-decoration: none;
 	color: inherit;
+	text-decoration: none;
 }
 
 .list {
@@ -75,13 +75,13 @@ a.title {
 
 /* For some reason 'border-style' needs to be above other 'border-*' attributes */
 .element {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	border-style: dotted;
-	border-top: 0;
 	border-left: 0;
 	border-right: 0;
+	border-style: dotted;
+	border-top: 0;
 	border-width: 1px;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
 }
 
 li.element > a {
@@ -111,8 +111,8 @@ li.element > a.content {
 }
 
 .dark .element {
-	color: var(--dark-primary-text-color);
 	border-color: var(--dark-separator-color);
+	color: var(--dark-primary-text-color);
 }
 
 .dark li.element > a {
