@@ -47,6 +47,7 @@ h1 {
 /* miscellaneous styles */
 
 #container {
+	justify-content: center;
 	display: flex;
 	align-items: center;
 	gap: 10px;
