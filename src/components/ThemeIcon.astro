@@ -1,17 +1,19 @@
 ---
 import '../styles/global.css';
 ---
-<span id="themeToggle" title="Toggle dark mode">
+<button id="themeToggle" title="Toggle dark mode">
 	<svg width="32" height="32" viewBox="0 0 24 24" fill="transparent" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 		<path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
 	</svg>
-</span>
+</button>
 
 <style>
 	.moon { fill: transparent; }
 	:global(.dark) .moon { fill: var(--dark-code-highlight-color); color: var(--dark-code-highlight-color); }
 
 	#themeToggle {
+		background-color: transparent;
+		border: 0;
 		padding: 0.5em;
 		cursor: pointer;
 		line-height: 0;
