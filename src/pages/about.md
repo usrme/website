@@ -1,7 +1,9 @@
 ---
 layout: ../layouts/BaseLayout.astro
+title: 'About'
+pubDate: 2022-03-07
 ---
-# Introduction
+## Introduction
 
 I am a 30-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves around developing and maintaining an Azure-based infrastructure and writing internal tooling to better interact with Azure, and I couldn't be more happy with the combination! Below is a short overview of my past experiences.
 
