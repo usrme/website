@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+// Use Astro.glob() to fetch all TILs, and then sort them by date
+const allPosts = (await Astro.glob('../pages/tils/*.md')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+<BaseLayout>
+	<div>
+		<ul class="list">
+			{allPosts.map((post) => 
+				<BlogPost url={post.url} title={post.frontmatter.title} pubDate={new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+				})}/>
+			)}
+		</ul>
+	</div>
+</BaseLayout>
