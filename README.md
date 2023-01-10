@@ -1,25 +1,26 @@
-# Astro Starter Kit: Minimal
+# Astro Website
 
-```
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/minimal)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f681eb9e-1e54-4fc8-9a35-bb0de9cd3151/deploy-status)](https://app.netlify.com/sites/ornate-granita-ff806e/deploys)
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```console
+$ tree -L 2 -I node_modules
+.
+├── astro.config.mjs
+├── package.json
+├── package-lock.json
+├── public
+│   └── favicon.svg
+├── README.md
+├── src
+│   ├── components
+│   ├── env.d.ts
+│   ├── layouts
+│   ├── pages
+│   ├── scripts
+│   └── styles
+└── tsconfig.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
@@ -40,7 +41,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`      | Preview your build locally, before deploying     |
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
