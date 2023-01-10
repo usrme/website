@@ -25,7 +25,7 @@ $ make epub
 
 To make the PDF file[^1] is just as simple in the actual commands, but as aside from requiring all of the above it's necessary to install a _bunch_ of LaTeX-related packages. For example, I had to install `latexmk`, which was 140 MB when installed, and something called `texlive-scheme-full` (based on [Fedora Docs](https://docs.fedoraproject.org/en-US/neurofedora/latex/)), which was 4.7 GB when installed! I probably could have made due with a smaller set of packages, but after errors like:
 
-```plaintext
+```
 ! LaTeX Error: File `cmap.sty' not found.
 ```
 

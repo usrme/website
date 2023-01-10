@@ -17,7 +17,7 @@ Being so damn slow meant that my thoughts were forced to wait until I could phys
 
 I was expecting this kind of slog for _months_, but I'm happy to report that even after two weeks my words-per-minute was at an acceptable 80! Here's a graph showing my progress from [Monkeytype](https://monkeytype.com/ "Customizable typing website with a minimalistic design and a ton of features") to date (a month later by now):
 
-![](/uploads/screenshot-2021-10-29-at-09-05-29-monkeytype.png)
+![](/screenshot-2021-10-29-at-09-05-29-monkeytype.png)
 
 It's a far cry from the proficiency I had before, especially in programming where I still struggle to hit the right keys, but the progress has been far quicker than I had imagined. In terms of the main reason I bought the keyboard, the wrist strain, it's still early to tell whether improvement has occurred because while I could type relatively fast before for long periods, I am not able to do so yet and am thus unlikely to feel any strain whatsoever.
 

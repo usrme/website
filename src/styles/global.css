@@ -130,12 +130,36 @@ blockquote {
 	border-color: var(--accent-color);
 }
 
+pre {
+	padding: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+	border-radius: 12px;
+}
+
 * {
 	box-sizing: border-box;
 }
 
 li > a, p > a {
 	color: var(--accent-color);
+}
+
+p > code, li > code {
+	padding: 2px 4px;
+	font-size: 90%;
+	background-color: var(--code-single-bg-color);
+}
+
+sup {
+	top: -.5em;
+}
+
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
 }
 
 /* miscellaneous styles */
@@ -221,4 +245,9 @@ li.element > a.content {
 
 .dark blockquote {
 	border-color: var(--dark-accent-color);
+}
+
+.dark p > code, .dark li > code {
+	background-color: var(--dark-code-single-bg-color);
+	color: var(--dark-code-highlight-color);
 }

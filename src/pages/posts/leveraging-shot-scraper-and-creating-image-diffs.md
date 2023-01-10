@@ -11,7 +11,7 @@ In that post he mentions a specific [GitHub template for creating automatic scre
 
 I found a bunch of libraries that promised to do this[^4], but none got me to the point quicker than just installing the venerable [ImageMagick](https://imagemagick.org/) during the execution of the GitHub Actions pipeline and using [its wonderful comparison features](https://www.imagemagick.org/Usage/compare/). I'll first illustrate what I am able to see as a differential image, then a little nicety to make it even clearer, and then I'll show the small technical changes I made to accomplish this.
 
-Let's say for example that back on the 17th of October the [jobs page for Fly](https://fly.io/jobs/)[^5] looked like [this](/uploads/screenshot_2022-10-17-fly-jobs.png), but now it looks like [this](/uploads/screenshot_2022-10-23-fly-jobs.png). Switching back-and-forth between the two makes it obvious what the changes are (a new job ad was posted for an engineering manager), but just having the "after" shot would most likely leave me clueless if I didn't remember the previous shot exactly. So, let's create a comparison [image](/uploads/fly-jobs-diff.png) _and_ a comparison [animation](/uploads/fly-jobs-anim.gif)! I will concede that the comparison image is very hard to read as all of the other ads got shifted due to the addition, but try to image a scenario where the difference is more subtle and how the mere existence of the highlight will guide your eyes to what changed, and with the help of the animation the difference should be clear.
+Let's say for example that back on the 17th of October the [jobs page for Fly](https://fly.io/jobs/)[^5] looked like [this](/screenshot_2022-10-17-fly-jobs.png), but now it looks like [this](/screenshot_2022-10-23-fly-jobs.png). Switching back-and-forth between the two makes it obvious what the changes are (a new job ad was posted for an engineering manager), but just having the "after" shot would most likely leave me clueless if I didn't remember the previous shot exactly. So, let's create a comparison [image](/fly-jobs-diff.png) _and_ a comparison [animation](/fly-jobs-anim.gif)! I will concede that the comparison image is very hard to read as all of the other ads got shifted due to the addition, but try to image a scenario where the difference is more subtle and how the mere existence of the highlight will guide your eyes to what changed, and with the help of the animation the difference should be clear.
 
 Before showing the difference between the default GitHub template's workflow configuration and mine I'll show the `shots.yml` that serves as the entrypoint for `shot-scraper`[^6]:
 
@@ -117,7 +117,7 @@ And here is the meat of what is going on to make things happen. I'll number ever
 
 After all is said and done (i.e. a change occurred in the `after.png` image, ImageMagick did its thing, and changes were committed) then the source tree looks something like this:
 
-```console
+```bash
 $ tree
 .
 ├── amazon

@@ -24,7 +24,7 @@ What's interesting is that despite there being a clear place, the second most vi
 * in my mind if I had opted to buy in bulk from the aforementioned second most visited place then that would have in one way or another made me much more cognizant of my inability to not kick this habit;
 * it was a routine that had developed and _not_ going a little out of my way to buy from there would have been an aberration.
 
-![The most frequented locations for purchases](/public/screenshot_2021-04-21-data-belief-349-rows.png "Cluster map of purchases")
+![The most frequented locations for purchases](/screenshot_2021-04-21-data-belief-349-rows.png "Cluster map of purchases")
 
 It's interesting to note that the 163 individual bottles purchased from that gas station at a discounted price of 1.50€ cost me 244.5€, whereas if I had bought them directly from the source, the second most visited place, then the price of each bottle would have been 1.15€ at the most, thus saving me 57.05€. Something to consider the next time I really want to lean in on a habit again...
 

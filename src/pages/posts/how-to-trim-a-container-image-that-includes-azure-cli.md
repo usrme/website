@@ -11,24 +11,24 @@ After seeing their [official guide](https://github.com/Azure/azure-cli/issues/19
 
 I started by looking at the aforementioned Dockerfile they base their official image on and for whatever reason they use a virtual package installation (`apk add --virtual`) in their Dockerfile (surrounding cut for brevity) but then totally disregard the eventual deletion at the end despite the packages only being required for when Azure CLI is installed with `pip`:
 
-{{< highlight dockerfile "hl_lines=2" >}}
+```docker
 RUN apk add --no-cache bash openssh ca-certificates jq curl openssl perl git zip \
     && apk add --no-cache --virtual .build-deps gcc make openssl-dev libffi-dev musl-dev linux-headers \
     && apk add --no-cache libintl icu-libs libc6-compat \
     && apk add --no-cache bash-completion \
     && update-ca-certificates
-{{< / highlight >}}
+```
 
 Alleviating this was step number 1 for me[^3]. The reason I'm still deleting `/var/cache/apk/*` is because I noticed a slight increase in the resulting image size if I didn't. The eagle-eyed amongst you have also noticed that I am installing `cargo`, which wasn't in the original Dockerfile. This is because I am basing this new image on `python:alpine` and `cargo` is required to build libraries such as `cryptography` on Alpine Linux:
 
-{{< highlight dockerfile "hl_lines=2 4" >}}
+```docker
 RUN : \
     && apk add --no-cache --virtual=build cargo gcc libffi-dev linux-headers make musl-dev openssl-dev python3-dev \
     ...
     && apk del --purge build \
     && rm -rf /var/cache/apk/* \
     ...
-{{< / highlight >}}
+```
 
 Step number 2, and the most arduous one, was finding out, which were the exact [SDK libraries](https://azure.github.io/azure-sdk/releases/latest/all/python.html) that I needed to install and this mostly just boiled down to running the main Bash script, waiting for a failure for a given `az` command, and then installing the missing package using `pip`. Luckily `az` was kind enough to fairly precisely name the missing package. Thus, for a script that uses the following `az` commands:
 
@@ -42,7 +42,7 @@ Step number 2, and the most arduous one, was finding out, which were the exact [
 
 Only the following Python packages are necessary:
 
-{{< highlight dockerfile "hl_lines=4-10" >}}
+```docker
 RUN : \
     && apk add --no-cache --virtual=build cargo gcc libffi-dev linux-headers make musl-dev openssl-dev python3-dev \
     ...
@@ -56,11 +56,11 @@ RUN : \
     && apk del --purge build \
     && rm -rf /var/cache/apk/* \
     ...
-{{< / highlight >}}
+```
 
 Thanks to this significantly decreased amount of packages I was able to decrease the size of the previous image from 1.17GB to 307MB, a reduction of almost 74%! Here's the full Dockerfile that also installs AzCopy, `bash`, `coreutils`, and `jq`:
 
-```dockerfile
+```docker
 # https://github.com/Azure/azure-cli/issues/19591
 # Python 3.11 isn't yet supported by Azure CLI
 FROM python:3.10.8-alpine3.16
@@ -122,7 +122,7 @@ COPY script.sh ./
 
 One of the things I've noticed with this is that when running, for example, `az login` it says it is unable to load several modules, but then still proceeds to log in just fine:
 
-```console
+```shell
 $ az login ...
 Error loading command module 'acs': No module named 'azure.mgmt.msi'
 Error loading command module 'aro': No module named 'azure.mgmt.redhatopenshift'
@@ -172,7 +172,7 @@ docker-slim build \
 
 It ran just fine and I thought I was off to the races, but then I saw that now that when `slim-exec.sh` was passed to it the size was a far cry from what I had hoped and when opening the container to run the same commands again there were errors all over the place:
 
-```plaintext
+```
 ...
 cmd=build info=results by='1.06X' size.original='307 MB' size.optimized='291 MB' status='MINIFIED'
 ...
@@ -184,7 +184,7 @@ I guess this means that I should just take the 307MB I managed to conjur up befo
 
 I knew I'd be back at it, and not even 24 hours later I managed to get the above incantations to work, though the results are unremarkable. The `slim-exec.sh` was good as it was and didn't require any modifications, but the paths that I included got a complete overhaul. So much so that I switched to the `--include-path-file` option with a file (`slim-paths.txt`), which included all the relevant paths and files:
 
-```plaintext
+```
 /bin/cat
 /bin/cp
 /bin/mkdir
@@ -277,7 +277,7 @@ index f4e9c85..99648f7 100644
 
 Again, fired up `docker-slim`:
 
-```console
+```shell
 $ docker-slim build \
   --http-probe=false \
   --continue-after=exec \
@@ -292,7 +292,7 @@ cmd=build info=results size.original='325 MB' size.optimized='290 MB' status='MI
 
 The original size is 325MB because now there is a virtual environment where one wasn't before. Other than though, the size is now 290MB[^5]! Does it work though? Nope:
 
-```console
+```shell
 $ docker run --rm -it registry/existing-image.slim az login
 Auto upgrade failed. name 'exit_code' is not defined
 Traceback (most recent call last):
@@ -315,7 +315,7 @@ Even after adding `--system-site-packages` to when the virtual environment was i
 
 At what point does the size get out of control? I created a run-of-the-mill virtual environment locally, installed every dependency, but after installing each checked the size of the directory using `du`:
 
-```console
+```shell
 $ pip install -qqq --no-dependencies azure-cli==2.40.0 && echo "After '--no-dependencies azure-cli'" && du -hc | tail -n 1
 pip install -qqq azure-cli-core && echo "After 'azure-cli-core'" && du -hc | tail -n 1
 pip install -qqq azure-common && echo "After 'azure-common'" && du -hc | tail -n 1
