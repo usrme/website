@@ -5,5 +5,6 @@ export const get = () => rss({
   description: 'My personal website',
   site: 'https://astro.usrme.xyz',
   items: import.meta.glob('./**/*.md'),
+  drafts: false,
   customData: `<language>en-us</language>`,
 });

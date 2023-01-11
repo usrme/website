@@ -6,11 +6,12 @@ import BlogPost from '../components/BlogPost.astro';
 const allPosts = (await Astro.glob('../pages/posts/*.md')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 ---
 <BaseLayout>
 	<div>
 		<ul class="list">
-			{allPosts.map((post) => 
+			{nonDraftPosts.map((post) => 
 				<BlogPost url={post.url} title={post.frontmatter.title} pubDate={new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
 					year: 'numeric',
 					month: 'long',
