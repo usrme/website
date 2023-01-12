@@ -215,6 +215,22 @@ li.element > a.content {
 	text-decoration: none;
 }
 
+/* https://github.com/shikijs/shiki/issues/3#issuecomment-830564854 */
+code {
+	counter-reset: step;
+	counter-increment: step 0;
+}
+
+code .line::before {
+	content: counter(step);
+	counter-increment: step;
+	width: 1rem;
+	margin-right: 1.5rem;
+	display: inline-block;
+	text-align: right;
+	color: #7683906e;
+}
+
 /* dark styles */
 
 .dark body {
