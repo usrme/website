@@ -207,6 +207,10 @@ li.element > a {
 	font-weight: 700;
 }
 
+li.element > a:hover {
+	color: var(--accent-color);
+}
+
 li.element > a.content {
 	text-decoration: none;
 }
@@ -233,6 +237,10 @@ li.element > a.content {
 
 .dark li.element > a {
 	color: var(--mid-gray-color);
+}
+
+.dark li.element > a:hover {
+	color: var(--dark-accent-color);
 }
 
 .dark li > a, .dark p > a, .dark sup > a {
