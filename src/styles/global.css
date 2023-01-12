@@ -197,8 +197,8 @@ a.title {
 	border-left: 0;
 	border-right: 0;
 	border-top: 0;
-	padding-bottom: 1rem;
-	padding-top: 1rem;
+	padding-bottom: 0.4rem;
+	padding-top: 1.5rem;
 }
 
 li.element > a {
