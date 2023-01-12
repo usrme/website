@@ -5,21 +5,33 @@
 ## 🚀 Project Structure
 
 ```console
-$ tree -L 2 -I node_modules
+$ tree -L 3 -I 'dist|node_modules|public'
 .
 ├── astro.config.mjs
 ├── package.json
 ├── package-lock.json
-├── public
-│   └── favicon.svg
 ├── README.md
 ├── src
 │   ├── components
+│   │   ├── BlogPost.astro
+│   │   ├── Header.astro
+│   │   ├── Navigation.astro
+│   │   └── ThemeIcon.astro
 │   ├── env.d.ts
 │   ├── layouts
+│   │   ├── BaseLayout.astro
+│   │   ├── HomeLayout.astro
+│   │   └── MarkdownPostLayout.astro
 │   ├── pages
-│   ├── scripts
+│   │   ├── about.md
+│   │   ├── blog.astro
+│   │   ├── index.astro
+│   │   ├── posts
+│   │   ├── rss.xml.js
+│   │   ├── tils
+│   │   └── tils.astro
 │   └── styles
+│       └── global.css
 └── tsconfig.json
 ```
 
