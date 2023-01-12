@@ -9,37 +9,37 @@ html {
 /* Copy & Lists */
 p {
 	line-height: 1.5rem;
-	margin-top: 1.5rem;
 	margin-bottom: 0;
+	margin-top: 1.5rem;
 }
 ul, ol {
-	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
 }
 ul li, ol li {
 	line-height: 1.5rem;
 }
 ul ul, ol ul, ul ol, ol ol {
-	margin-top: 0;
 	margin-bottom: 0;
+	margin-top: 0;
 }
 blockquote {
-	line-height: 1.5rem;
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
 	border-left-style: solid;
 	border-left-width: 1px;
 	border-width: .25rem;
-	padding-left: 2rem;
+	line-height: 1.5rem;
+	margin-bottom: 1.5rem;
 	margin-left: 0;
+	margin-top: 1.5rem;
+	padding-left: 2rem;
 }
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
 	/* Change heading typefaces here */
 	font-family: sans-serif;
-	margin-top: 1.5rem;
-	margin-bottom: 0;
 	line-height: 1.5rem;
+	margin-bottom: 0;
+	margin-top: 1.5rem;
 }
 h1 {
 	font-size: 4.242rem;
@@ -65,13 +65,13 @@ h6 {
 }
 /* Tables */
 table {
-	margin-top: 1.5rem;
-	border-spacing: 0px;
 	border-collapse: collapse;
+	border-spacing: 0px;
+	margin-top: 1.5rem;
 }
 table td, table th {
-	padding: 0;
 	line-height: 33px;
+	padding: 0;
 }
 /* Code blocks */
 code {
@@ -131,10 +131,10 @@ blockquote {
 }
 
 pre {
-	padding: 2rem;
-	margin-top: 1rem;
-	margin-bottom: 3rem;
 	border-radius: 12px;
+	margin-bottom: 3rem;
+	margin-top: 1rem;
+	padding: 2rem;
 }
 
 * {
@@ -146,9 +146,9 @@ li > a, p > a {
 }
 
 p > code, li > code {
-	padding: 2px 4px;
-	font-size: 90%;
 	background-color: var(--code-single-bg-color);
+	font-size: 90%;
+	padding: 2px 4px;
 }
 
 sup {
@@ -218,18 +218,18 @@ li.element > a.content {
 
 /* https://github.com/shikijs/shiki/issues/3#issuecomment-830564854 */
 code {
-	counter-reset: step;
 	counter-increment: step 0;
+	counter-reset: step;
 }
 
 code .line::before {
+	color: #7683906e;
 	content: counter(step);
 	counter-increment: step;
-	width: 1rem;
-	margin-right: 1.5rem;
 	display: inline-block;
+	margin-right: 1.5rem;
 	text-align: right;
-	color: #7683906e;
+	width: 1rem;
 }
 
 /* dark styles */
