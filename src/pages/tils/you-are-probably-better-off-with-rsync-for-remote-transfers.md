@@ -21,4 +21,8 @@ sys     0m1,614s
 
 After what seemed like forever, `scp` reported as being done when a whopping 20 minutes had passed. To not completely discount `scp` though: if you first archive a directory to a `.tar.gz` file, then the transfer will take far less time; roughly 10 seconds instead.
 
+---
+
+If the direction you're transferring from is Windows to Linux and the files are large enough that you feel yourself being mildly annoyed over the wait times, then look into [CDC File Transfer](https://github.com/google/cdc-file-transfer). If not, then read the main README anyway as it is wonderfully informative!
+
 [^1]: I continue to prefer Mankier for this with the help of a DuckDuckGo bang (namely `!mankier`): <https://www.mankier.com/1/scp>.
