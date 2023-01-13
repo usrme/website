@@ -44,7 +44,7 @@ The only thing that it seemingly got wrong was the bit about `apk` being Android
 >
 > However, if you were building a Docker image for an application that runs on an Android system, you might want to include instructions in your Dockerfile to install the `pax-utils` package (which contains the `scanelf` command used in the code) in order to be able to run the code as part of your build process. In this case, the code could potentially be useful for determining which shared objects are required by the executables in your container, which could be helpful for troubleshooting or for identifying potential conflicts between different containers.
 
-I've seen people use ChatGPT for some amazing things[^3][^4] and can't wait to poke around more! Here are a few non-AI links related to the original topic:
+I've seen people use ChatGPT for some amazing things[^3] and can't wait to poke around more! Here are a few non-AI links related to the original topic:
 
 - <https://www.mankier.com/1/scanelf>
 - <https://www.mankier.com/1/gawk>
@@ -56,4 +56,3 @@ I've seen people use ChatGPT for some amazing things[^3][^4] and can't wait to p
 [^1]: <https://github.com/Azure/azure-cli/blob/dev/Dockerfile>
 [^2]: <https://scribe.rip/c0d1um/building-django-docker-image-with-alpine-32de65d2706>
 [^3]: <https://news.ycombinator.com/item?id=33851460>
-[^4]: <https://nitter.net/kkuldar/status/1598470053518770178>
