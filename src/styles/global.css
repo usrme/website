@@ -141,6 +141,10 @@ pre {
 	box-sizing: border-box;
 }
 
+a {
+	word-break: break-all;
+}
+
 li > a, p > a {
 	color: var(--accent-color);
 }
