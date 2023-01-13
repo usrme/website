@@ -12,7 +12,7 @@ const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 	<div>
 		<ul class="list">
 			{nonDraftPosts.map((post) => 
-				<BlogPost url={post.url} title={post.frontmatter.title} pubDate={new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+				<BlogPost url={post.url + "/"} title={post.frontmatter.title} pubDate={new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
 					year: 'numeric',
 					month: 'long',
 					day: 'numeric',
