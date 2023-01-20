@@ -141,7 +141,7 @@ pre {
 	box-sizing: border-box;
 }
 
-a {
+section.footnotes > ol > li > p > a {
 	word-break: break-all;
 }
 
