@@ -196,7 +196,7 @@ a.title:hover {
 }
 
 /* For some reason 'border-style' needs to be above other 'border-*' attributes */
-.element, footer > a {
+.element {
 	border-style: dotted;
 	border-left: 0;
 	border-right: 0;
@@ -205,18 +205,18 @@ a.title:hover {
 	padding-top: 1.5rem;
 }
 
-li.element > a, footer > a {
+li.element > a {
 	color: inherit;
 	font-size: 1.6rem;
 	font-weight: 700;
 	text-decoration: none;
 }
 
-li.element > a:hover, footer > a:hover {
+li.element > a:hover {
 	color: var(--accent-color);
 }
 
-li.element > a.content, footer > a {
+li.element > a.content {
 	text-decoration: none;
 }
 
@@ -275,7 +275,7 @@ footer {
 	color: var(--mid-gray-color);
 }
 
-.dark li.element > a:hover, .dark footer > a:hover {
+.dark li.element > a:hover {
 	color: var(--dark-accent-color);
 }
 
