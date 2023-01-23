@@ -168,7 +168,7 @@ sub, sup {
 
 /* miscellaneous styles */
 
-#container {
+#container, footer {
 	align-items: center;
 	display: flex;
 	gap: 10px;
@@ -196,7 +196,7 @@ a.title:hover {
 }
 
 /* For some reason 'border-style' needs to be above other 'border-*' attributes */
-.element {
+.element, footer > a {
 	border-style: dotted;
 	border-left: 0;
 	border-right: 0;
@@ -205,18 +205,18 @@ a.title:hover {
 	padding-top: 1.5rem;
 }
 
-li.element > a {
+li.element > a, footer > a {
 	color: inherit;
 	font-size: 1.6rem;
 	font-weight: 700;
 	text-decoration: none;
 }
 
-li.element > a:hover {
+li.element > a:hover, footer > a:hover {
 	color: var(--accent-color);
 }
 
-li.element > a.content {
+li.element > a.content, footer > a {
 	text-decoration: none;
 }
 
@@ -234,6 +234,17 @@ code .line::before {
 	margin-right: 1.5rem;
 	text-align: right;
 	width: 1rem;
+}
+
+footer {
+	border-style: dotted;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	padding-bottom: 0.4rem;
+	padding-top: 1.6rem;
+	margin-top: 2rem;
+	gap: 25px;
 }
 
 /* dark styles */
@@ -264,7 +275,7 @@ code .line::before {
 	color: var(--mid-gray-color);
 }
 
-.dark li.element > a:hover {
+.dark li.element > a:hover, .dark footer > a:hover {
 	color: var(--dark-accent-color);
 }
 
