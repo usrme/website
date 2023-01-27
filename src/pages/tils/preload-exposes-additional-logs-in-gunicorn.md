@@ -44,7 +44,7 @@ $ gunicorn start:app --log-level debug
 
 What is this signal 15?
 
-{{< highlight bash "hl_lines=4" >}}
+```bash
 $ kill -l
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
  6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
@@ -58,7 +58,8 @@ $ kill -l
 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
 58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
-{{< / highlight >}}
+63) SIGRTMAX-1  64) SIGRTMAX
+```
 
 So signal 15 is equivalent to `SIGTERM`, also known as the graceful termination signal. The [Gunicorn documentation on signals](https://docs.gunicorn.org/en/stable/signals.html#worker-process) says the same. But we still don't know what's causing it to not run properly and this is where the ['--preload' option](https://docs.gunicorn.org/en/stable/settings.html?highlight=preload#preload-app) comes in. It loads the application code prior to forking the worker processes in an attempt to conserve RAM usage and to speed up the server boot times. I have no real need for this option other than for its ability to provide insight into the failure. So, let's drop the `--log-level debug` in favor of `--preload`:
 
