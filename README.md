@@ -14,16 +14,17 @@ $ tree -L 3 -I 'dist|node_modules|public'
 ├── src
 │   ├── components
 │   │   ├── BlogPost.astro
+│   │   ├── Footer.astro
 │   │   ├── Header.astro
 │   │   ├── Navigation.astro
 │   │   └── ThemeIcon.astro
 │   ├── env.d.ts
 │   ├── layouts
 │   │   ├── BaseLayout.astro
-│   │   ├── HomeLayout.astro
 │   │   └── MarkdownPostLayout.astro
 │   ├── pages
-│   │   ├── about.md
+│   │   ├── about
+│   │   ├── about.astro
 │   │   ├── blog.astro
 │   │   ├── index.astro
 │   │   ├── posts
