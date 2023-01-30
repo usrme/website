@@ -1,6 +1,6 @@
 ---
-layout: ../layouts/BaseLayout.astro
-title: 'About'
+layout: ../../layouts/MarkdownPostLayout.astro
+title: "About Me"
 pubDate: 2022-03-07
 ---
 ## Introduction

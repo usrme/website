@@ -1,6 +1,12 @@
 ---
 import Header from '../components/Header.astro';
 import '../styles/global.css';
+
+export interface Props { pageTitle: string; }
+
+const name = "Üllar Seerme"
+const { pageTitle } = Astro.props;
+const title = pageTitle ? `${name} - ${pageTitle}` : name;
 ---
 <html lang="en">
 	<head>
@@ -8,7 +14,7 @@ import '../styles/global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Üllar Seerme</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<Header />

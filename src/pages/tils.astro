@@ -8,7 +8,7 @@ const allPosts = (await Astro.glob('../pages/tils/*.md')).sort(
 );
 const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 ---
-<BaseLayout>
+<BaseLayout pageTitle="TILs">
 	<div>
 		<ul class="list">
 			{nonDraftPosts.map((post) => 
