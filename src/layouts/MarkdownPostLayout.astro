@@ -4,13 +4,13 @@ import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-<h2>{frontmatter.title}</h2>
-<p>{new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
-})}</p>
+	<h2>{frontmatter.title}</h2>
+	<p>{new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	})}</p>
 
-<slot />
+	<slot />
 </BaseLayout>
 <Footer />
