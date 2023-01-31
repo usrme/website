@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
+index: 20
 pubDate: 2023-01-03
 title: 'Book review: "How Minds Change" by David McRaney'
 ---

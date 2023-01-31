@@ -2,6 +2,21 @@
 import BaseLayout from './BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
+
+// Use Astro.glob() to fetch all nonDraftPosts, and then sort them by date
+const allPosts = (await Astro.glob('../pages/posts/*.md')).sort(
+	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+
+// Figure out the next/prev posts
+const { index } = frontmatter;
+const prev = nonDraftPosts.find(
+  (p) => p.frontmatter.index === index - 1
+);
+const next = nonDraftPosts.find(
+  (p) => p.frontmatter.index === index + 1
+);
 ---
 <BaseLayout pageTitle={frontmatter.title}>
 	<h2>{frontmatter.title}</h2>
@@ -12,5 +27,9 @@ const { frontmatter } = Astro.props;
 	})}</p>
 
 	<slot />
+	<p>
+		{prev && <a href={prev.url} title={prev.frontmatter.title}>« Previous</a>}
+		{next && <a href={next.url} title={next.frontmatter.title}>Next »</a>}
+	</p>
 </BaseLayout>
 <Footer />
