@@ -34,30 +34,22 @@ Since this Dockerfile is using an older syntax it has no way to cache the packag
 
 After reading Itamar Turner-Trauring's article on speeding up 'pip' downloads[^1] I had modified my Dockerfile to be like this:
 
-```docker
-# syntax = docker/dockerfile:1.3
-FROM python:3.10.2-slim
-
-# https://docs.python.org/3/using/cmdline.html#cmdoption-u
-ENV PYTHONUNBUFFERED=1 \
-    # https://docs.python.org/3/using/cmdline.html#cmdoption-B
-    PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    VENV_PATH="/app/.venv"
-
-ENV PATH="${VENV_PATH}/bin:${PATH}"
-
-WORKDIR /app
-
-COPY . .
-
-RUN --mount=type=cache,target=/root/.cache \
-    python -m venv "$VENV_PATH" \
-    && pip install -r requirements.txt
-
-CMD ["gunicorn", "--config", "gunicorn.conf.py", "start:app"]
+```diff
++# syntax = docker/dockerfile:1.3
+ FROM python:3.10.2-slim
+ 
+ # https://docs.python.org/3/using/cmdline.html#cmdoption-u
+@@ -15,8 +16,8 @@
+ 
+ COPY . .
+ 
+-RUN : \
+-    && python -m venv "$VENV_PATH" \
++RUN --mount=type=cache,target=/root/.cache \
++    python -m venv "$VENV_PATH" \
+     && pip install -r requirements.txt
+ 
+ CMD ["gunicorn", "--config", "gunicorn.conf.py", "start:app"]
 ```
 
 After prepending `DOCKER_BUILDKIT=1` to `docker build` there was still no cache to speak of after several invocations despite only changing the application code. Looking at it now it's painfully obvious that of course it couldn't have worked.
