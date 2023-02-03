@@ -3,15 +3,26 @@ import BaseLayout from './BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 
-// Use Astro.glob() to fetch all nonDraftPosts, and then sort them by date
-const allPosts = (await Astro.glob('../pages/posts/*.md')).sort(
+// https://docs.astro.build/en/guides/troubleshooting/#supported-values
+// Fetch absolutely all posts from every possible page
+const allPosts = (await Astro.glob('../pages/*/*.md')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
-const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+// Filter down to non-draft posts
+const nonDraftPosts = allPosts.filter(post => !post.frontmatter.draft);
+// Where 'Astro.url.pathname' is akin to '/posts/post-name/'
+const firstSlash = Astro.url.pathname.indexOf("/")
+const secondSlash = Astro.url.pathname.indexOf("/", firstSlash + 1)
+// This whittles down to just '/posts/' with the trailing slash
+// added as a delimiter to make 'includes' more strict
+const searchKey = Astro.url.pathname.substring(0, secondSlash) + "/"
+const currentPathPosts = nonDraftPosts.filter(post => post.file.includes(searchKey));
 
-const currentPostIndex = nonDraftPosts.findIndex((post) => post.frontmatter.title === frontmatter.title);
-const prevPost = nonDraftPosts.at(currentPostIndex + 1)
-const nextPost = nonDraftPosts.at(currentPostIndex - 1)
+// Find the index of the current post and use that as the basis
+// for finding the previous and next posts
+const currentPostIndex = currentPathPosts.findIndex(post => post.frontmatter.title === frontmatter.title);
+const prevPost = currentPathPosts.at(currentPostIndex + 1)
+const nextPost = currentPathPosts.at(currentPostIndex - 1)
 ---
 <BaseLayout pageTitle={frontmatter.title}>
 	<h2>{frontmatter.title}</h2>
