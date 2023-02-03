@@ -1,4 +1,4 @@
-# Astro Website
+# Website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f681eb9e-1e54-4fc8-9a35-bb0de9cd3151/deploy-status)](https://app.netlify.com/sites/usrme-astro-website/deploys)
 
