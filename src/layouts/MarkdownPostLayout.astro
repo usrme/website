@@ -33,9 +33,7 @@ const nextPost = currentPathPosts.at(currentPostIndex - 1)
 	})}</p>
 
 	<slot />
-	<p>
-		{prevPost && <a href={prevPost.url} title={prevPost.frontmatter.title}>« Previous</a>}
-		{nextPost && currentPostIndex != 0 && <a href={nextPost.url} title={nextPost.frontmatter.title}>Next »</a>}
-	</p>
+	{prevPost && <a href={prevPost.url} title={prevPost.frontmatter.title} class="postnav postnav-left">« Previous</a>}
+	{nextPost && currentPostIndex != 0 && <a href={nextPost.url} title={nextPost.frontmatter.title} class="postnav postnav-right">Next »</a>}
 </BaseLayout>
 <Footer />

@@ -145,6 +145,21 @@ section.footnotes > ol > li > p > a {
 	word-break: break-all;
 }
 
+.postnav {
+	color: var(--accent-color);
+	font-weight: 700;
+	margin-top: 2rem;
+	box-sizing: border-box;
+}
+
+.postnav-left {
+	float: left
+}
+
+.postnav-right {
+	float: right
+}
+
 li > a, p > a {
 	color: var(--accent-color);
 }
@@ -243,7 +258,7 @@ footer {
 	border-bottom: 0;
 	padding-bottom: 0.4rem;
 	padding-top: 1.6rem;
-	margin-top: 2rem;
+	margin-top: 6.2rem;
 	gap: 25px;
 }
 
@@ -290,4 +305,8 @@ footer {
 .dark p > code, .dark li > code {
 	background-color: var(--dark-code-single-bg-color);
 	color: var(--dark-code-highlight-color);
+}
+
+.dark .postnav {
+	color: var(--dark-accent-color);
 }
