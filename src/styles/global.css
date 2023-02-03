@@ -150,14 +150,19 @@ section.footnotes > ol > li > p > a {
 	font-weight: 700;
 	margin-top: 2rem;
 	box-sizing: border-box;
+	text-decoration: none;
+}
+
+.postnav:hover {
+	text-decoration: underline;
 }
 
 .postnav-left {
-	float: left
+	float: left;
 }
 
 .postnav-right {
-	float: right
+	float: right;
 }
 
 li > a, p > a {
