@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2020-12-05
 title: How to stash every changed file separately with readable names
+tags: ["bash", "diffing", "git"]
 ---
 In [my last foray](https://usrme.xyz/posts/quickly-generating-patch-files-for-every-changed-file/) into not using Git entirely correctly I dabbled with generating patch files from changed files as a way to quickly store the state within a repository and being able to excise that state piece by piece elsewhere.
 

@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-01-19
 title: You can make documentation fun to read
-
+tags: ["docs"]
 ---
 If nothing else this is a small note of praise to the people who have written the documentation for the [uWSGI project](https://uwsgi-docs.readthedocs.io/en/latest/ "The uWSGI project - documentation"). I went through the [quickstart for Python/WSGI applications](https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html "The uWSGI project - quickstart for Python/WSGI applications") and just that page already has more bits that made me smirk than any documentation page in recent memory. Here are some of them (citations mine):
 

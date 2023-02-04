@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2020-12-31
 title: Rounding up 2020
+tags: ["yearly-review"]
 ---
 This would probably be the part where someone belabors what a year it has been and in all the ways it has been, but I'm not one to do so. How noble of me... Instead, I'll stick to the same formula as I did for [last year's year-end thoughts](https://usrme.xyz/posts/some-year-end-thoughts/).
 

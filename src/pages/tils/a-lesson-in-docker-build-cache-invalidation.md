@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-03-15
 title: A lesson in Docker build cache invalidation
+tags: ["caching", "docker", "pip", "python"]
 ---
 While I had known that if you change a line a Dockerfile then the layer corresponding to that instruction (e.g. `FROM`, `RUN`, `COPY`, etc) will cause that layer to be recreated in the resulting image. Remembering only that I had completely forgotten that the order of instructions matters just as well, especially for caching. Consider this:
 

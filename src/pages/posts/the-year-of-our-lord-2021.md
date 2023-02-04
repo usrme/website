@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-12-31
 title: The year of our lord 2021
+tags: ["yearly-review"]
 ---
 Chief among the happenings of this year has been the explosion of how my son is able to express himself. Going from merely a state of being mute, for all intents and purposes, to someone who can clearly externalize what he wants and doesn't want (oh, the things he doesn't want) is absolutely a marvel to behold. There's something profound in seeing such an evolution first-hand and I'm glad to be able to witness it. With it, though, arise thoughts of a different kind. This is most likely a case of being overly negative, but with every major milestone in his progression my own lack of visible progression is visible in its own right, and it's something I struggle with making sense of.
 

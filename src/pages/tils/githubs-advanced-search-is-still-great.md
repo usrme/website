@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-01-01
 title: GitHub's advanced search is still great
+tags: ["git", "searching"]
 ---
 I've been using GitHub's [advanced search](https://github.com/search/advanced "GitHub advanced search") for quite some time now and am now shoehorning my own usage of it in as a Today I Learned post. Sue me. My most common use case is to search for a keyword or really small snippet of code to find more examples on how other people are getting by with the surrounding language, API, etc.
 

@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-08-17
 title: To use 'git bisect' to find when something was fixed in CPython
+tags: ["bash", "diffing", "git", "python"]
 ---
 A colleague of mine recently stumbled upon an error in a Python script that uses [asynchronous I/O](https://docs.python.org/3/library/asyncio.html):
 

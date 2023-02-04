@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-11-04
 title: You are probably better off with 'rsync' for remote transfers
+tags: ["rsync", "performance"]
 ---
 I recently had to transfer a roughly 90MB directory from a remote machine to my local machine for debugging purposes and my first inclination was to use `scp`. Probably out of habit as I am used to just replacing `ssh` with `scp` when I need a file; hadn't really done whole-directory transfers before.
 

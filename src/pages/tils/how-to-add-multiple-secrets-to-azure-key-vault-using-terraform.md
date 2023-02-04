@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-02-25
 title: How to add multiple secrets to Azure Key Vault using Terraform
+tags: ["azure", "hashicorp", "keyvault", "terraform"]
 ---
 I previously had a set-up where I needed to create a type of Azure Key Vault secret that didn't need to have an expiration date and one that did:
 

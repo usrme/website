@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2019-12-31
 title: Some year-end thoughts
+tags: ["yearly-review"]
 ---
 In [On thinking more and deeper](https://usrme.netlify.com/posts/on-thinking-more-and-deeper/) I showed some numbers about the hours of listening I do (to podcasts). I thought it would be fun to end off the year with some additional numbers and thoughts.
 

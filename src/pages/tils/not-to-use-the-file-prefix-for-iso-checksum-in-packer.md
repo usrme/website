@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-01-12
 title: Not to use the 'file' prefix for 'iso_checksum' in Packer
+tags: ["hashicorp", "hyper-v", "packer", "powershell"]
 ---
 I spent quite a long time today fiddling with a Packer configuration for Hyper-V trying to pass a SHA-256 hash through a file and after hours of trying multiple variations I stumbled upon quite an ingenious way to go about it.
 

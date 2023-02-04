@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-12-08
 title: Docker multi-stage builds, GitLab CI/CD, and Poetry are easy enough
+tags: ["cicd", "docker", "gitlab", "poetry", "python"]
 ---
 After upgrading one of the many development dependencies in a Python project I ran into an [issue](https://github.com/python-poetry/poetry/issues/4493 "GitHub.com  python-poetry/poetry issue: ModuleNotFoundError: No module named 'platformdirs' when doing poetry install --dev ") where Poetry wasn't able to install dependencies as it could before:
 

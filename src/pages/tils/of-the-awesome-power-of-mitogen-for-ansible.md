@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-05-13
 title: Of the awesome power of Mitogen for Ansible
+tags: ["ansible"]
 ---
 In short: [it's](https://mitogen.networkgenomics.com/ansible_detailed.html) incredible! While I haven't had the misfortune of working daily with Ansible playbook runs that take in excess of tens of minutes, I've still felt the tedium of even waiting for a simple 3-4 minute role to finish doing its thing. Now the entire thing takes around 50 seconds (about 250% faster) and the process of iterating on several changes is no longer such a bore.
 

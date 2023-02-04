@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-11-10
 title: It makes sense to pin even patch versions of dependencies
+tags: ["docker", "python"]
 ---
 On September 18th, 2021, a [CPython bug fix](https://github.com/python/cpython/pull/28420 "bpo-45235: Fix argparse overrides namespace with subparser defaults") was merged and today the [Docker image for Python 3.9.8](https://hub.docker.com/layers/python/library/python/3.9.8/images/sha256-548c4f51ba411aebfee2baf188f2b97b172e78a2505d152a43a957a70b83fde8?context=explore "python:3.9.8 Docker image"), which includes the merged fix, was pushed. This had the knock-on effect of breaking CLI tools that rely on how namespaces are handled in `argparse`, namely [Azure CLI](https://github.com/Azure/azure-cli/issues/20269 "GitHub.com Azure/azure-cli issue: Global Arguments stop working in Python 3.9.8").
 

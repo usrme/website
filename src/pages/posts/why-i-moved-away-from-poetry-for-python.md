@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-12-15
 title: Why I moved away from Poetry for Python
+tags: ["poetry", "python"]
 ---
 Or a short story about making mistakes choosing dependencies as a beginner. Skip to the section [The fault in Poetry's stars](#the-fault-in-poetrys-stars) if thou care not for mine beautiful prose!
 

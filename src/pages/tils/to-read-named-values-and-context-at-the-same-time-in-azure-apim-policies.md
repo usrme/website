@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-01-05
 title: To read named values and context at the same time in Azure APIM policies
+tags: ["azure", "apigateway"]
 ---
 While needing to [set up the reading of secrets](https://vincentlauzon.com/2019/11/19/accessing-azure-key-vault-from-within-azure-api-management/ "Vincent-Philippe Lauzon - Accessing Azure Key Vault from within Azure API Management") from [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/#product-overview "Azure Key Vault - Safeguard cryptographic keys and other secrets used by cloud apps and services") using [API Management](https://azure.microsoft.com/en-us/services/api-management/#overview "API Management - A hybrid, multicloud management platform for APIs across all environments"), I had to read both the stored named values and a query parameter from a request sent to an API. I've previously only had to either use only named values:
 

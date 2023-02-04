@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-11-03
 title: Python decorators are executed at the time the function is defined
+tags: ["python"]
 ---
 When writing a CLI tool I've come to re-use a generic decorator that sets the correct subscription in Azure:
 

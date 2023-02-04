@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-11-25
 title: A simple way to wait for pipelines triggered with 'curl' in GitLab CI/CD
+tags: ["bash", "cicd", "gitlab"]
 ---
 Let's set up an example scenario:
 

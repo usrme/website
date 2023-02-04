@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-10-27
 title: YAML block chomping indicators matter a whole lot
+tags: ["yaml"]
 ---
 Given a Bash [command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html "Command Substitution (Bash Reference Manual)") containing pipes within a GitLab CI/CD pipeline (using Runner version 14.4.0-rc1) the order of execution of some of the piped commands seemed unreliable. Consider the following to grab fixed values from a specifically formatted commit message, which is poor to begin with, but demonstrates the point just as well:
 

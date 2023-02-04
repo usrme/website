@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-10-23
 title: Leveraging 'shot-scraper' and creating image diffs
+tags: ["bash", "diffing", "git"]
 ---
 A little while ago [Simon Willison introduced 'shot-scraper'](https://simonwillison.net/2022/Mar/10/shot-scraper/), which at the time I found very interesting[^1], but didn't have a use case in my own life. At that same time though I was using a service called [Visualping](https://visualping.io/) for automatically checking whether the [Amazon Builders' Library](https://aws.amazon.com/builders-library/) had gotten any new write-ups. That seemed like the quickest way to be notified and grab any PDFs that might not persist into the future[^2].
 

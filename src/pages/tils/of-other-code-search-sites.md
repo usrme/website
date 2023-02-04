@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-02-20
 title: Of other code search sites
+tags: ["searching"]
 ---
 As an addendum to my praise of [GitHub's advanced search](https://usrme.xyz/tils/githubs-advanced-search-is-still-great/), I've come across additional sites where code can be searched[^1]. Namely:
 

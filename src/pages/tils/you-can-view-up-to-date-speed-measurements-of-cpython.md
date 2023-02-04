@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-11-14
 title: You can view up-to-date speed measurements of CPython
+tags: ["performance", "python"]
 ---
 Nearing the end of Brett Cannon's [post on premature optimizations](https://snarky.ca/programming-language-selection-is-a-form-of-premature-optimization/ "Tall, Snarky Canadian - Selecting a programming language can be a form of premature optimization")
 I came upon the [Codespeed](https://github.com/tobami/codespeed/ "A web application to monitor and analyze the performance of your code") project and its use case for [CPython](https://speed.python.org/ "Python Speed Center"). I had no idea that there was such a wonderfully automatic and up-to-date way to find out what the historical performances of various Python benchmarks have been. As an example, it's evident that the `python_startup` benchmark has seen an improvement of roughly 15% (calculating that lead me [off at a tangent](https://math.stackexchange.com/questions/1227389/what-is-the-difference-between-faster-by-factor-and-faster-by-percent "Mathematics Stack Exchange - What is the difference between faster by factor and faster by percent?"), but let's ignore that), going from 0.0151 seconds to 0.0127 seconds from October 15, 2021 to November 11, 2021:
