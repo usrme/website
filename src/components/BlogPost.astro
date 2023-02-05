@@ -1,8 +1,16 @@
 ---
-const { title, url, pubDate } = Astro.props;
+const { title, url, pubDate, tags } = Astro.props;
 ---
 <li class="element">
 	<a class="content" href={url}>{title}</a>
 	<br>
 	<span>{pubDate}</span>
+	{
+		tags && <span class="tags">
+		{tags.map(tag => (
+			// <a href={`/tags/${tag}`} class="tag">{tag}</a>
+			<a class="tag">{tag}</a>
+		))}
+	</span>
+	}
 </li>

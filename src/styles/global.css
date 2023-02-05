@@ -267,7 +267,17 @@ footer {
 	gap: 25px;
 }
 
+.tag {
+	float: right;
+	padding-left: 10px;
+	color: var(--accent-color);
+}
+
 /* dark styles */
+
+.dark .tag {
+	color: var(--dark-accent-color);
+}
 
 .dark body {
 	background-color: var(--dark-bg-color);

@@ -16,7 +16,7 @@ const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 					year: 'numeric',
 					month: 'long',
 					day: 'numeric',
-				})}/>
+				})} tags={post.frontmatter.tags}/>
 			)}
 		</ul>
 	</div>
