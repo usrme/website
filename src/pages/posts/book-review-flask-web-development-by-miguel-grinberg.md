@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-02-07
 title: 'Book review: "Flask Web Development" by Miguel Grinberg'
+tags: ["flask", "python"]
 ---
 In short: I'd skip this book if you aren't averse to the [wonderful Flask user's guide](https://flask.palletsprojects.com/en/2.0.x/). Everything in the book is seemingly covered in at least the same depth as in the guide with the added benefit that more people have probably read the guide and thus will share the same level of context as you would should you have problems, and it will be kept up-to-date with newer versions of Flask, which is not a given with a book.
 
