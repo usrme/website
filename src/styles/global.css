@@ -153,10 +153,6 @@ section.footnotes > ol > li > p > a {
 	text-decoration: none;
 }
 
-.postnav:hover {
-	text-decoration: underline;
-}
-
 .postnav-left {
 	float: left;
 }
@@ -165,8 +161,30 @@ section.footnotes > ol > li > p > a {
 	float: right;
 }
 
-li > a, p > a {
+li > a{
 	color: var(--accent-color);
+}
+
+.postnav, li:not(.element) > a, p > a {
+	color: inherit;
+	text-decoration: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#dff8fe), to(#dff8fe));
+	background-image: linear-gradient(to bottom, #dff8fe 0%, #dff8fe 100%);
+	background-repeat: no-repeat;
+	background-size: 100% 0;
+	background-position: 0 111%;
+	-webkit-transition: background-size .25s ease-in;
+	transition: background-size .25s ease-in;
+	padding: 2px 2px 0px 0;
+	border-bottom: 2px solid #cad9e2;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.postnav:hover, li:not(.element) > a:hover, p > a:hover {
+	background-size: 100% 100%;
+	cursor: pointer;
+	border-bottom: 2px solid var(--accent-color);;
 }
 
 p > code, li > code {
@@ -309,8 +327,30 @@ footer {
 	color: var(--dark-accent-color);
 }
 
-.dark li > a, .dark p > a, .dark sup > a {
+.dark sup > a {
 	color: var(--dark-accent-color);
+}
+
+.dark .postnav, .dark li:not(.element) > a, .dark p > a {
+	color: inherit;
+	text-decoration: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#424266), to(#424266));
+	background-image: linear-gradient(to bottom, #424266 0%, #424266 100%);
+	background-repeat: no-repeat;
+	background-size: 100% 0;
+	background-position: 0 111%;
+	-webkit-transition: background-size .25s ease-in;
+	transition: background-size .25s ease-in;
+	padding: 2px 2px 0px 0;
+	border-bottom: 2px solid #cacae2;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.dark .postnav:hover, .dark li:not(.element) > a:hover, .dark p > a:hover {
+	background-size: 100% 100%;
+	cursor: pointer;
+	border-bottom: 2px solid var(--dark-accent-color);
 }
 
 .dark blockquote {
@@ -320,8 +360,4 @@ footer {
 .dark p > code, .dark li > code {
 	background-color: var(--dark-code-single-bg-color);
 	color: var(--dark-code-highlight-color);
-}
-
-.dark .postnav {
-	color: var(--dark-accent-color);
 }
