@@ -31,7 +31,7 @@ def get_storage_account_sas(
     raise typer.Exit(1)
 ```
 
-At first glance I wanted to just add the `@functools.lru_cache` decorator to the function, but I then got the following error from the above function was called:
+At first glance I wanted to just add the `@functools.lru_cache` decorator to the function, but I then got the following error when the above function was called:
 
 ```
 ...
