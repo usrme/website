@@ -29,6 +29,7 @@ For a given merge request within a project, its own ID (i.e. the merge request's
 For local usage of GoReleaser I wanted to keep the `devel` string within the name, but for snapshot releases happening in merge requests I wanted to use the value of the environment variable `CI_MERGE_REQUEST_IID`. GoReleaser, again, has thought of pretty much everything and has [global environment variables](https://goreleaser.com/customization/env/), which I set up as follows:
 
 ```yaml
+# .goreleaser.yaml
 env:
   - ENV_MR_IID={{ if index .Env "CI_MERGE_REQUEST_IID" }}{{ .Env.CI_MERGE_REQUEST_IID }}{{ else }}devel{{ end }}
 
