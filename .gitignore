@@ -20,3 +20,6 @@ pnpm-debug.log*
 
 # Visual Studio Code
 .vscode/
+
+# mdBook build directory
+src/pages/snippets/
