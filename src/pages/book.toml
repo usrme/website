@@ -1,0 +1,28 @@
+[book]
+authors = ["Üllar Seerme"]
+language = "en"
+multilingual = false
+src = "snippets-src"
+title = "Snippets"
+
+[build]
+build-dir = "snippets"
+create-missing = false
+
+[output.html]
+site-url = "/snippets"
+git-repository-url = "https://github.com/usrme/website"
+edit-url-template = "https://github.com/usrme/website/tree/master/src/pages/{path}"
+cname = "usrme.xyz"
+
+[output.html.playground]
+line-numbers = true
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
