@@ -22,4 +22,4 @@ pnpm-debug.log*
 .vscode/
 
 # mdBook build directory
-src/pages/snippets/
+snippets/
