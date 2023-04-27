@@ -4,10 +4,10 @@
 
 # Oneliners
 
-- [Ansible](./snippets/ansible.md)
-- [Docker/Podman](./snippets/docker-podman.md)
-- [Git](./snippets/git.md)
-- [Miscellaneous](./snippets/miscellaneous.md)
-- [PowerShell](./snippets/powershell.md)
-- [Shell](./snippets/shell.md)
-- [Vim](./snippets/vim.md)
+- [Ansible](./ansible.md)
+- [Docker/Podman](./docker-podman.md)
+- [Git](./git.md)
+- [Miscellaneous](./miscellaneous.md)
+- [PowerShell](./powershell.md)
+- [Shell](./shell.md)
+- [Vim](./vim.md)
