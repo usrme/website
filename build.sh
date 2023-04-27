@@ -13,7 +13,7 @@ echo "Building site"
 npm run build
 
 echo "Building snippets"
-mdbook build
+./mdbook build
 
 echo "Copying built snippets to 'public/'"
 cp -aR src/pages/snippets/* public/
