@@ -6,13 +6,13 @@ src = "snippets-src"
 title = "Snippets"
 
 [build]
-build-dir = "snippets"
+build-dir = "src/pages/snippets"
 create-missing = false
 
 [output.html]
 site-url = "/snippets"
 git-repository-url = "https://github.com/usrme/website"
-edit-url-template = "https://github.com/usrme/website/tree/master/src/pages/{path}"
+edit-url-template = "https://github.com/usrme/website/tree/master/{path}"
 cname = "usrme.xyz"
 
 [output.html.playground]

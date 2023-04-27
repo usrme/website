@@ -523,6 +523,12 @@ Equivalent to `cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`. More on [brace
 cp /etc/ssh/sshd_config{,.bak}
 ```
 
+The same can be applied for directories:
+
+```bash
+cp -aR public{,.bak}
+```
+
 ## Restore a backed up file
 
 Equivalent to `cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config`.
