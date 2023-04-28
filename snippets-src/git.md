@@ -164,3 +164,21 @@ git log --all -i --grep='something'
 ```bash
 git grep 'something' $(git rev-list --all)
 ```
+
+## Clean new untracked files and directories
+
+- `-d`: recurse into directories as well
+- `-f`: go ahead with deletion
+- `-n`: dry-run
+
+```console
+$ git clean -dn
+Would remove mdbook
+Would remove public/snippets/
+```
+
+```console
+$ git clean -df
+Removing mdbook
+Removing public/snippets/
+```
