@@ -536,3 +536,16 @@ Equivalent to `cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config`.
 ```bash
 cp /etc/ssh/sshd_config{.bak,}
 ```
+
+## Download older version of a kernel
+
+- More information about [Koji](https://docs.fedoraproject.org/en-US/quick-docs/kernel/installing-koji-kernel/)
+- A list of all [kernels built for Fedora](https://bodhi.fedoraproject.org/updates/?packages=kernel)
+- A list of [downloadable kernels built for Fedora](https://koji.fedoraproject.org/koji/packageinfo?packageID=8)
+  - Some may be removed
+
+Fedora Discussion [here](https://discussion.fedoraproject.org/t/how-do-i-install-an-old-kernel/76942).
+
+```bash
+koji download-build --arch=x86_64 <kernel package name>
+```
