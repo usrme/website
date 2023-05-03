@@ -496,6 +496,7 @@ $ rpm -qa kernel
 kernel-6.0.18-300.fc37.x86_64
 kernel-6.1.7-200.fc37.x86_64
 kernel-6.1.8-200.fc37.x86_64
+$ Add pin
 $ sudo dnf versionlock add kernel-6.0.18-300.fc37.x86_64
 Last metadata expiration check: 3:51:11 ago on E 30 jaan  2023 15:47:21.
 Adding versionlock on: kernel-0:6.0.18-300.fc37.*
