@@ -8,9 +8,22 @@
 $ tree -L 3 -I 'dist|node_modules|public'
 .
 ├── astro.config.mjs
+├── book.toml
+├── build.sh
 ├── package.json
 ├── package-lock.json
 ├── README.md
+├── snippets-src
+│   ├── ansible.md
+│   ├── docker-podman.md
+│   ├── git.md
+│   ├── kubernetes.md
+│   ├── miscellaneous.md
+│   ├── powershell.md
+│   ├── README.md
+│   ├── shell.md
+│   ├── SUMMARY.md
+│   └── vim.md
 ├── src
 │   ├── components
 │   │   ├── Analytics.astro
