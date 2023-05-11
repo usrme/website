@@ -59,7 +59,7 @@ RUN : \
     ...
 ```
 
-Thanks to this significantly decreased amount of packages I was able to decrease the size of the previous image from 1.17GB to 307MB, a reduction of almost 74%! Here's the full Dockerfile that also installs AzCopy, `bash`, `coreutils`, and `jq`:
+Thanks to this significantly decreased amount of packages I was able to decrease the size of the previous image from 1.17GB to 307MB, a reduction of almost 74%! Here's the full Dockerfile that also installs AzCopy, `bash`, `coreutils`, and `jq`[^4]:
 
 ```docker
 # https://github.com/Azure/azure-cli/issues/19591
@@ -179,7 +179,7 @@ cmd=build info=results by='1.06X' size.original='307 MB' size.optimized='291 MB'
 ...
 ```
 
-I guess this means that I should just take the 307MB I managed to conjur up before and leave it be[^4]...
+I guess this means that I should just take the 307MB I managed to conjur up before and leave it be[^5]...
 
 ## The road often travelled
 
@@ -291,7 +291,7 @@ cmd=build info=results size.original='325 MB' size.optimized='290 MB' status='MI
 ...
 ```
 
-The original size is 325MB because now there is a virtual environment where one wasn't before. Other than though, the size is now 290MB[^5]! Does it work though? Nope:
+The original size is 325MB because now there is a virtual environment where one wasn't before. Other than though, the size is now 290MB[^6]! Does it work though? Nope:
 
 ```shell
 $ docker run --rm -it registry/existing-image.slim az login
@@ -340,11 +340,12 @@ After 'semver'
 257M    total
 ```
 
-So if you can get away with not using `azure-mgmt-compute` you might potentially save almost 100MB, which is a type of code golf I am most definitely not going to be doing[^6].
+So if you can get away with not using `azure-mgmt-compute` you might potentially save almost 100MB, which is a type of code golf I am most definitely not going to be doing[^7].
 
 [^1]: <https://github.com/Azure/azure-cli/issues/7387>
 [^2]: <https://github.com/Azure/azure-sdk-for-python/issues/11149>
 [^3]: I'm using a fairly odd syntax for specifying `RUN`, but I feel this results in better readability and cleaner diffs when changing lines.
-[^4]: I predict another edit to this post in the future...
-[^5]: Consider that exaltation to be ironic.
-[^6]: Place your bets, ladies and gentlemen!
+[^4]: I actually goofed with this as I forgot to [pin the dependencies](https://usrme.xyz/tils/it-makes-sense-to-pin-even-patch-versions-of-dependencies/) and just got bit by that...
+[^5]: I predict another edit to this post in the future...
+[^6]: Consider that exaltation to be ironic.
+[^7]: Place your bets, ladies and gentlemen!
