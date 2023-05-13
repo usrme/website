@@ -85,3 +85,48 @@ Looking for updates…
 
 Updates complete.
 ```
+
+## Download audio and video using 'youtube-dl'
+
+- List available formats for a video:
+
+```console
+$ youtube-dl -F https://www.youtube.com/watch?v=H5ejv-dTAaU
+[youtube] H5ejv-dTAaU: Downloading webpage
+[info] Available formats for H5ejv-dTAaU:
+format code  extension  resolution note
+249          webm       audio only tiny   50k , webm_dash container, opus  (48000Hz), 8.42MiB
+250          webm       audio only tiny   60k , webm_dash container, opus  (48000Hz), 10.01MiB
+251          webm       audio only tiny  109k , webm_dash container, opus  (48000Hz), 18.14MiB
+140          m4a        audio only tiny  129k , m4a_dash container, mp4a.40.2 (44100Hz), 21.54MiB
+160          mp4        256x144    144p   22k , mp4_dash container, avc1.4d400c, 24fps, video only, 3.76MiB
+278          webm       256x144    144p   57k , webm_dash container, vp9, 24fps, video only, 9.51MiB
+133          mp4        426x240    240p   42k , mp4_dash container, avc1.4d4015, 24fps, video only, 7.12MiB
+242          webm       426x240    240p   62k , webm_dash container, vp9, 24fps, video only, 10.39MiB
+134          mp4        640x360    360p   76k , mp4_dash container, avc1.4d401e, 24fps, video only, 12.77MiB
+243          webm       640x360    360p  124k , webm_dash container, vp9, 24fps, video only, 20.72MiB
+135          mp4        854x480    480p  111k , mp4_dash container, avc1.4d401e, 24fps, video only, 18.47MiB
+244          webm       854x480    480p  189k , webm_dash container, vp9, 24fps, video only, 31.49MiB
+136          mp4        1280x720   720p  165k , mp4_dash container, avc1.4d401f, 24fps, video only, 27.51MiB
+247          webm       1280x720   720p  331k , webm_dash container, vp9, 24fps, video only, 55.13MiB
+137          mp4        1920x1080  1080p  627k , mp4_dash container, avc1.640028, 24fps, video only, 104.35MiB
+248          webm       1920x1080  1080p  633k , webm_dash container, vp9, 24fps, video only, 105.45MiB
+18           mp4        640x360    360p  343k , avc1.42001E, 24fps, mp4a.40.2 (44100Hz), 57.20MiB
+22           mp4        1280x720   720p  294k , avc1.64001F, 24fps, mp4a.40.2 (44100Hz) (best)
+```
+
+- Combine audio-only and video-only formats, and start downloading
+
+```console
+$ youtube-dl -f 248+251 https://www.youtube.com/watch?v=H5ejv-dTAaU
+[youtube] H5ejv-dTAaU: Downloading webpage
+[dashsegments] Total fragments: 11
+[download] Destination: The Death of Globalization!-H5ejv-dTAaU.f248.webm
+[download] 100% of 105.45MiB in 01:32
+[dashsegments] Total fragments: 2
+[download] Destination: The Death of Globalization!-H5ejv-dTAaU.f251.webm
+[download] 100% of 18.14MiB in 00:47
+[ffmpeg] Merging formats into "The Death of Globalization!-H5ejv-dTAaU.webm"
+Deleting original file The Death of Globalization!-H5ejv-dTAaU.f248.webm (pass -k to keep)
+Deleting original file The Death of Globalization!-H5ejv-dTAaU.f251.webm (pass -k to keep)
+```
