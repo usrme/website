@@ -52,8 +52,20 @@ kubectl config set-context --current --namespace=<namespace>
 
 ## List everything
 
+This doesn't actually list _everything_. See below for more.
+
 ```bash
 kubectl get all
+```
+
+Actually list everything. May take awhile.
+
+```bash
+function k_get_all () {
+    for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+        kubectl get --show-kind --ignore-not-found ${i};
+    done
+}
 ```
 
 ## Show pod logs
