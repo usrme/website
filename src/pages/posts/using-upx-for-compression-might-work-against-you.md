@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2023-05-24
+pubDate: 2023-05-30
 title: Using UPX for compression might work against you
 draft: false
 tags: ["go", "performance"]
