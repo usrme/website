@@ -138,6 +138,9 @@ Summary
 
 All of this was surprising to me and I honestly don't see the point in UPX anymore just to decrease the final artifact size when alternatives such as just creating an archive file exist. Using Wishlist Lite as an example, I was able to [remove the UPX hook from GoReleaser](https://github.com/usrme/wishlistlite/commit/6471959e02fd7fdfa3a869a058b6b669f96c16ca) and the resulting `.tar.gz` archives went up just 0.1MB in size. In scenarios where one doesn't care at all about memory or start-up speed[^2] and just want the smallest possible binary, perhaps due to the inability to uncompress _any_ archives, then UPX may be the way to go, but disregarding that there potentially seem to be some easy performance wins on the table.
 
+---
+
+After posting this to [Lobste.rs](https://lobste.rs/) a [commenter pointed out](https://lobste.rs/s/rdit0h/using_upx_for_compression_might_work#c_hfo1nj) that binaries compressed with UPX may be far more likely to be flagged as malware by Windows as apparently a lot of malware is also compressed with UPX. That's yet another aspect to keep in mind if that's an environment that one is working in.
 
 [^1]: Far too often perhaps, but that's neither here nor there.
 [^2]: It's interesting that on the UPX website they claim "no runtime or memory penalty for most of the supported formats".
