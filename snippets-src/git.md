@@ -182,3 +182,7 @@ $ git clean -df
 Removing mdbook
 Removing public/snippets/
 ```
+
+## Various Git aliases
+
+[Here](https://www.hschne.at/git-aliases/)
