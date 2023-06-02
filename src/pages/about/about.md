@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2022-03-07
+pubDate: 2023-06-02
 title: About Me
 ---
 ## Introduction
 
-I am a 30-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves around developing and maintaining an Azure-based infrastructure and writing internal tooling to better interact with Azure, and I couldn't be more happy with the combination! Below is a short overview of my past experiences.
+I am a 31-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves around developing and maintaining a physical and cloud-based infrastructure (Azure and Google Cloud Platform), and writing software in Go and Python.
 
 ## Contacts
 
@@ -18,11 +18,12 @@ I am a 30-year-old guy who hails from Estonia and currently works in RangeForce 
 
 #### DevSecOps engineer from December 2019–today
 
-* Created a robust infrastructure to support instantiation of virtual-machine-based learning content in Azure
-  * Off-the-shelf components provided by Azure paired with a continuous deployment pipeline to ensure reproducibility
-  * Internal tooling for developers to quickly and comfortably interact with the back-end required to create learning content
+* Created a robust infrastructure to support instantiation of virtual-machine-based learning content in Azure.
+* Ensured reproducibility by creating continuous deployment pipelines.
+* Developed internal tooling for developers to quickly and comfortably interact with the back-end required to create learning content for end users.
+* Lead push to manage the entirety of the infrastructure with Ansible and Terraform.
 
-**Keywords**: Azure, Bash, CI/CD, Docker, Flask, GitLab, Python, Terraform
+**Keywords**: Ansible, Azure, Bash, CI/CD, Docker, Flask, GitLab, Go, Python, Terraform
 
 ***
 
@@ -30,11 +31,11 @@ I am a 30-year-old guy who hails from Estonia and currently works in RangeForce 
 
 #### Service engineer from April 2016–December 2019
 
-* Researched and implemented automation solutions to improve workflows and ease maintenance across a heterogeneous infrastructure
-  * Configuration management system for physical servers running Hyper-V using Chef and Desired State Configuration
-  * PowerShell tooling enabling end users of our infrastructure to have visibility as to when their virtual machines are scheduled for downtime as a part of regular maintenance and enable the ability for them to automatically notify us of any postponements per virtual machine
-* Upheld best practices by adhering to and creating standards of procedures for various tasks in day-to-day activities as well as documenting anything that might have the danger of being known to only one person
-* Administered VPN gateways, provided assistance to end-users with VPN-related issues, and spearheaded migration to Microsoft's own VPN solution
+* Created automation to ease maintenance across a heterogeneous infrastructure.
+  * Implemented a configuration management system for physical servers running Hyper-V using Chef and Desired State Configuration.
+  * Developed PowerShell tooling enabling end users of our infrastructure to have visibility as to when their virtual machines are scheduled for downtime as a part of regular maintenance and enable the ability for them to automatically notify us of any postponements per virtual machine.
+* Upheld best practices by adhering to and creating standards of procedures for various tasks in day-to-day activities as well as documenting anything that might have the danger of being known to only one person.
+* Administered VPN gateways, provided assistance to end-users with VPN-related issues, and spearheaded migration to Microsoft’s own VPN solution.
 
 **Reason for leaving**: to work closer to the end user where my day-to-day work would have a more immediate impact
 
@@ -46,11 +47,11 @@ I am a 30-year-old guy who hails from Estonia and currently works in RangeForce 
 
 #### Datacenter hardware management duty technician from April 2014–January 2015
 
-* Installed physical hardware including cabling (e.g. servers, routers, switches, firewalls, disk arrays, controllers etc.)
+* Installed physical hardware including cabling (e.g. servers, routers, switches, firewalls, disk arrays, controllers etc.).
 * Did basic systems configuration and management through HP Integrated Lights-Out
-  * Scripting with Bash and PowerShell
+  * Scripting with Bash and PowerShell.
 * Monitored servers and services across multiple data centers with [Opsview](https://www.opsview.com/ "Opsview - Enterprise IT Infrastructure Monitoring")
-  * Wrote documentation to improve future work
+  * Wrote documentation to improve future work.
 
 **Reason for leaving**: to spend the last semester of college studying abroad in the Technological Educational Institute of Crete
 
@@ -82,3 +83,13 @@ Topics learned cover all the basic skills that are common to major Linux distrib
 ### Tallinn's 32nd High School
 
 #### GSE, emphasis on multimedia and mathematics from 2001-2011
+
+## Projects
+
+### Wishlist Lite - A local SSH directory
+
+<https://github.com/usrme/wishlistlite>
+
+### Cometary - A conventional commit helper
+
+<https://github.com/usrme/cometary>
