@@ -23,3 +23,7 @@ pnpm-debug.log*
 
 # mdBook build directory
 src/pages/snippets/
+
+# Astro
+# https://docs.astro.build/en/guides/content-collections/#the-astro-directory
+.astro/
