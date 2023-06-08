@@ -8,22 +8,9 @@
 $ tree -L 3 -I 'dist|node_modules|public'
 .
 ├── astro.config.mjs
-├── book.toml
-├── build.sh
 ├── package.json
 ├── package-lock.json
 ├── README.md
-├── snippets-src
-│   ├── ansible.md
-│   ├── docker-podman.md
-│   ├── git.md
-│   ├── kubernetes.md
-│   ├── miscellaneous.md
-│   ├── powershell.md
-│   ├── README.md
-│   ├── shell.md
-│   ├── SUMMARY.md
-│   └── vim.md
 ├── src
 │   ├── components
 │   │   ├── Analytics.astro
@@ -32,6 +19,9 @@ $ tree -L 3 -I 'dist|node_modules|public'
 │   │   ├── Header.astro
 │   │   ├── Navigation.astro
 │   │   └── ThemeIcon.astro
+│   ├── content
+│   │   ├── config.ts
+│   │   └── docs
 │   ├── env.d.ts
 │   ├── layouts
 │   │   ├── BaseLayout.astro
