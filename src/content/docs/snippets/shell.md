@@ -552,3 +552,10 @@ Fedora Discussion [here](https://discussion.fedoraproject.org/t/how-do-i-install
 ```bash
 koji download-build --arch=x86_64 <kernel package name>
 ```
+
+## Read lines from a file into an array and execute in parallel
+
+```bash
+$ readarray -t items < items.txt
+$ parallel -kj 20 echo {1} ::: "${items[@]}"
+```
