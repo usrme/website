@@ -75,3 +75,11 @@ function k_get_all () {
 ```bash
 kubectl logs pod/<pod>
 ```
+
+## Use 'helm upgrade' to install new version of a chart
+
+This is far simpler than a more complex `helm install` command with tons of `--set` options. More infomration [here](https://helm.sh/docs/helm/helm_upgrade/)
+
+```bash
+helm upgrade <release name> <chart name> --reuse-values
+```
