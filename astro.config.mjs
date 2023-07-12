@@ -14,6 +14,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Back to home page',
+      customCss: [
+        './src/styles/starlight.css',
+      ],
       sidebar: [
         {
           label: 'Start here',
