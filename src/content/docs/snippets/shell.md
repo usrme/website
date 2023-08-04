@@ -559,3 +559,9 @@ koji download-build --arch=x86_64 <kernel package name>
 $ readarray -t items < items.txt
 $ parallel -kj 20 echo {1} ::: "${items[@]}"
 ```
+
+## Verify SSL certificate against domain
+
+```bash
+openssl s_client -connect google.com:443 2> /dev/null | openssl x509 -noout -dates
+```
