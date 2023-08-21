@@ -565,3 +565,18 @@ $ parallel -kj 20 echo {1} ::: "${items[@]}"
 ```bash
 openssl s_client -connect google.com:443 2> /dev/null | openssl x509 -noout -dates
 ```
+
+## Run programs with 'systemd-run' to leverage SystemD's features
+
+Documentation [here](https://www.freedesktop.org/software/systemd/man/systemd-run.html).
+
+```bash
+$ systemd-run env
+Running as unit: run-19945.service
+$ journalctl -u run-19945.service
+Sep 08 07:37:21 bupkis systemd[1]: Starting /usr/bin/env...
+Sep 08 07:37:21 bupkis systemd[1]: Started /usr/bin/env.
+Sep 08 07:37:21 bupkis env[19948]: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+Sep 08 07:37:21 bupkis env[19948]: LANG=en_US.UTF-8
+Sep 08 07:37:21 bupkis env[19948]: BOOT_IMAGE=/vmlinuz-3.11.0-0.rc5.git6.2.fc20.x86_64
+```
