@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2019-12-31
 title: Some year-end thoughts
 tags: ["yearly-review"]

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2020-12-31
 title: Rounding up 2020
 tags: ["yearly-review"]

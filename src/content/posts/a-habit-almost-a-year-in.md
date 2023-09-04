@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2021-05-18
 title: A habit (almost) a year in
 ---

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-10-26
 title: Replacing a CMS using Gitpod
 ---

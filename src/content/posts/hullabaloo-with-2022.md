@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-12-31
 title: Hullabaloo with 2022
 tags: ["yearly-review"]

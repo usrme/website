@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-10-23
 title: Leveraging 'shot-scraper' and creating image diffs
 tags: ["bash", "diffing", "git"]

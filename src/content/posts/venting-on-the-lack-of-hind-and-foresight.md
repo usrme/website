@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2020-11-26
 title: Venting on the lack of hind- and foresight
 ---

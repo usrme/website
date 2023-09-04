@@ -1,15 +1,18 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from './BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 
 // https://docs.astro.build/en/guides/troubleshooting/#supported-values
 // Fetch absolutely all posts from every possible page
-const allPosts = (await Astro.glob('../pages/*/*.md')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 // Filter down to non-draft posts
-const nonDraftPosts = allPosts.filter(post => !post.frontmatter.draft);
+const nonDraftPosts = allPosts.filter(({ data }) => {
+  return data.draft !== true;
+});
 // Where 'Astro.url.pathname' is akin to '/posts/post-name/'
 const firstSlash = Astro.url.pathname.indexOf("/")
 const secondSlash = Astro.url.pathname.indexOf("/", firstSlash + 1)
@@ -20,20 +23,20 @@ const currentPathPosts = nonDraftPosts.filter(post => post.file.includes(searchK
 
 // Find the index of the current post and use that as the basis
 // for finding the previous and next posts
-const currentPostIndex = currentPathPosts.findIndex(post => post.frontmatter.title === frontmatter.title);
+const currentPostIndex = currentPathPosts.findIndex(post => post.data.title === data.title);
 const prevPost = currentPathPosts.at(currentPostIndex + 1)
 const nextPost = currentPathPosts.at(currentPostIndex - 1)
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-	<h2>{frontmatter.title}</h2>
-	<p>{new Date(frontmatter.pubDate).toLocaleDateString('en-us', {
+<BaseLayout pageTitle={data.title}>
+	<h2>{data.title}</h2>
+	<p>{new Date(data.pubDate).toLocaleDateString('en-us', {
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
 	})}</p>
 
 	<slot />
-	{prevPost && <a href={prevPost.url} title={prevPost.frontmatter.title} class="postnav postnav-left">« Previous</a>}
-	{nextPost && currentPostIndex != 0 && <a href={nextPost.url} title={nextPost.frontmatter.title} class="postnav postnav-right">Next »</a>}
+	{prevPost && <a href={prevPost.url} title={prevPost.data.title} class="postnav postnav-left">« Previous</a>}
+	{nextPost && currentPostIndex != 0 && <a href={nextPost.url} title={nextPost.data.title} class="postnav postnav-right">Next »</a>}
 </BaseLayout>
 <Footer />

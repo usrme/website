@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2020-05-18
 title: Jumping Chesterton's fence
 ---

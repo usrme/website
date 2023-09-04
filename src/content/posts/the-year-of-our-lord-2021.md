@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2021-12-31
 title: The year of our lord 2021
 tags: ["yearly-review"]

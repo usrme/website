@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2019-10-04
 title: Goodbye to Wunderlist
 ---

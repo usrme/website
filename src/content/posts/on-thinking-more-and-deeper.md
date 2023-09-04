@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2019-09-10
 title: On thinking more (and deeper)
 ---

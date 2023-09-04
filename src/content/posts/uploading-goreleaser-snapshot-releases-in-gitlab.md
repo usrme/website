@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2023-04-14
 title: Uploading GoReleaser snapshot releases in GitLab
 tags: ["cicd", "gitlab", "go"]

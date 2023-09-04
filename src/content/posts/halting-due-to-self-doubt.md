@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2021-12-01
 title: Halting due to self-doubt
 ---

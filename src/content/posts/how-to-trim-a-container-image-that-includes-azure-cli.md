@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-11-11
 title: How to trim a container image that includes Azure CLI
 tags: ["azurecli", "docker", "performance"]

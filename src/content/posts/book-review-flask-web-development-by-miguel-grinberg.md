@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-02-07
 title: 'Book review: "Flask Web Development" by Miguel Grinberg'
 tags: ["flask", "python"]

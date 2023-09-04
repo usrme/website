@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-12-15
 title: Why I moved away from Poetry for Python
 tags: ["poetry", "python"]

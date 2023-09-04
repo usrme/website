@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2021-10-29
 title: Switching to a split-ortholinear keyboard
 ---

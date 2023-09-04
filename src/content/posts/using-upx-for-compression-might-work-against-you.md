@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2023-05-30
 title: Using UPX for compression might work against you
 tags: ["go", "performance"]

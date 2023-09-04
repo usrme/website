@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+
 pubDate: 2022-01-23
 title: 'Book review: "Dumbing Us Down" by John Taylor Gatto'
 ---
