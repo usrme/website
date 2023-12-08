@@ -2,41 +2,16 @@
 import { getCollection } from "astro:content";
 import BaseLayout from './BaseLayout.astro';
 import Footer from '../components/Footer.astro';
-const { frontmatter } = Astro.props;
-
-// https://docs.astro.build/en/guides/troubleshooting/#supported-values
-// Fetch absolutely all posts from every possible page
-const allPosts = (await getCollection('posts')).sort(
-  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
-);
-// Filter down to non-draft posts
-const nonDraftPosts = allPosts.filter(({ data }) => {
-  return data.draft !== true;
-});
-// Where 'Astro.url.pathname' is akin to '/posts/post-name/'
-const firstSlash = Astro.url.pathname.indexOf("/")
-const secondSlash = Astro.url.pathname.indexOf("/", firstSlash + 1)
-// This whittles down to just '/posts/' with the trailing slash
-// added as a delimiter to make 'includes' more strict
-const searchKey = Astro.url.pathname.substring(0, secondSlash) + "/"
-const currentPathPosts = nonDraftPosts.filter(post => post.file.includes(searchKey));
-
-// Find the index of the current post and use that as the basis
-// for finding the previous and next posts
-const currentPostIndex = currentPathPosts.findIndex(post => post.data.title === data.title);
-const prevPost = currentPathPosts.at(currentPostIndex + 1)
-const nextPost = currentPathPosts.at(currentPostIndex - 1)
+const { post, prevPost, nextPost } = Astro.props;
 ---
-<BaseLayout pageTitle={data.title}>
-	<h2>{data.title}</h2>
-	<p>{new Date(data.pubDate).toLocaleDateString('en-us', {
+<BaseLayout pageTitle={post.title}>
+	<h2>{post.title}</h2>
+	<p>{post.data.pubDate.toLocaleDateString('en-us', {
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
 	})}</p>
 
 	<slot />
-	{prevPost && <a href={prevPost.url} title={prevPost.data.title} class="postnav postnav-left">« Previous</a>}
-	{nextPost && currentPostIndex != 0 && <a href={nextPost.url} title={nextPost.data.title} class="postnav postnav-right">Next »</a>}
 </BaseLayout>
 <Footer />

@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
+  const blogEntries = await getCollection('tils');
+  console.info(blogEntries)
   return blogEntries
     .filter(post => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -12,6 +13,7 @@ export async function getStaticPaths() {
   }));
 }
 
+console.info(Astro.props)
 const { post } = Astro.props;
 
 // https://docs.astro.build/en/guides/troubleshooting/#supported-values
