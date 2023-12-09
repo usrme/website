@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../layouts/BaseLayout.astro
 pubDate: 2023-06-02
 title: About Me
 ---

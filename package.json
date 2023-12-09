@@ -12,10 +12,9 @@
     "format": "prettier . --write"
   },
   "dependencies": {
-    "@astrojs/rss": "^2.1.0",
-    "@astrojs/starlight": "^0.9.0",
-    "astro": "^3.0.7",
-    "sanitize-html": "^2.9.0"
+    "@astrojs/rss": "^4.0.1",
+    "@astrojs/starlight": "^0.9.1",
+    "astro": "^3.6.4"
   },
   "devDependencies": {
     "prettier": "^3.1.0"

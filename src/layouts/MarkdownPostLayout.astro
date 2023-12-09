@@ -1,17 +1,21 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from './BaseLayout.astro';
-import Footer from '../components/Footer.astro';
-const { post, prevPost, nextPost } = Astro.props;
+import BaseLayout from './BaseLayout.astro'
+import Footer from '../components/Footer.astro'
+const { post } = Astro.props
 ---
-<BaseLayout pageTitle={post.title}>
-	<h2>{post.title}</h2>
-	<p>{post.data.pubDate.toLocaleDateString('en-us', {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	})}</p>
 
-	<slot />
+<BaseLayout pageTitle={post.title}>
+  <h2>{post.title}</h2>
+  <p>
+    {
+      post.data.pubDate.toLocaleDateString('en-us', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    }
+  </p>
+
+  <slot />
 </BaseLayout>
 <Footer />
