@@ -15,17 +15,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props
 
-// https://docs.astro.build/en/guides/troubleshooting/#supported-values
-// Fetch absolutely all posts from every possible page
 const allPosts = await getStaticPaths()
+const { Content } = await post.render()
+
 const currentPostIndex = allPosts.findIndex((p) => p.params.slug === post.slug)
 const prevPost = allPosts[currentPostIndex + 1]
 const nextPost = allPosts[currentPostIndex - 1]
-
-const { Content } = await post.render()
 ---
 
-<MarkdownPostLayout post={post} nextPost={nextPost} prevPost={prevPost}>
+<MarkdownPostLayout post={post}>
   <Content />
   {
     prevPost && (

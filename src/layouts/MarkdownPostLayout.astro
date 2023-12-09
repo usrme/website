@@ -2,6 +2,8 @@
 import BaseLayout from './BaseLayout.astro'
 import Footer from '../components/Footer.astro'
 const { post } = Astro.props
+
+console.info('post prop', Astro.props)
 ---
 
 <BaseLayout pageTitle={post.title}>
