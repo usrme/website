@@ -1,9 +1,9 @@
 ---
-
 pubDate: 2022-12-31
 title: Hullabaloo with 2022
-tags: ["yearly-review"]
+tags: ['yearly-review']
 ---
+
 ## Few words
 
 It'd be interesting to know how many yearly recap posts start with "What a year"... I'm guessing it's a fairly meaningful number because oh, what a year it has been! My son is continuing his quest to become the eventual leader of this world by letting nothing stand in his way and having every whim be his guide. While I now understand why this particular age is sometimes called the Terrible Twos, I am so damn glad I get to experience his growth as it is truly a marvel to behold.
@@ -14,13 +14,13 @@ When last year I described feelings of not having the same amount of potential a
 
 ### LessWrong
 
-I sang high praises of [LessWrong](https://www.lesswrong.com/ "LessWrong") in the previous yearly recap post, but truth be told I didn't actually visit it all that much as I always have a constant barrage of things to read anyway and I got turned off by the sheer number of artificial intelligence adjacent posts. Something that did stick from LessWrong was Zvi Mowshowitz's [Substack](https://thezvi.substack.com/ "Don't Worry About the Vase"), which along with Scott Alexander's [Substack](https://astralcodexten.substack.com/ "Astral Codex Ten"), I always tend to read. I am amazed at the effort he seems to put in with each seemingly inconsequential post.
+I sang high praises of [LessWrong](https://www.lesswrong.com/ 'LessWrong') in the previous yearly recap post, but truth be told I didn't actually visit it all that much as I always have a constant barrage of things to read anyway and I got turned off by the sheer number of artificial intelligence adjacent posts. Something that did stick from LessWrong was Zvi Mowshowitz's [Substack](https://thezvi.substack.com/ "Don't Worry About the Vase"), which along with Scott Alexander's [Substack](https://astralcodexten.substack.com/ 'Astral Codex Ten'), I always tend to read. I am amazed at the effort he seems to put in with each seemingly inconsequential post.
 
 ### Spaced repetition and reviewing books
 
-So, [spaced repetition](https://ncase.me/remember/ "Nicky Case - How To Remember Anything Forever-ish") fell by the wayside much like [taking notes](https://usrme.xyz/posts/the-thing-with-taking-notes/ "Üllar Seerme - The thing with taking notes") did. And how my [attempts](https://usrme.xyz/posts/book-review-dumbing-us-down-by-john-taylor-gatto/ 'Üllar Seerme - Book review: "Dumbing Us Down" by John Taylor Gatto') at [reviewing](https://usrme.xyz/posts/book-review-flask-web-development-by-miguel-grinberg/ 'Üllar Seerme - Book review: "Flask Web Development" by Miguel Grinberg') books did. I don't know what it is, but both of those started to feel like chores without any tangible benefit. Maybe if I started to actively learn a language, then maybe spaced repetition would be the key, but even then there's something artificial-feeling about the process that I just can't put my finger on.
+So, [spaced repetition](https://ncase.me/remember/ 'Nicky Case - How To Remember Anything Forever-ish') fell by the wayside much like [taking notes](https://usrme.xyz/posts/the-thing-with-taking-notes/ 'Üllar Seerme - The thing with taking notes') did. And how my [attempts](https://usrme.xyz/posts/book-review-dumbing-us-down-by-john-taylor-gatto/ 'Üllar Seerme - Book review: "Dumbing Us Down" by John Taylor Gatto') at [reviewing](https://usrme.xyz/posts/book-review-flask-web-development-by-miguel-grinberg/ 'Üllar Seerme - Book review: "Flask Web Development" by Miguel Grinberg') books did. I don't know what it is, but both of those started to feel like chores without any tangible benefit. Maybe if I started to actively learn a language, then maybe spaced repetition would be the key, but even then there's something artificial-feeling about the process that I just can't put my finger on.
 
-I'm not gonna lie: each and every one of those attempts do feel like a mark against myself for giving up yet another thing, especially since I am not even putting in the amount of effort [some people are](https://astralcodexten.substack.com/p/your-book-review-progress-and-poverty "Your Book Review: Progress And Poverty"). I try to explain it all away somehow in my head, but even then I am still left dejected as it feels as if I'm just lying to myself. The upside[^1] seems to be that I am trying many different things in the continued quest to lead a more examined life, though it is worth mentioning that I'm not so much examining life itself but rather myself as I'm going through life.
+I'm not gonna lie: each and every one of those attempts do feel like a mark against myself for giving up yet another thing, especially since I am not even putting in the amount of effort [some people are](https://astralcodexten.substack.com/p/your-book-review-progress-and-poverty 'Your Book Review: Progress And Poverty'). I try to explain it all away somehow in my head, but even then I am still left dejected as it feels as if I'm just lying to myself. The upside[^1] seems to be that I am trying many different things in the continued quest to lead a more examined life, though it is worth mentioning that I'm not so much examining life itself but rather myself as I'm going through life.
 
 ### Learning Go
 
@@ -32,16 +32,16 @@ Since it seems that the learning of language in Exercism leans towards completin
 
 It may not be immediately evident, but I've actually really ramped up my writing this year and it's becoming something I'm actively looking forward to do doing. I even have a small backlog of topics I want to write about with probably multiple little [TILs](https://usrme.xyz/tils/) sprinkled in between as well. Not that I think it matters all that much or that I can act upon them, but I've also started recording statistics for this site using the wonderful [GoatCounter](https://www.goatcounter.com/). Going back to it not mattering I've also made the statistics public because why not? Have a look over [here](https://usrme.goatcounter.com/).
 
-I try to publish posts as soon as I feel that I'm spending too much time editing the draft and once I do publish I'll most likely post it on [Lobste.rs](https://lobste.rs/) if it is anything longer that may pertain to that slightly more technical audience than Y Combinator's Hacker News. To my surprise every post that I've on Lobste.rs has also been cross-posted by someone to Hacker News as well, which is endearing on some level and utterly predictable on another as everyone wants those sweet, sweet internet points, and a hope that it goes somewhat viral. I've yet to have one of my writings grace the front page of Hacker News, so I guess I still have a long way to go if I want to be relevant `/s`. 
+I try to publish posts as soon as I feel that I'm spending too much time editing the draft and once I do publish I'll most likely post it on [Lobste.rs](https://lobste.rs/) if it is anything longer that may pertain to that slightly more technical audience than Y Combinator's Hacker News. To my surprise every post that I've on Lobste.rs has also been cross-posted by someone to Hacker News as well, which is endearing on some level and utterly predictable on another as everyone wants those sweet, sweet internet points, and a hope that it goes somewhat viral. I've yet to have one of my writings grace the front page of Hacker News, so I guess I still have a long way to go if I want to be relevant `/s`.
 
 ## Podcast listening
 
 Continuing the trend of not significantly cutting back on listening to great success! I will, however, starting from the new year remove a subset of podcasts[^4] that I feel no longer provide enough value to me to keep myself plugged in to them. Here's to hoping 2023 will have even fewer hours!
 
-* Total (hours): 706
-* Total (days): 29 days 10 hours
-* Average per week (hours): ~13.5
-* Average per day (hours): ~1.9
+- Total (hours): 706
+- Total (days): 29 days 10 hours
+- Average per week (hours): ~13.5
+- Average per day (hours): ~1.9
 
 This year had a slight **decrease of 8.5%** in terms of the total hours, which is close enough to be identical as far as I'm concerned.
 
@@ -51,7 +51,7 @@ A definite decrease compared to last year as I managed to read 17 books as oppos
 
 ### "Four Thousand Weeks: Time Management for Mortals" by Oliver Burkeman
 
-This along with "Never Split the Difference" by Chris Voss & Tahl Raz is one of those books that I feel a lot of people could really benefit from reading.  Instead of teaching you how to negotiate better, Oliver Burkeman teaches you how to cope with the fact that you'll never have enough time to do all of the things you want to do and in lieu of that focus on the things that are more likely to matter. I'm most definitely someone who often has a gnawing sense of not doing enough and I honestly feel that this book helped with that. Though a more difficult read in terms of sentence structure and in a slightly different vein in terms of the content—significantly shorter though at around 120-130 pages—I would also recommend "Midlife: A Philosophical Guide" by Kieran Setiya to anyone already having tackled "Four Thousand Weeks".
+This along with "Never Split the Difference" by Chris Voss & Tahl Raz is one of those books that I feel a lot of people could really benefit from reading. Instead of teaching you how to negotiate better, Oliver Burkeman teaches you how to cope with the fact that you'll never have enough time to do all of the things you want to do and in lieu of that focus on the things that are more likely to matter. I'm most definitely someone who often has a gnawing sense of not doing enough and I honestly feel that this book helped with that. Though a more difficult read in terms of sentence structure and in a slightly different vein in terms of the content—significantly shorter though at around 120-130 pages—I would also recommend "Midlife: A Philosophical Guide" by Kieran Setiya to anyone already having tackled "Four Thousand Weeks".
 
 ### "A Gentleman in Moscow" by Amor Towles
 

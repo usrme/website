@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-03-09
 title: "'--preload' exposes additional logs in Gunicorn"
-tags: ["python"]
+tags: ['python']
 ---
+
 All good things start with curious error messages:
 
 ```bash

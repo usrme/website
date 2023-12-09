@@ -1,8 +1,8 @@
 ---
-
 pubDate: 2019-09-04
 title: Starting anew
 ---
+
 There's always been a fascination for me with the idea of a blog where I jot down the thoughts that come into my head, and for whatever egotistical reason I have fancied myself a good writer, so the blog that has been in my head has been fantastic! There have been attempts in the past where I've played with the idea by keeping a sort of travel blog, but that quickly fell by the wayside.
 
 I can't actually recall why exactly, but I would assume it's why most attempts to **start anew** fail: the idea of it has been built up in our heads and any attempts to live up to it fall short due to not having experience with it.

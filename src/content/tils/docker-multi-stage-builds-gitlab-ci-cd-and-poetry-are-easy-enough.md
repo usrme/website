@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-12-08
 title: Docker multi-stage builds, GitLab CI/CD, and Poetry are easy enough
-tags: ["cicd", "docker", "gitlab", "poetry", "python"]
+tags: ['cicd', 'docker', 'gitlab', 'poetry', 'python']
 ---
+
 After upgrading one of the many development dependencies in a Python project I ran into an [issue](https://github.com/python-poetry/poetry/issues/4493 "GitHub.com  python-poetry/poetry issue: ModuleNotFoundError: No module named 'platformdirs' when doing poetry install --dev ") where Poetry wasn't able to install dependencies as it could before:
 
 ```
@@ -37,9 +38,9 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'platformdirs'
 ```
 
-Reading [finswimmer's answer](https://github.com/python-poetry/poetry/issues/4493#issuecomment-916771927) in the issue above brought to light that my usage of `poetry config virtualenvs.create false`[^1], while functional for the time being, had been erroneous and was now breaking things. Among other things, this lead me down a path of trying to get things to work using [pipx](https://pypa.github.io/pipx/ "pipx - Install and Run Python Applications in Isolated Environments"), but to no avail. Throughout _that_ process I stumbled upon [Michael Oliver's multi-stage builds Dockerfile](https://github.com/python-poetry/poetry/discussions/1879#discussioncomment-216865), which seemed promising. Now, I really didn't want to switch from how I currently had my builds set up, both in the Dockerfiles and in GitLab CI/CD, but I was at a loss and decided to go for it.
+Reading [finswimmer's answer](https://github.com/python-poetry/poetry/issues/4493#issuecomment-916771927) in the issue above brought to light that my usage of `poetry config virtualenvs.create false`[^1], while functional for the time being, had been erroneous and was now breaking things. Among other things, this lead me down a path of trying to get things to work using [pipx](https://pypa.github.io/pipx/ 'pipx - Install and Run Python Applications in Isolated Environments'), but to no avail. Throughout _that_ process I stumbled upon [Michael Oliver's multi-stage builds Dockerfile](https://github.com/python-poetry/poetry/discussions/1879#discussioncomment-216865), which seemed promising. Now, I really didn't want to switch from how I currently had my builds set up, both in the Dockerfiles and in GitLab CI/CD, but I was at a loss and decided to go for it.
 
-Prior to this I had been using the [builder pattern](https://blog.alexellis.io/mutli-stage-docker-builds/ "Alex Ellis - Builder pattern vs. Multi-stage builds in Docker") for Docker, but there are also [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/ "Docker Docs: Use multi-stage builds") and those serve to greatly reduce complexity (and bring forth other improvements) when using multiple Dockerfiles. Let's see an example. Here is the first Dockerfile that contains the prerequisite software[^2]:
+Prior to this I had been using the [builder pattern](https://blog.alexellis.io/mutli-stage-docker-builds/ 'Alex Ellis - Builder pattern vs. Multi-stage builds in Docker') for Docker, but there are also [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/ 'Docker Docs: Use multi-stage builds') and those serve to greatly reduce complexity (and bring forth other improvements) when using multiple Dockerfiles. Let's see an example. Here is the first Dockerfile that contains the prerequisite software[^2]:
 
 ```docker
 # Dockerfile.prereq
@@ -79,8 +80,8 @@ Setting those up as separately running jobs was easy as well in GitLab CI/CD[^3]
 
 ```yaml
 stages:
-- build-prerequisites
-- publish
+  - build-prerequisites
+  - publish
 
 prerequisites:
   stage: build-prerequisites
@@ -88,7 +89,7 @@ prerequisites:
     - docker build . --file Dockerfile.prereq --tag "prereq:$CI_COMMIT_REF_SLUG"
     - docker push "prereq:$CI_COMMIT_REF_SLUG"
   rules:
-    - if: "$CI_COMMIT_BRANCH"
+    - if: '$CI_COMMIT_BRANCH'
       changes:
         - Dockerfile.prereq
         - poetry.lock
@@ -99,13 +100,13 @@ docker-image:
     - docker build . --file Dockerfile --tag "project:$CI_COMMIT_REF_SLUG"
     - docker push "project:$CI_COMMIT_REF_SLUG"
   rules:
-    - if: "$CI_COMMIT_BRANCH"
+    - if: '$CI_COMMIT_BRANCH'
       changes:
         - Dockerfile.prereq
         - Dockerfile
         - poetry.lock
         - pyproject.toml
-        - "**/*.py"
+        - '**/*.py'
 ```
 
 Implementing the same with a multi-stage build is as follows, note how only a single Dockerfile is required[^5]:
@@ -161,8 +162,8 @@ And the requisite GitLab CI/CD setup:
 
 ```yaml
 stages:
-- build-prerequisites
-- publish
+  - build-prerequisites
+  - publish
 
 prerequisites:
   stage: build-prerequisites
@@ -177,7 +178,7 @@ prerequisites:
         --tag "prereq:$CI_COMMIT_REF_SLUG"
     - docker push "prereq:$CI_COMMIT_REF_SLUG"
   rules:
-    - if: "$CI_COMMIT_BRANCH"
+    - if: '$CI_COMMIT_BRANCH'
       changes:
         - Dockerfile
         - poetry.lock
@@ -195,23 +196,19 @@ docker-image:
         --tag "project:$CI_COMMIT_REF_SLUG"
     - docker push "project:$CI_COMMIT_REF_SLUG"
   rules:
-    - if: "$CI_COMMIT_BRANCH"
+    - if: '$CI_COMMIT_BRANCH'
       changes:
         - Dockerfile.prereq
         - Dockerfile
         - poetry.lock
         - pyproject.toml
-        - "**/*.py"
+        - '**/*.py'
 ```
 
 So much better! While there a lot of seemingly scary environment variables that seem to bulk up the Dockerfile, they are nothing out of this world and serve to make the actual `RUN` instructions more concise, in my opinion.
 
-[^1]: [This](https://usrme.xyz/tils/it-makes-sense-to-pin-even-patch-versions-of-dependencies/ "Üllar Seerme - It makes sense to pin even patch versions of dependencies") is where the configuration option was used initially and what it basically did was to install packages globally as the environment was isolated through containerization anyway.
-
+[^1]: [This](https://usrme.xyz/tils/it-makes-sense-to-pin-even-patch-versions-of-dependencies/ 'Üllar Seerme - It makes sense to pin even patch versions of dependencies') is where the configuration option was used initially and what it basically did was to install packages globally as the environment was isolated through containerization anyway.
 [^2]: Pay no mind to the other mistakes... The most of egregious of which is not pinning the version of `poetry` I was installing.
-
 [^3]: It's not actually necessary to define `--file Dockerfile` if the file exists within the targeted build directory because `docker` defaults to it; shown just to be explicit.
-
 [^4]: The `CI_COMMIT_REF_SLUG` variable is used instead of hard-coding `master` to support creating images off of different branches as well.
-
 [^5]: If you make use of the additional metadata fields in the `pyproject.toml` file, such as the version number that gets changed regularly, then you might want to read [Itamar Turner-Trauring's article on Docker, Poetry, and caching](https://pythonspeed.com/articles/poetry-vs-docker-caching/)

@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-04-26
 title: "'pip' can't uninstall packages installed with 'sudo'"
-tags: ["pip", "python"]
+tags: ['pip', 'python']
 ---
+
 Mind-boggling, I know, but having never actually run into this before I thought you could at least force the uninstallation process through `pip` somehow, but it turns out that you can't:
 
 ```shell

@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-08-17
 title: To use 'git bisect' to find when something was fixed in CPython
-tags: ["bash", "diffing", "git", "python"]
+tags: ['bash', 'diffing', 'git', 'python']
 ---
+
 A colleague of mine recently stumbled upon an error in a Python script that uses [asynchronous I/O](https://docs.python.org/3/library/asyncio.html):
 
 ```
@@ -22,7 +23,7 @@ Traceback (most recent call last):
     await self.acquire()
   File "/usr/lib64/python3.9/asyncio/locks.py", line 417, in acquire
     await fut
-RuntimeError: Task <Task pending name='Task-12' coro=<single_command() running at script.py:40> 
+RuntimeError: Task <Task pending name='Task-12' coro=<single_command() running at script.py:40>
 cb=[_gather.<locals>._done_callback() at /usr/lib64/python3.9/asyncio/tasks.py:767]>
 got Future <Future pending> attached to a different loop
 ```
@@ -33,30 +34,30 @@ While I was able to just install Python 3.9 on my Fedora-based system using [DNF
 
 I was reminded of [Anthony Sottile's video](https://www.youtube.com/watch?v=2ETZsYF5c7s) about how to make a virtual environment from CPython's source and got to work to just manually testing each patch version starting from 3.10.4[^1]. These are steps I used down until 3.10.0:
 
-* clone CPython repository: `git clone git@github.com:python/cpython.git`
-  * this will take a while the first time around
-* navigate into it: `cd cpython`
-* check out relevant version (e.g. 3.10.4): `git checkout tags/v3.10.4`
-* create directory for upcoming build of Python: `mkdir prefix`
-* run configuration script targeting that directory: `./configure --prefix "${PWD}/prefix"`
-* build Python according to the number of available processors: `make -s -j8`
-  * this will take a while depending on the host system
-  * find out number of processors with: `grep "processor" /proc/cpuinfo | wc -l`
-* install Python into previously created directory: `make install`
-  * missing dependencies [may need to be installed](https://devguide.python.org/getting-started/setup-building/#build-dependencies) beforehand
-    * if dependencies were installed, then `prefix` directory needs to be deleted and `./configure` and `make` need to be ran again
-* confirm Python version:
+- clone CPython repository: `git clone git@github.com:python/cpython.git`
+  - this will take a while the first time around
+- navigate into it: `cd cpython`
+- check out relevant version (e.g. 3.10.4): `git checkout tags/v3.10.4`
+- create directory for upcoming build of Python: `mkdir prefix`
+- run configuration script targeting that directory: `./configure --prefix "${PWD}/prefix"`
+- build Python according to the number of available processors: `make -s -j8`
+  - this will take a while depending on the host system
+  - find out number of processors with: `grep "processor" /proc/cpuinfo | wc -l`
+- install Python into previously created directory: `make install`
+  - missing dependencies [may need to be installed](https://devguide.python.org/getting-started/setup-building/#build-dependencies) beforehand
+    - if dependencies were installed, then `prefix` directory needs to be deleted and `./configure` and `make` need to be ran again
+- confirm Python version:
 
 ```
 $ ./prefix/bin/python3.10 --version
 Python 3.10.4
 ```
 
-* create virtual environment using that version of Python: `./prefix/bin/python3.10 -m venv venv3.10.4`
-* activate virtual environment: `source venv3.10.4/bin/activate`
-* navigate to project's directory with failing script
-* install requirements: `pip install -r requirements.txt`
-* run script: `python3 script.py`
+- create virtual environment using that version of Python: `./prefix/bin/python3.10 -m venv venv3.10.4`
+- activate virtual environment: `source venv3.10.4/bin/activate`
+- navigate to project's directory with failing script
+- install requirements: `pip install -r requirements.txt`
+- run script: `python3 script.py`
 
 Seeing the same traceback as shown above would have indicated that the version was still faulty in regards to executing this script. I used these exact same steps to divine that 3.10.0a2 was buggy but 3.10.0a3 wasn't.
 
@@ -106,10 +107,10 @@ fi
 
 With this at the ready I just had to start the bisection using the following commands[^2]:
 
-* `git bisect start --term-new=fixed --term-old=unfixed`
-* `git bisect fixed v3.10.0a3`
-* `git bisect unfixed v3.10.0a2`
-* `git bisect run bash -c "! ./bisect.sh"`
+- `git bisect start --term-new=fixed --term-old=unfixed`
+- `git bisect fixed v3.10.0a3`
+- `git bisect unfixed v3.10.0a2`
+- `git bisect run bash -c "! ./bisect.sh"`
 
 I spent a lot of time just trying pretty much an identical script, but using `git bisect run ./bisect.sh` instead, which resulted in the entire run not finding anything despite a manual flow of marking individual commits as either "fixed" or "unfixed" working as expected. It turns out that when trying to find a _good_ commit (i.e. where something was fixed) as opposed to a bad one means that the result of the helper script (i.e. its exit code) needs to be negated[^3]. This isn't entirely intuitive to me and if I hadn't found that then I might still be fiddling with the damn thing.
 
@@ -124,7 +125,7 @@ Author: Yurii Karabas <1998uriyyo@gmail.com>
 Date:   Tue Nov 24 20:08:54 2020 +0200
 
     bpo-42392: Remove loop parameter form asyncio locks and Queue (#23420)
-    
+
     Co-authored-by: Andrew Svetlov <andrew.svetlov@gmail.com>
 
  Lib/asyncio/locks.py                               |  69 ++----

@@ -1,9 +1,9 @@
 ---
-
 pubDate: 2023-05-30
 title: Using UPX for compression might work against you
-tags: ["go", "performance"]
+tags: ['go', 'performance']
 ---
+
 So I'm reading Hacker News, as one does[^1], about [starting a Go project in 2023](https://news.ycombinator.com/item?id=36046662) and one [commenter advises against using UPX](https://news.ycombinator.com/item?id=36048555) (as does the original author, to a degree). [UPX](https://upx.github.io/) is something I only have a passing familiarity with in one of my Go-based pet projects—[Wishlist Lite](https://github.com/usrme/wishlistlite). It's not that the binary's size would be anything of real significance to begin with, but it just seemed a low enough hanging fruit that I would be foolish _not_ to go for it. The contrarian from the comment above made me reconsider though. Here's why.
 
 ## Memory usage
@@ -28,7 +28,6 @@ $ ps_mem -p $(pgrep wishlistlite -d ",")
 ```
 
 The Shared column indicates that some amount of memory is shared between the two instances. In a single instance scenario the Shared value is expectedly low:
-
 
 ```console
 $ ps_mem -p $(pgrep wishlistlite -d ",")
@@ -123,11 +122,11 @@ $ hyperfine --warmup 10 './wishlistlite' './wishlistliteupx'
 Benchmark 1: ./wishlistlite
   Time (mean ± σ):      29.8 ms ±   4.0 ms    [User: 8.6 ms, System: 8.8 ms]
   Range (min … max):    24.8 ms …  51.0 ms    94 runs
- 
+
 Benchmark 2: ./wishlistliteupx
   Time (mean ± σ):      57.8 ms ±  10.4 ms    [User: 36.0 ms, System: 11.0 ms]
   Range (min … max):    44.6 ms …  79.3 ms    40 runs
- 
+
 Summary
   './wishlistlite' ran
     1.94 ± 0.44 times faster than './wishlistliteupx'

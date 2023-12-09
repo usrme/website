@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-11-04
 title: You are probably better off with 'rsync' for remote transfers
-tags: ["rsync", "performance"]
+tags: ['rsync', 'performance']
 ---
+
 I recently had to transfer a roughly 90MB directory from a remote machine to my local machine for debugging purposes and my first inclination was to use `scp`. Probably out of habit as I am used to just replacing `ssh` with `scp` when I need a file; hadn't really done whole-directory transfers before.
 
 I looked up the relevant options[^1] and with a combination of `r`, `C`, and `p` (`scp -rCp ...`) I was off to the races. If you can even call it a race as during the time that this invocation was running I was able to use `rsync` instead and come up with the whole of this post. Here's how long `rsync` took to copy said directory from the east coast of the US to Estonia:

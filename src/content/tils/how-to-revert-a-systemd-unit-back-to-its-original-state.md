@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-02-28
 title: How to revert a SystemD unit back to its original state
-tags: ["linux", "cli"]
+tags: ['linux', 'cli']
 ---
+
 I was faffing about with the `systemd-resolved` service today and wanted to increase the verbosity of its logging, which I did through `systemctl edit systemd-resolved`. That opened up an editor where I just added the following:
 
 ```

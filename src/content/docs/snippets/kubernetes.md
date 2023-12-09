@@ -2,6 +2,7 @@
 title: Kubernetes
 description: Kubernetes oneliners.
 ---
+
 These are currently specific to `kubectl` and there are tons more [here](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
 ## Set up short names for contexts
@@ -11,20 +12,20 @@ These are currently specific to `kubectl` and there are tons more [here](https:/
 
 ```yaml
 contexts:
-- context:
-    cluster: cluster1
-    user: cluster1
-  name: dev
-- context:
-    cluster: cluster2
-    namespace: namespace1
-    user: cluster2
-  name: namespace1
-- context:
-    cluster: cluster3
-    namespace: db
-    user: cluster3
-  name: prod
+  - context:
+      cluster: cluster1
+      user: cluster1
+    name: dev
+  - context:
+      cluster: cluster2
+      namespace: namespace1
+      user: cluster2
+    name: namespace1
+  - context:
+      cluster: cluster3
+      namespace: db
+      user: cluster3
+    name: prod
 current-context: prod
 ```
 

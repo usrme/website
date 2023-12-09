@@ -2,9 +2,10 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-01-05
 title: To read named values and context at the same time in Azure APIM policies
-tags: ["azure", "apigateway"]
+tags: ['azure', 'apigateway']
 ---
-While needing to [set up the reading of secrets](https://vincentlauzon.com/2019/11/19/accessing-azure-key-vault-from-within-azure-api-management/ "Vincent-Philippe Lauzon - Accessing Azure Key Vault from within Azure API Management") from [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/#product-overview "Azure Key Vault - Safeguard cryptographic keys and other secrets used by cloud apps and services") using [API Management](https://azure.microsoft.com/en-us/services/api-management/#overview "API Management - A hybrid, multicloud management platform for APIs across all environments"), I had to read both the stored named values and a query parameter from a request sent to an API. I've previously only had to either use only named values:
+
+While needing to [set up the reading of secrets](https://vincentlauzon.com/2019/11/19/accessing-azure-key-vault-from-within-azure-api-management/ 'Vincent-Philippe Lauzon - Accessing Azure Key Vault from within Azure API Management') from [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/#product-overview 'Azure Key Vault - Safeguard cryptographic keys and other secrets used by cloud apps and services') using [API Management](https://azure.microsoft.com/en-us/services/api-management/#overview 'API Management - A hybrid, multicloud management platform for APIs across all environments'), I had to read both the stored named values and a query parameter from a request sent to an API. I've previously only had to either use only named values:
 
 ```xml
 <policies>
@@ -29,7 +30,7 @@ Or work with simpler expressions:
 </policies>
 ```
 
-But never to combine the two and I found it surprisingly difficult to find examples of both being leveraged. Only thanks to this Stack Overflow [answer](https://stackoverflow.com/a/51938615 "Stack Overflow - Read Named values from the context in Azure Apim") did I finally come upon the correct invocation:
+But never to combine the two and I found it surprisingly difficult to find examples of both being leveraged. Only thanks to this Stack Overflow [answer](https://stackoverflow.com/a/51938615 'Stack Overflow - Read Named values from the context in Azure Apim') did I finally come upon the correct invocation:
 
 ```xml
 <policies>
@@ -60,4 +61,4 @@ This could also leverage a previously set variable if the use case calls for it:
 
 I find that syntax to be just horrible, so here's to hoping this can save others some time in trying to find the right way to go about this when the official documentation is scarce[^1].
 
-[^1]: I only found [one bit](https://docs.microsoft.com/en-us/azure/api-management/api-management-sample-send-request#making-the-validation-request "API Management documentation - Using external services from the Azure API Management service") in the [official documentation](https://docs.microsoft.com/en-us/azure/api-management/ "API Management documentation") and that was completely tangential to the problem at hand. It was also missing the crucial bit of using named values as well.
+[^1]: I only found [one bit](https://docs.microsoft.com/en-us/azure/api-management/api-management-sample-send-request#making-the-validation-request 'API Management documentation - Using external services from the Azure API Management service') in the [official documentation](https://docs.microsoft.com/en-us/azure/api-management/ 'API Management documentation') and that was completely tangential to the problem at hand. It was also missing the crucial bit of using named values as well.

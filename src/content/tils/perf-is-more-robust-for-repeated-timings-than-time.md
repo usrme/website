@@ -2,9 +2,10 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-03-25
 title: "'perf' is more robust for repeated timings than 'time'"
-tags: ["azurecli", "bash", "performance"]
+tags: ['azurecli', 'bash', 'performance']
 ---
-A little while ago I ran into an [issue](https://github.com/Azure/azure-cli/issues/17247 "Azure CLI issue in GitHub") with the admittedly great Azure CLI tool. The problem stemmed from the fact that one command took roughly 30 seconds to complete and a similar command, at least in terms of the end result, took only 2 seconds. In order to present a more robust case to the developers I wanted to have concrete measurements of the timings I observed while reproducing the issue.
+
+A little while ago I ran into an [issue](https://github.com/Azure/azure-cli/issues/17247 'Azure CLI issue in GitHub') with the admittedly great Azure CLI tool. The problem stemmed from the fact that one command took roughly 30 seconds to complete and a similar command, at least in terms of the end result, took only 2 seconds. In order to present a more robust case to the developers I wanted to have concrete measurements of the timings I observed while reproducing the issue.
 
 At first I did what probably everyone else would, and that's just prefixing the commands with `time` ([man page](https://linux.die.net/man/1/time "Linux man page for 'time' command")). That quickly become ardous as I had to manually store the results of all the runs, perform basic statistical analysis myself, and then have the gall to present all that as someone who prides himself as committed to automating as much as possible.
 
@@ -17,14 +18,14 @@ $ perf stat az tag create --resource-id {} --tags my-tag=my-value --output none
 
   Performance counter stats for 'az tag create --resource-id {} --tags my-tag=my-value --output none':
 
-          1 745,00 msec task-clock:u              #    0,391 CPUs utilized          
-                  0      context-switches:u        #    0,000 K/sec                  
-                  0      cpu-migrations:u          #    0,000 K/sec                  
-            22 231      page-faults:u             #    0,013 M/sec                  
+          1 745,00 msec task-clock:u              #    0,391 CPUs utilized
+                  0      context-switches:u        #    0,000 K/sec
+                  0      cpu-migrations:u          #    0,000 K/sec
+            22 231      page-faults:u             #    0,013 M/sec
       3 640 476 525      cycles:u                  #    2,086 GHz                      (82,98%)
         151 682 554      stalled-cycles-frontend:u #    4,17% frontend cycles idle     (83,28%)
         708 159 207      stalled-cycles-backend:u  #   19,45% backend cycles idle      (83,51%)
-      5 207 185 827      instructions:u            #    1,43  insn per cycle         
+      5 207 185 827      instructions:u            #    1,43  insn per cycle
                                                   #    0,14  stalled cycles per insn  (83,52%)
       1 092 641 016      branches:u                #  626,154 M/sec                    (83,05%)
         36 442 666      branch-misses:u           #    3,34% of all branches          (83,65%)
@@ -43,13 +44,13 @@ $ perf stat --repeat 5 az tag create --resource-id {} --tags my-tag=my-value --o
   Performance counter stats for 'az tag create --resource-id {} --tags my-tag=my-value --output none' (5 runs):
 
           1 698,30 msec task-clock:u              #    0,505 CPUs utilized            ( +-  2,39% )
-                  0      context-switches:u        #    0,000 K/sec                  
-                  0      cpu-migrations:u          #    0,000 K/sec                  
+                  0      context-switches:u        #    0,000 K/sec
+                  0      cpu-migrations:u          #    0,000 K/sec
             22 214      page-faults:u             #    0,013 M/sec                    ( +-  0,07% )
       3 516 454 135      cycles:u                  #    2,071 GHz                      ( +-  0,24% )  (83,33%)
         144 958 565      stalled-cycles-frontend:u #    4,12% frontend cycles idle     ( +-  2,14% )  (83,30%)
         657 451 659      stalled-cycles-backend:u  #   18,70% backend cycles idle      ( +-  0,88% )  (83,32%)
-      5 167 409 019      instructions:u            #    1,47  insn per cycle         
+      5 167 409 019      instructions:u            #    1,47  insn per cycle
                                                   #    0,13  stalled cycles per insn  ( +-  0,08% )  (83,33%)
       1 079 991 468      branches:u                #  635,926 M/sec                    ( +-  0,15% )  (83,38%)
         35 845 403      branch-misses:u           #    3,32% of all branches          ( +-  0,35% )  (83,33%)
@@ -89,7 +90,7 @@ After that I finally felt that I had a robust case to present with all the comma
 
 ## Notes
 
-* If the command or tool you are timing doesn't natively support something like `--output none` you can just use the following to redirect _everything_ to `/dev/null`: `cmd > /dev/null 2>&1`
-  * This isn't an issue with commands with sparse output and few repeated runs, but becomes a major eyesore otherwise
-* I am not at all sure why the output of `perf-stat` is formatted so strangely, especially with the `--table` option doing such a clean job in all other respects
-  * In the original linked GitHub issue I cleaned up the formatting myself, but I really do wonder whether there's a way to automatically get the output into a nicer format
+- If the command or tool you are timing doesn't natively support something like `--output none` you can just use the following to redirect _everything_ to `/dev/null`: `cmd > /dev/null 2>&1`
+  - This isn't an issue with commands with sparse output and few repeated runs, but becomes a major eyesore otherwise
+- I am not at all sure why the output of `perf-stat` is formatted so strangely, especially with the `--table` option doing such a clean job in all other respects
+  - In the original linked GitHub issue I cleaned up the formatting myself, but I really do wonder whether there's a way to automatically get the output into a nicer format

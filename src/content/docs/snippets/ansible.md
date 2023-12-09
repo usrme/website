@@ -2,6 +2,7 @@
 title: Ansible
 description: Ansible oneliners.
 ---
+
 ## Run role against arbitrary host
 
 From [here](https://stackoverflow.com/a/38384205). Note the comma after the IP or FQDN as described [here](https://groups.google.com/d/msg/ansible-project/G_9JRGp5jGE/PTBZdgDb5OEJ). Additional hosts can be added by supplying `-i` parameter with more arguments (comma at the end only if total count is 1).

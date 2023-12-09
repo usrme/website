@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-03-15
 title: A lesson in Docker build cache invalidation
-tags: ["caching", "docker", "pip", "python"]
+tags: ['caching', 'docker', 'pip', 'python']
 ---
+
 While I had known that if you change a line a Dockerfile then the layer corresponding to that instruction (e.g. `FROM`, `RUN`, `COPY`, etc) will cause that layer to be recreated in the resulting image. Remembering only that I had completely forgotten that the order of instructions matters just as well, especially for caching. Consider this:
 
 ```docker
@@ -38,18 +39,18 @@ After reading Itamar Turner-Trauring's article on speeding up 'pip' downloads[^1
 ```diff
 +# syntax = docker/dockerfile:1.3
  FROM python:3.10.2-slim
- 
+
  # https://docs.python.org/3/using/cmdline.html#cmdoption-u
 @@ -15,8 +16,8 @@
- 
+
  COPY . .
- 
+
 -RUN : \
 -    && python -m venv "$VENV_PATH" \
 +RUN --mount=type=cache,target=/root/.cache \
 +    python -m venv "$VENV_PATH" \
      && pip install -r requirements.txt
- 
+
  CMD ["gunicorn", "--config", "gunicorn.conf.py", "start:app"]
 ```
 
@@ -63,14 +64,14 @@ So, the cache for the `pip` packages actually worked, but only if I made no chan
 
 ```diff
 WORKDIR /app
- 
+
 -COPY . .
 +COPY requirements.txt .
- 
+
  RUN --mount=type=cache,target=/root/.cache \
      python -m venv "$VENV_PATH" \
      && pip install -r requirements.txt
- 
+
 +COPY . .
 +
  CMD ["gunicorn", "--config", "gunicorn.conf.py", "start:app"]

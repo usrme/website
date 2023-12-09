@@ -1,9 +1,9 @@
 ---
-
 pubDate: 2022-11-11
 title: How to trim a container image that includes Azure CLI
-tags: ["azurecli", "docker", "performance"]
+tags: ['azurecli', 'docker', 'performance']
 ---
+
 I've been using Azure CLI for a couple of years now and while it's mostly great one of its biggest downsides is its size, which has been echoed in the community as well[^1] [^2]. Using Azure CLI in a simple Bash script can thus balloon the required surrounding environment to an enormous size (1.29GB for version 2.42.0). Whenever possible I try to use [their official Docker image](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker) to avoid time-consuming package installs in CI/CD pipelines, but this has its own costs in that the image is, in my opinion, extremely large and can take a while to pull down when the cache gets invalidated or for a layer comparison to be performed.
 
 After seeing their [official guide](https://github.com/Azure/azure-cli/issues/19591) on how to install Azure CLI on Alpine Linux, their own [Dockerfile](https://github.com/Azure/azure-cli/blob/dev/Dockerfile), and someone's [helpful comment](https://github.com/Azure/azure-cli/issues/7387#issuecomment-926389647) about botching together a somewhat functional install, I decided to go forth and reduce the size of our image from 1.17GB, which was based on version 2.38.0 that was _only_ 1.14GB and also included [AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10), to something more manageable.
@@ -207,7 +207,7 @@ I knew I'd be back at it, and not even 24 hours later I managed to get the above
 
 All of those paths are required by either `script.sh` (e.g. `cat`, `cp`, `mkdir`, etc.), the executables it calls (e.g. `az`, `jq`, etc.) or libraries _those_ executables depend on (e.g. `libonig`). For transitive dependencies that were actually symbolic links I had to include both the source (i.e. `/usr/lib/libonig.so.5`) and the target (i.e. `/usr/lib/libonig.so.5.3.0`) as I couldn't figure out how to ensure that links were followed otherwise.
 
-To find the relevant executables I just followed what the script did, noted any calls it made, and just ran `which <executable name>` in the original image. Doing it that way made me miss a couple, so I made another pass by searching for ` | ` (that's a space followed by a pipe operator followed by a space) to find any stragglers. There's maybe a clever call to `strace` here that might have unearthed everything automatically, but I am way too deep at this point to be side-tracked, and the script itself is only around 400 lines.
+To find the relevant executables I just followed what the script did, noted any calls it made, and just ran `which <executable name>` in the original image. Doing it that way made me miss a couple, so I made another pass by searching for `|` (that's a space followed by a pipe operator followed by a space) to find any stragglers. There's maybe a clever call to `strace` here that might have unearthed everything automatically, but I am way too deep at this point to be side-tracked, and the script itself is only around 400 lines.
 
 The invocation of `docker-slim` now looked like this:
 

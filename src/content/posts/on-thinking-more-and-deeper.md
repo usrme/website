@@ -1,13 +1,14 @@
 ---
-
 pubDate: 2019-09-10
 title: On thinking more (and deeper)
 ---
+
 I've been an avid podcast listener for about 2-3 years now and if you had asked me a year ago whether I think it makes sense to fill moments of downtime with a bout of listening, then the answer would have been a resounding yes! But nowadays I'm starting to really reconsider the investments I'm making in terms of time towards podcasts.
 
 To put some additional context into just how much listening I have done exactly I have some stats at hand thanks to [Podcast Addict's](https://play.google.com/store/apps/details?id=com.bambuna.podcastaddict) global listening time statistics feature:
 
 - 2018
+
   - Total (hours): 355
   - Total (days): 14 days 19 hours
   - Average per week (hours): ~6.8

@@ -1,9 +1,9 @@
 ---
-
 pubDate: 2022-10-23
 title: Leveraging 'shot-scraper' and creating image diffs
-tags: ["bash", "diffing", "git"]
+tags: ['bash', 'diffing', 'git']
 ---
+
 A little while ago [Simon Willison introduced 'shot-scraper'](https://simonwillison.net/2022/Mar/10/shot-scraper/), which at the time I found very interesting[^1], but didn't have a use case in my own life. At that same time though I was using a service called [Visualping](https://visualping.io/) for automatically checking whether the [Amazon Builders' Library](https://aws.amazon.com/builders-library/) had gotten any new write-ups. That seemed like the quickest way to be notified and grab any PDFs that might not persist into the future[^2].
 
 The thing with Visualping is that while it works wonderfully they a) require an account, which I guess is fine, but b) they also require periodic log-ins with a grace period of only 3 days, if I recall correctly, after they've notified you that you haven't logged in in a while. After that 3 days they would just flat out delete your account. That was the final straw as I _really_ didn't want to even think about a thing like that. As it just so happened Simon Willison made [another post](https://simonwillison.net/2022/Oct/14/automating-screenshots/) around that time about `shot-scraper` and how he used to it automatically create screenshots for the purposes of keeping Datasette's documentation up-to-date.
@@ -34,7 +34,7 @@ And here is the meat of what is going on to make things happen. I'll number ever
    workflow_dispatch:
 +  schedule:
 +    - cron: '0 0 * * *'
- 
+
  permissions:
    contents: write
 @@ -35,24 +37,53 @@ jobs:
@@ -155,88 +155,88 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.repository != 'simonw/shot-scraper-template' }}
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-    - uses: actions/cache@v3
-      name: Configure pip caching
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-    - name: Cache Playwright browsers
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/ms-playwright/
-        key: ${{ runner.os }}-browsers
-    # 'libfuse2' is required on Ubuntu 22.04-based images as otherwise
-    # AppImages will not work, which the ImageMagick executable is
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        sudo apt-get update && sudo apt-get install libfuse2
-    - name: Install Playwright dependencies
-      run: |
-        shot-scraper install
-    - name: Create 'before' version of image
-      run: |
-        find . -type f -name "after.png" -exec sh -c 'for f; do t=$(dirname "$f"); \
-          cp "$f" "${t}/before.png"; done' sh {} +
-    - name: Take shots
-      run: |
-        shot-scraper multi shots.yml
-    - name: Cache ImageMagick
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/imagemagick/
-        key: ${{ runner.os }}-imagemagick
-    - name: Download ImageMagick if not already cached
-      run: |-
-        if [[ ! -f ~/.cache/imagemagick/magick ]]; then
-          mkdir -p ~/.cache/imagemagick/
-          wget https://imagemagick.org/archive/binaries/magick -O ~/.cache/imagemagick/magick
-          chmod +x ~/.cache/imagemagick/magick
-        else
-          echo "ImageMagick binary already exists"
-        fi
-    - name: Create differential images
-      run: |-
-        find . -type f -name "after.png" -exec sh -c '
-          changes=$(git status --porcelain)
-          for f; do
-            dir_name=$(dirname "$f")
-            clean_dir_name=$(echo "$dir_name" | tail -c +3)
-            if echo "$changes" | grep -q "${clean_dir_name}/after.png"; then
-              ~/.cache/imagemagick/magick compare -metric AE -fuzz 5% "${dir_name}/before.png" "$f" "${dir_name}/diff.png" || true
-            else
-              echo "Nothing has changed for ${f}, so skipping differential creation"
-            fi
-          done' sh {} +
-    - name: Create differential animations
-      run: |-
-        find . -type f -name "after.png" -exec sh -c '
-          changes=$(git status --porcelain)
-          for f; do
-            dir_name=$(dirname "$f")
-            clean_dir_name=$(echo "$dir_name" | tail -c +3)
-            if echo "$changes" | grep -q "${clean_dir_name}/after.png"; then
-              ~/.cache/imagemagick/magick -delay 100 "${dir_name}/before.png" "$f" "${dir_name}/anim.gif" || true
-            else
-              echo "Nothing has changed for ${f}, so skipping differential animation creation"
-            fi
-          done' sh {} +
-    - name: Commit and push
-      run: |-
-        git config user.name "Automated"
-        git config user.email "actions@users.noreply.github.com"
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "${timestamp}" || exit 0
-        git pull --rebase
-        git push
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - uses: actions/cache@v3
+        name: Configure pip caching
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Cache Playwright browsers
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright/
+          key: ${{ runner.os }}-browsers
+      # 'libfuse2' is required on Ubuntu 22.04-based images as otherwise
+      # AppImages will not work, which the ImageMagick executable is
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update && sudo apt-get install libfuse2
+      - name: Install Playwright dependencies
+        run: |
+          shot-scraper install
+      - name: Create 'before' version of image
+        run: |
+          find . -type f -name "after.png" -exec sh -c 'for f; do t=$(dirname "$f"); \
+            cp "$f" "${t}/before.png"; done' sh {} +
+      - name: Take shots
+        run: |
+          shot-scraper multi shots.yml
+      - name: Cache ImageMagick
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/imagemagick/
+          key: ${{ runner.os }}-imagemagick
+      - name: Download ImageMagick if not already cached
+        run: |-
+          if [[ ! -f ~/.cache/imagemagick/magick ]]; then
+            mkdir -p ~/.cache/imagemagick/
+            wget https://imagemagick.org/archive/binaries/magick -O ~/.cache/imagemagick/magick
+            chmod +x ~/.cache/imagemagick/magick
+          else
+            echo "ImageMagick binary already exists"
+          fi
+      - name: Create differential images
+        run: |-
+          find . -type f -name "after.png" -exec sh -c '
+            changes=$(git status --porcelain)
+            for f; do
+              dir_name=$(dirname "$f")
+              clean_dir_name=$(echo "$dir_name" | tail -c +3)
+              if echo "$changes" | grep -q "${clean_dir_name}/after.png"; then
+                ~/.cache/imagemagick/magick compare -metric AE -fuzz 5% "${dir_name}/before.png" "$f" "${dir_name}/diff.png" || true
+              else
+                echo "Nothing has changed for ${f}, so skipping differential creation"
+              fi
+            done' sh {} +
+      - name: Create differential animations
+        run: |-
+          find . -type f -name "after.png" -exec sh -c '
+            changes=$(git status --porcelain)
+            for f; do
+              dir_name=$(dirname "$f")
+              clean_dir_name=$(echo "$dir_name" | tail -c +3)
+              if echo "$changes" | grep -q "${clean_dir_name}/after.png"; then
+                ~/.cache/imagemagick/magick -delay 100 "${dir_name}/before.png" "$f" "${dir_name}/anim.gif" || true
+              else
+                echo "Nothing has changed for ${f}, so skipping differential animation creation"
+              fi
+            done' sh {} +
+      - name: Commit and push
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "${timestamp}" || exit 0
+          git pull --rebase
+          git push
 ```
 
 [^1]: I find most things that he does very interesting, but that's besides the point...

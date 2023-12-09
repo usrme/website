@@ -1,9 +1,9 @@
 ---
-
 pubDate: 2023-04-14
 title: Uploading GoReleaser snapshot releases in GitLab
-tags: ["cicd", "gitlab", "go"]
+tags: ['cicd', 'gitlab', 'go']
 ---
+
 I'm wary about doing a short write-up about this as I don't want anyone to eat [Carlos Alexandro Becker's](https://github.com/caarlos0) lunch in any way. He seems to be an absolute lad and rockstar when it comes to his open source work, and I'm hoping this lands softly in regards to people still shelling out for the pro version of [GoReleaser](https://goreleaser.com/).
 
 So, the nitty-gritty. Setting up GoReleaser for GitLab is trivial using the [official documentation](https://goreleaser.com/ci/gitlab/), but that only takes care of the tag-based releases. I wanted a system wherein people could create merge requests that would result in archives being created in [GitLab's Generic Packages Repository](https://docs.gitlab.com/ee/user/packages/generic_packages/).
@@ -34,7 +34,7 @@ env:
   - ENV_MR_IID={{ if index .Env "CI_MERGE_REQUEST_IID" }}{{ .Env.CI_MERGE_REQUEST_IID }}{{ else }}devel{{ end }}
 
 snapshot:
-  name_template: "{{ incpatch .Version }}-{{ .Env.ENV_MR_IID }}"
+  name_template: '{{ incpatch .Version }}-{{ .Env.ENV_MR_IID }}'
 ```
 
 This would result in a package version like `1.0.1-1` if this was the first merge request in the project. For GitLab's CI it's necessary to create a job that only triggers for merge request events. I usually use YAML anchoring for [rules](https://docs.gitlab.com/ee/ci/yaml/index.html#rules) as then I can just define them at the top and use aliases to reference them elsewhere. The following sets up two [variables](https://docs.gitlab.com/ee/ci/yaml/index.html#variables) - one for the [packages API](https://docs.gitlab.com/ee/api/packages.html) and one for the project-specific package registry - and one rule for triggering upon commits to an active merge request:
@@ -45,8 +45,8 @@ stages:
   - publish
 
 variables:
-  PACKAGE_API_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages"
-  PACKAGE_REGISTRY_URL: "${PACKAGE_API_URL}/generic/${CI_PROJECT_NAME}"
+  PACKAGE_API_URL: '${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages'
+  PACKAGE_REGISTRY_URL: '${PACKAGE_API_URL}/generic/${CI_PROJECT_NAME}'
 
 .rules:
   rules:

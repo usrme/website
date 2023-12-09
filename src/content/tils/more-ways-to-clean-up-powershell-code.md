@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2020-01-11
 title: More ways to clean up PowerShell code
-tags: ["powershell"]
+tags: ['powershell']
 ---
+
 Let it be known that I am stickler for clean and readable code, and with that come many moments of yak shaving before I feel good about the "final" version of the code. These are some of the methods I have come across that have helped me. Though I would have preferred to have a really nice and impressively long post written about the many ways I clean up my own code, then I am still, once again, coming back to Max Böck's [Good Enough](https://mxb.dev/blog/good-enough/), so here it is as it is. It may get added upon, but don't count on it.
 
 ## Splat calculated properties

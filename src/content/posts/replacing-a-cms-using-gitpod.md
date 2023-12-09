@@ -1,11 +1,11 @@
 ---
-
 pubDate: 2022-10-26
 title: Replacing a CMS using Gitpod
 ---
-For a while now I've been using [Forestry](https://forestry.io/) as a simple CMS that hooks into [this website's repository](https://github.com/usrme/website) as a way to nicely be able to write blog posts when I am not near my main machine. The benefits where that I had a fairly good WYSIWYG interface for writing Markdown and then being able to directly preview it by having Forestry build the changes immediately using [Hugo](https://gohugo.io/). For sites that rely on multiple people editing a single site or a site with sub-sites it's probably way better than what I'm about to introduce here,  but for me it was time to sunset its usage.
 
-As far as I know [Gitpod](https://www.gitpod.io/) is the OG in the space of remote development platforms with [GitHub's Codespaces](https://github.com/features/codespaces) hot on its heels[^1]. While it definitely makes most sense for projects where the process to set up should be abstracted away as much as possible to make collaboration between people easier, I still felt I could use this service to improve upon my own workflow as well. While I would have actually liked to use GitHub's solution for this to keep myself in its walled garden (`/s`)[^2],  this was so simple to set up that I figured it was worth it anyway.
+For a while now I've been using [Forestry](https://forestry.io/) as a simple CMS that hooks into [this website's repository](https://github.com/usrme/website) as a way to nicely be able to write blog posts when I am not near my main machine. The benefits where that I had a fairly good WYSIWYG interface for writing Markdown and then being able to directly preview it by having Forestry build the changes immediately using [Hugo](https://gohugo.io/). For sites that rely on multiple people editing a single site or a site with sub-sites it's probably way better than what I'm about to introduce here, but for me it was time to sunset its usage.
+
+As far as I know [Gitpod](https://www.gitpod.io/) is the OG in the space of remote development platforms with [GitHub's Codespaces](https://github.com/features/codespaces) hot on its heels[^1]. While it definitely makes most sense for projects where the process to set up should be abstracted away as much as possible to make collaboration between people easier, I still felt I could use this service to improve upon my own workflow as well. While I would have actually liked to use GitHub's solution for this to keep myself in its walled garden (`/s`)[^2], this was so simple to set up that I figured it was worth it anyway.
 
 To get started just add a `.gitpod.yml` to the root of the repository, as such:
 

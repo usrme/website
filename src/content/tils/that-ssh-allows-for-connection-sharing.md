@@ -2,17 +2,18 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-03-19
 title: That SSH allows for connection sharing
-tags: ["linux", "cli"]
+tags: ['linux', 'cli']
 ---
+
 I was hacking on [Wishlist Lite](https://github.com/usrme/wishlistlite) trying to get a simple spinner to appear prior to the actual SSH connection, but I didn't want to refactor the existing code to use the ['ssh' package](https://pkg.go.dev/golang.org/x/crypto/ssh) for Go, so I was fumbling around trying to start an SSH process in the background, wait for anything being written to the standard output within that process and all the while showing a spinner, and then somehow switch over the existing Wishlist Lite process to that SSH process. This didn't seem to be doable as I couldn't find a method to effectively take over a process, even if it is a child process, by just knowing the process ID.
 
 After a lot of mucking about I stumbled across the ['ControlMaster'](https://www.mankier.com/5/ssh_config#ControlMaster), ['ControlPersist'](https://www.mankier.com/5/ssh_config#ControlPersist), and ['ControlPath'](https://www.mankier.com/5/ssh_config#ControlPath) SSH options. What these options enable is for multiple sessions over a single network connection. In all likelihood this is not what was intended for these options, but for what I was trying to do they fit the bill so perfectly that I actually couldn't even believe it at first!
 
 Now when a user selects an item from the list (a visual representation of an SSH config with multiple hosts), an SSH process is started with that item (i.e. a hostname or alias) as the connection target and that SSH process gets the following options added to it:
 
-* `ControlMaster=yes`
-* `ControlPersist=5s`
-* `ControlPath=/dev/shm/control:%h:%p:%r`
+- `ControlMaster=yes`
+- `ControlPersist=5s`
+- `ControlPath=/dev/shm/control:%h:%p:%r`
 
 `ControlMaster=yes`:
 

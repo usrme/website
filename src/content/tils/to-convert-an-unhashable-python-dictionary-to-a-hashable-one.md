@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-02-22
 title: To convert an unhashable Python dictionary to a hashable one
-tags: ["python", "caching"]
+tags: ['python', 'caching']
 ---
+
 We started being throttled by an [API endpoint in Azure](https://learn.microsoft.com/en-us/rest/api/storagerp/storage-accounts/list-account-sas) due to sending [too many requests](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/request-limits-and-throttling#storage-throttling) all at once, so I had to implement some sort of caching to alleviate the situation.
 
 The function in question responsible for fetching SAS tokens for storage accounts is something like this:
@@ -79,5 +80,5 @@ def get_storage_account_sas(
 
 Now the `@functools.lru_cache` decorator applied without issues! Here are some helpful links relating to this:
 
-* <https://stackoverflow.com/a/16162138>
-* <https://realpython.com/lru-cache-python/>
+- <https://stackoverflow.com/a/16162138>
+- <https://realpython.com/lru-cache-python/>

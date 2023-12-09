@@ -2,6 +2,7 @@
 title: Shell
 description: Shell oneliners.
 ---
+
 ## Basic `for` loop to iterate over lines in a file
 
 ```bash
@@ -309,7 +310,7 @@ diff -u file1 file2 > files.diff
 ## Show build information for cloud-based image
 
 ```console
-$ cat /etc/cloud/build.info 
+$ cat /etc/cloud/build.info
 build_name: server
 serial: 20201211.1
 ```

@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-12-04
 title: About the funky 'scanelf' command in Dockerfiles
-tags: ["bash", "chatgpt", "docker"]
+tags: ['bash', 'chatgpt', 'docker']
 ---
+
 I've now ran into this funky `scanelf` command in enough Dockerfiles[^1][^2] that I got curious about what it actually means:
 
 ```bash

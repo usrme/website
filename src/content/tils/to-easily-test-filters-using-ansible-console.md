@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-03-02
 title: To easily test filters using 'ansible-console'
-tags: ["ansible"]
+tags: ['ansible']
 ---
+
 Today's [release](https://github.com/ansible-collections/ansible.netcommon/commit/538a9036e781e8504656f1a85bb53a5805ec78f8) of version 2.6.0 for `ansible.netcommon` [broke](https://github.com/ansible-collections/ansible.netcommon/issues/375) at least some people's environments and in the course of trying to debug that myself I wound up learning a bit more how to effectively use ['ansible-console'](https://docs.ansible.com/ansible/latest/cli/ansible-console.html). While I had known about 'ansible-console' for some time[^1], my usage of it had stayed relatively low, thus I didn't really know how to best interact with it. Here's how I validated that version 2.6.0 explicitly was to blame:
 
 ```bash
@@ -20,7 +21,7 @@ $ ansible-galaxy collection list ansible.netcommon
 # /usr/local/lib/python3.8/dist-packages/ansible_collections
 Collection        Version
 ----------------- -------
-ansible.netcommon 1.2.1  
+ansible.netcommon 1.2.1
 
 $ ansible-console localhost
 [WARNING]: No inventory was parsed, only implicit localhost is available
@@ -49,12 +50,12 @@ $ ansible-galaxy collection list ansible.netcommon
 # /usr/local/lib/python3.8/dist-packages/ansible_collections
 Collection        Version
 ----------------- -------
-ansible.netcommon 1.2.1  
+ansible.netcommon 1.2.1
 
 # /root/.ansible/collections/ansible_collections
 Collection        Version
 ----------------- -------
-ansible.netcommon 2.6.0  
+ansible.netcommon 2.6.0
 
 $ ansible-console localhost
 [WARNING]: No inventory was parsed, only implicit localhost is available

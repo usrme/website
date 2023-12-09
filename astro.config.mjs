@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import starlight from '@astrojs/starlight';
+import starlight from '@astrojs/starlight'
 
 export default defineConfig({
   site: 'https://usrme.xyz',
@@ -14,9 +14,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Back to home page',
-      customCss: [
-        './src/styles/starlight.css',
-      ],
+      customCss: ['./src/styles/starlight.css'],
       sidebar: [
         {
           label: 'Start here',

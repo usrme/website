@@ -1,9 +1,9 @@
 ---
-
 pubDate: 2020-12-31
 title: Rounding up 2020
-tags: ["yearly-review"]
+tags: ['yearly-review']
 ---
+
 This would probably be the part where someone belabors what a year it has been and in all the ways it has been, but I'm not one to do so. How noble of me... Instead, I'll stick to the same formula as I did for [last year's year-end thoughts](https://usrme.xyz/posts/some-year-end-thoughts/).
 
 ## Podcast listening
@@ -14,10 +14,10 @@ Though I still have that post as a historical record, I feel that if it can't ke
 
 Here are this year's numbers on the last day of the year:
 
-* Total (hours): 562
-* Total (days): 23 days 10 hours
-* Average per week (hours): \~10.8
-* Average per day (hours): \~1.53
+- Total (hours): 562
+- Total (days): 23 days 10 hours
+- Average per week (hours): \~10.8
+- Average per day (hours): \~1.53
 
 This is more or less in line with the previous year with no discernible difference on way or the other; only about a **5% decline** over a year. Those of you have read or are about to read my post [on thinking more (and deeper)](https://usrme.xyz/posts/on-thinking-more-and-deeper/) will notice that the total number of hours is still perhaps way too high and seems to be orthogonal to what I wanted to achieve.
 
@@ -47,4 +47,4 @@ I wouldn't recommend it to absolute beginners who are just learning the syntax, 
 
 I can only describe this book as a glorification of mayors from around the world with a focus on Chicago. That's it. If that sounds interesting to you then boy, oh boy is this the book for you!
 
-***
+---

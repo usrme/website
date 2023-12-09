@@ -1,8 +1,8 @@
 ---
-
 pubDate: 2023-01-03
 title: 'Book review: "How Minds Change" by David McRaney'
 ---
+
 Assuming you've never come across this before, see if you can make sense of it[^1]:
 
 > A newspaper is better than a magazine. A seashore is a better place than the street. At first it is better to run than to walk. You may have to try several times. It takes some skill, but it is easy to learn. Even young children can enjoy it. Once successful, complications are minimal. Birds seldom get too close. Rain, however, soaks in very fast. Too many people doing the same thing can also cause problems. One needs lots of room. If there are no complications it can be very peaceful. A rock will serve as an anchor. If things break loose from it, however, you will not get a second chance.

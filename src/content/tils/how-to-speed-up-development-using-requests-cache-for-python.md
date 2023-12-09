@@ -2,8 +2,9 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-09-25
 title: How to speed up development using 'requests-cache' for Python
-tags: ["caching", "python"]
+tags: ['caching', 'python']
 ---
+
 There was a project at work that required a lot of requests be made against both GitLab and Azure, and I noticed a colleague of mine using something called ['requests-cache'](https://pypi.org/project/requests-cache/) to significantly speed up his development iterations. Think in terms of having the entire script run for 15 minutes every time or run for 5 seconds...
 
 I had assumed that such a wide-reaching and effective cache would be bothersome to add to a codebase, but it turns out it's pretty much just a matter of installing the package `requests-cache` (in a virtual environment, please) and then importing it as `requests_cache`.

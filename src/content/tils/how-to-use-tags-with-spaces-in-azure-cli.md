@@ -2,15 +2,16 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-08-06
 title: How to use tags with spaces in Azure CLI
-tags: ["azure", "azurecli", "bash"]
+tags: ['azure', 'azurecli', 'bash']
 ---
-I've been using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ "Azure Command-Line Interface overview") for well over a year now and while I'm more than happy to recommend it as a tool for working with Azure, it does have its shortcomings. One of the most recent ones, that I've stumbled upon, is using tags with spaces in them.
+
+I've been using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ 'Azure Command-Line Interface overview') for well over a year now and while I'm more than happy to recommend it as a tool for working with Azure, it does have its shortcomings. One of the most recent ones, that I've stumbled upon, is using tags with spaces in them.
 
 Tags in Azure allow you to logically organize resources, resource groups, and subscriptions into a taxonomy where each tag consists of a name and a value. When they highlight [limitations](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json#limitations "Azure tags' limitations") there is the usual cadre of character and symbol restraints, but no mention of spaces of any kind.
 
 "Everything is coming up Milhouse," I thought, and even adding whole sentences as tag values in the Azure Portal does seem to work as expected. Trouble is around the corner though. As soon as I wanted to programmatically get a set of tags from one resource and apply them to another resource I saw that things aren't quite like they seem.
 
-***
+---
 
 The way you add an initial set of tags to a resource is usually during creation-time. Meaning, you run a `az <type> create` command and pass the `--tags` parameter which takes in space-separated tags in the following format: `key[=value] [key[=value] ...]`. You can also leverage the `az resource tag` command or `az tag` commands to achieve the same result after-the-fact. (Be wary of the more than a [1000% decrease in speed](https://github.com/Azure/azure-cli/issues/17247 "'az resource tag' speed issue in GitHub") though when using `az resource tag`).
 
@@ -39,7 +40,7 @@ function condense_resource_tags() {
 }
 ```
 
-All of that can probably very well be achieved with a [JQ](https://stedolan.github.io/jq/ "jq is a lightweight and flexible command-line JSON processor") or [JMESPath](https://jmespath.org/ "JMESPath is a query language for JSON") expression, but what's done is done. Here's an example of the getting an input for the function, what it would output, and how it could be used down the line:
+All of that can probably very well be achieved with a [JQ](https://stedolan.github.io/jq/ 'jq is a lightweight and flexible command-line JSON processor') or [JMESPath](https://jmespath.org/ 'JMESPath is a query language for JSON') expression, but what's done is done. Here's an example of the getting an input for the function, what it would output, and how it could be used down the line:
 
 ```bash
 snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
@@ -67,11 +68,11 @@ az snapshot create \
 
 The above works fine and will most likely keep working fine as long as a tag's value never contains a space. Introducing one will cause this solution to break down horribly. Cue the sad trombone.
 
-I tried various combinations of wrapping the both the tag names and values with single or double quotes, but no dice. After a bit of googling I started noticing that it's [not that uncommon](https://github.com/Azure/azure-cli/issues/1863 "Azure CLI GitHub issue with using spaces in tags") of [a problem](https://social.msdn.microsoft.com/Forums/azure/en-US/263f098e-a515-4a0b-b730-2e6e1fa35516/azure-cli-add-azure-tag-values-with-spaces?forum=azurescripting "MSDN post about using spaces in tags"). I did come across a potential [solution that relied on PowerShell](https://stackoverflow.com/questions/59198657/how-to-pass-tags-with-space "StackOverflow solution to using spaces in tags") and that got some gears going in my head.
+I tried various combinations of wrapping the both the tag names and values with single or double quotes, but no dice. After a bit of googling I started noticing that it's [not that uncommon](https://github.com/Azure/azure-cli/issues/1863 'Azure CLI GitHub issue with using spaces in tags') of [a problem](https://social.msdn.microsoft.com/Forums/azure/en-US/263f098e-a515-4a0b-b730-2e6e1fa35516/azure-cli-add-azure-tag-values-with-spaces?forum=azurescripting 'MSDN post about using spaces in tags'). I did come across a potential [solution that relied on PowerShell](https://stackoverflow.com/questions/59198657/how-to-pass-tags-with-space 'StackOverflow solution to using spaces in tags') and that got some gears going in my head.
 
-***
+---
 
-Every single command you execute with Azure CLI is at the end of the day nothing more than a call or several calls made for you against [their REST API endpoints](https://docs.microsoft.com/en-us/rest/api/azure/ "Azure REST API reference documentation"). I don't know what made them decide for creating it (I am so thankful that they did though), but there is a command for interacting more directly with those endpoints called `az rest`.
+Every single command you execute with Azure CLI is at the end of the day nothing more than a call or several calls made for you against [their REST API endpoints](https://docs.microsoft.com/en-us/rest/api/azure/ 'Azure REST API reference documentation'). I don't know what made them decide for creating it (I am so thankful that they did though), but there is a command for interacting more directly with those endpoints called `az rest`.
 
 Using that it's possible to forego some or all of the parsing the initial sub-command does to the given arguments, thus it's possible to achieve some things that aren't even doable otherwise. Using tags with spaces in them now being one of them, luckily.
 
@@ -97,7 +98,7 @@ cli.azure.cli.core.sdk.policies: {"operation": "Replace", "properties": {"tags":
 <output omitted>
 ```
 
-You can see that it uses the `PATCH` HTTP request method against the `/Microsoft.Resources/tags/default` endpoint. If you are at all familiar with Azure you can spot that the bulk of the URL is composed of the target resource's ID with the latter portion tacked on, meaning you can (probably) target any valid resource. That final portion will clue you in on [the exact API endpoint ](https://docs.microsoft.com/en-us/rest/api/resources/tags/update-at-scope "Tags - Update At Scope REST API reference")you can look up in the reference. You can also see that the request has a body, which means that if you want to call that endpoint directly then you're the one who has to create the body. With all that it's off to function creation races!
+You can see that it uses the `PATCH` HTTP request method against the `/Microsoft.Resources/tags/default` endpoint. If you are at all familiar with Azure you can spot that the bulk of the URL is composed of the target resource's ID with the latter portion tacked on, meaning you can (probably) target any valid resource. That final portion will clue you in on [the exact API endpoint ](https://docs.microsoft.com/en-us/rest/api/resources/tags/update-at-scope 'Tags - Update At Scope REST API reference')you can look up in the reference. You can also see that the request has a body, which means that if you want to call that endpoint directly then you're the one who has to create the body. With all that it's off to function creation races!
 
 ```bash
 function update_tags() {
