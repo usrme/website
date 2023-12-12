@@ -580,3 +580,11 @@ Sep 08 07:37:21 bupkis env[19948]: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin
 Sep 08 07:37:21 bupkis env[19948]: LANG=en_US.UTF-8
 Sep 08 07:37:21 bupkis env[19948]: BOOT_IMAGE=/vmlinuz-3.11.0-0.rc5.git6.2.fc20.x86_64
 ```
+
+## Working with 'screen'
+
+- Start a session: `screen`
+- Start any long-running commands
+- Detach from session: `Ctrl+A+D`
+- List sessions: `screen -ls`
+- Attach to a running session: `screen -r <session ID>`
