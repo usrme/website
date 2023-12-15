@@ -30,7 +30,7 @@ current-context: prod
 
 ## Just use Click
 
-[Here](https://github.com/databricks/click).
+[Here](https://github.com/databricks/click). From [here](https://www.awelm.com/posts/click/).
 
 ## Just use K9s
 
