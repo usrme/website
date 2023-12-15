@@ -28,6 +28,10 @@ contexts:
 current-context: prod
 ```
 
+## Just use Click
+
+[Here](https://github.com/databricks/click).
+
 ## Just use K9s
 
 [Here](https://k9scli.io/).
