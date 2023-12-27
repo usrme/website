@@ -9,6 +9,10 @@ tags: ["yearly-review"]
 
 ## Recap
 
+### Learning Kubernetes
+
+After falling down the rabbit hole of learning about [Crossplane](https://www.crossplane.io/) it became clear that my underlying knowledge of Kubernetes itself needs to be deeper and thus I started re-reading "Kubernetes: Up and Running" , along with new ones, such as "Core Kubernetes" and the "Certified Kubernetes Administrator (CKA) Study Guide" by Benjamin Muschko. The latter will hopefully serve me well in actually becoming a Certified Kubernetes Administrator as I've also took it upon myself to complete the certification sooner rather than later. I decided for the official certification route as I remember when I did my [LPIC-1](https://www.lpi.org/our-certifications/lpic-1-overview/) certification way back when, it actually taught me things that would have taken far longer to unearth on my own through day-to-day usage. I'm hoping the same will hold true for the CKA certification in 2024.
+
 ### Switching to (Neo)Vim
 
 At one point during this summer, I completely switched away from Visual Studio Code over to using NeoVim as my editor of choice, and while it's difficult for me to quantify any increase or decrease in productivity, it is definitely a choice I do not regret! I was finally pushed over the line by [ThePrimeagen's "Vim As Your Editor" series](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) and [Dreams of Code's video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y) on turning Vim into a fully featured IDE. It does take a lot more effort to properly configure your setup compared to Visual Studio Code so that all the magic-y bits like type hints and code refactorings work, to say nothing of learning the actual motions to navigate within Vim. Once you get through the initial slog that may take a couple of weeks, everything starts to feel like second nature, and I've personally really enjoyed that I can now far more comfortably carry myself both on my personal machine and on any machine I SSH into where Vi is most likely always present.
