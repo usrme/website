@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-12-31
 title: Glee in 2023
-draft: false
+draft: true
 tags: ["yearly-review"]
 ---
 ## Few words
