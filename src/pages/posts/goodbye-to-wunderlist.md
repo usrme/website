@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2019-10-04
 title: Goodbye to Wunderlist
+tags: ["thoughts"]
 ---
 In lieu of writing an actually interesting post I am going to share the words of feedback I gave to the team at Wunderlist after their automated system kindly asked me to. I usually don't respond to these kinds of requests, but as the following words make somewhat clear I was a true fan of Wunderlist and it made me really damn sad to hear that they are finally [being phased out](https://www.theverge.com/2019/9/9/20856625/microsoft-to-do-app-new-design-wunderlist-replacement) in favor of Microsoft's To Do, and because of that I felt an urge to let them know that.
 

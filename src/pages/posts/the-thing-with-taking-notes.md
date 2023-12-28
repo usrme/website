@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2020-03-08
 title: The thing with taking notes
+tags: ["thoughts"]
 ---
 As a person who tries to read a fair bit—be it articles, blog posts or books—I've always had the fantastical thought in the back of my head that I _really_ should be taking notes of the things that I read; writing down key insights and thoughts that occur. It's probably the same part of me that thinks that if I pulled myself together then I'd be the person who journals every day. Those feelings all the more exacerbated by the modern hustle culture where it's as if everyone has their own personal knowledge-base system for maximizing retention.
 

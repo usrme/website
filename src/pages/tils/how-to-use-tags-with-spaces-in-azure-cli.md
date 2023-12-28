@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-08-06
 title: How to use tags with spaces in Azure CLI
-tags: ["azure", "azurecli", "bash"]
+tags: ["azure", "azure-cli", "bash"]
 ---
 I've been using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ "Azure Command-Line Interface overview") for well over a year now and while I'm more than happy to recommend it as a tool for working with Azure, it does have its shortcomings. One of the most recent ones, that I've stumbled upon, is using tags with spaces in them.
 

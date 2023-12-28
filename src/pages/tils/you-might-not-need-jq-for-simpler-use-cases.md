@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-04-08
 title: You might not need 'jq' for simpler use cases
-tags: ["azurecli", "json", "python"]
+tags: ["azure-cli", "json", "python"]
 ---
 I wanted to find out how other people use the `AZURE_CONFIG_DIR` environment variable[^1] and I came across a rather ingenious way[^2] to not rely on [JQ](https://stedolan.github.io/jq/) for working with JSON in simpler use cases in the process, namely:
 

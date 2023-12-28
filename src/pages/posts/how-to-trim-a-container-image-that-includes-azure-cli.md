@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-11-11
 title: How to trim a container image that includes Azure CLI
-tags: ["azurecli", "docker", "performance"]
+tags: ["azure-cli", "docker", "performance"]
 ---
 I've been using Azure CLI for a couple of years now and while it's mostly great one of its biggest downsides is its size, which has been echoed in the community as well[^1] [^2]. Using Azure CLI in a simple Bash script can thus balloon the required surrounding environment to an enormous size (1.29GB for version 2.42.0). Whenever possible I try to use [their official Docker image](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker) to avoid time-consuming package installs in CI/CD pipelines, but this has its own costs in that the image is, in my opinion, extremely large and can take a while to pull down when the cache gets invalidated or for a layer comparison to be performed.
 

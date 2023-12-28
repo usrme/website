@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-01-23
 title: 'Book review: "Dumbing Us Down" by John Taylor Gatto'
+tags: ["book-review"]
 ---
 "Dumbing Us Down: The Hidden Curriculum of Compulsory Schooling" by John Taylor Gatto is a scathing condemnation of the U.S education system and despite being nowhere near the United States physically, I drew many similarities, as I suspect others from across the world also can, with how my own education took place. It's a short piece at only 144 pages in total, but it pulls no punches and because of that, and the many aforementioned similarities, it succeeds in resonating quite strongly with me.
 

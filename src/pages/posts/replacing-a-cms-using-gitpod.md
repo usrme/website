@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2022-10-26
 title: Replacing a CMS using Gitpod
+tags: ["technical-post"]
 ---
 For a while now I've been using [Forestry](https://forestry.io/) as a simple CMS that hooks into [this website's repository](https://github.com/usrme/website) as a way to nicely be able to write blog posts when I am not near my main machine. The benefits where that I had a fairly good WYSIWYG interface for writing Markdown and then being able to directly preview it by having Forestry build the changes immediately using [Hugo](https://gohugo.io/). For sites that rely on multiple people editing a single site or a site with sub-sites it's probably way better than what I'm about to introduce here,  but for me it was time to sunset its usage.
 

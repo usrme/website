@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-07-07
 title: The horror of quoting on the command line
-tags: ["azurecli", "bash"]
+tags: ["azure-cli", "bash"]
 ---
 While I am usually very pro-JMESPath and pro-JQ, they can sometimes be a real pain, and this post serves no other purpose than to exemplify this.
 

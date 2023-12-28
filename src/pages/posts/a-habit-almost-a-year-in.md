@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-05-18
 title: A habit (almost) a year in
+tags: ["thoughts"]
 ---
 To those that know me it's a well-known fact that I am quite partial to the "energy drink" [Belief](https://www.beliefwater.com/?lang=en). So much so that I've been steadily consuming it for the past couple of years on an almost daily basis. Part of that has to do with my possibly unfounded _belief_ (rim shot) that it is far better for me than a drink like Red Bull or anything of that ilk. Of course, it would have been far better to not even drink Belief, but let's carry on.
 

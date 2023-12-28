@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-01-03
 title: 'Book review: "How Minds Change" by David McRaney'
+tags: ["book-review"]
 ---
 Assuming you've never come across this before, see if you can make sense of it[^1]:
 

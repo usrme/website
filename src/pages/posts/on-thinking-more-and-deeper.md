@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2019-09-10
 title: On thinking more (and deeper)
+tags: ["thoughts"]
 ---
 I've been an avid podcast listener for about 2-3 years now and if you had asked me a year ago whether I think it makes sense to fill moments of downtime with a bout of listening, then the answer would have been a resounding yes! But nowadays I'm starting to really reconsider the investments I'm making in terms of time towards podcasts.
 

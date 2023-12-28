@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2020-05-18
 title: Jumping Chesterton's fence
+tags: ["thoughts"]
 ---
 Being pedantic comes with its own risks and rewards: on one hand you risk coming across as someone who desperately wants things their way and on the other hand there is both a subjective and a possibly objective reward to bringing attention to otherwise neglected areas. Subjective and _possibly_ objective rewards separately because something à la pedànt is always a reward for the pedànt, but others can just be so blind to the objective win...
 

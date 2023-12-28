@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-10-29
 title: Switching to a split-ortholinear keyboard
+tags: ["thoughts"]
 ---
 My [Vortex Race 3 mechanical keyboard](https://drop.com/buy/vortex-race-3-mechanical-keyboard "Vortex Race 3 mechanical keyboard at Drop.com") has been in nearly daily use since fall of 2017 and it's been an absolute blast! The profile of the DSA keycaps, the layout, and the impressive build quality (weighs a figurative ton) has kept me loyal solely to it. But, and there's always a "but", around half a year ago I started noticing an increase in the amount of fatigue and pain I feel in my left wrist during longer bouts of sustained typing, both when programming and just writing.
 

@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2020-11-26
 title: Venting on the lack of hind- and foresight
+tags: ["thoughts"]
 ---
 At 2:18 AM on the 25th of November the fitness and training-oriented company [My Fitness AS](https://www.teatmik.ee/en/personlegal/11273563-My-Fitness-AS) sent out an email with a subject that could be translated as "For your safety!❤️" (a sign of things to come if they can't even properly use spacing). I have not been able to stop thinking about that email, and I feel I have to vent to even possibly begin the process of letting it go.
 

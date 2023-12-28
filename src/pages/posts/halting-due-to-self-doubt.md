@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2021-12-01
 title: Halting due to self-doubt
+tags: ["thoughts"]
 ---
 I sometimes have a strange feeling where I'm unable to write more code until I've finished a given blog post, article, tutorial (be it written or as a video) or in a worst case an entire book. The most recent of these is still ongoing after reading "[It's probably time to stop recommending Clean Code](https://qntm.org/clean)" and seeing the author's recommendation for "A Philosophy of Software Design", which I now feel compelled to finish.
 

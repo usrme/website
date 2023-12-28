@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2019-09-04
 title: Starting anew
+tags: ["thoughts"]
 ---
 There's always been a fascination for me with the idea of a blog where I jot down the thoughts that come into my head, and for whatever egotistical reason I have fancied myself a good writer, so the blog that has been in my head has been fantastic! There have been attempts in the past where I've played with the idea by keeping a sort of travel blog, but that quickly fell by the wayside.
 
