@@ -7,19 +7,25 @@ tags: ["yearly-review"]
 ---
 ## Few words
 
-I considered leaving this section out completely as most of what has transpired this year has been of the personal kind, but rest assured, dear definitely existing reader, all is well and I'm not sure could even be better! A year to look back on, for sure, but a year that is making me excited for all that is to come.
+I considered leaving this section out completely as most of what has transpired this year has been of the personal kind, but rest assured, dear definitely existing reader, all is well! A year to look back on, for sure, but a year that is making me excited for all that is yet to come.
 
 ## Recap
 
+### Writing more code
+
+Continuing with last year's [Learning Go](https://usrme.xyz/posts/hullabaloo-with-2022/#learning-go) section, I've continued to double down on learning it, so much so that I requested to take the lead solo to rewrite a critical system at work that was previously a mix of Go _and_ Python to just Go. On top of that I've kept trying to improve [Cometary](https://github.com/usrme/cometary) and [Wishlist Lite](https://github.com/usrme/wishlistlite), both of which serve as a wonderful test bed in a familiar codebase. (Wishlist Lite also got [its first feature request](https://github.com/usrme/wishlistlite/issues/30) in July that wasn't by me, which just made my heart melt!) During all of that Go writing I also wanted to get a little bit of Python in and released a [Powerline segment for Tailscale](https://github.com/usrme/powerline-tailscale).
+
+There is also a secret Go project in the works that is a little less derivative in terms of its core functionality. Whereas both of the Go projects above where inspired by existing solutions and were just adapted to fit my own needs (and to learn!), this one will be something I haven't yet come across. I hope to write this in a way where at the end I feel like I can really hold my own with Go.
+
 ### Learning Kubernetes
 
-After falling down the rabbit hole of learning about [Crossplane](https://www.crossplane.io/) it became clear that my underlying knowledge of Kubernetes itself needs to be deeper and thus I started re-reading "Kubernetes: Up and Running" , along with new ones, such as "Core Kubernetes" and the "Certified Kubernetes Administrator (CKA) Study Guide" by Benjamin Muschko. The latter will hopefully serve me well in actually becoming a Certified Kubernetes Administrator as I've also took it upon myself to complete the certification sooner rather than later. I decided for the official certification route as I remember when I did my [LPIC-1](https://www.lpi.org/our-certifications/lpic-1-overview/) certification way back when, it actually taught me things that would have taken far longer to unearth on my own through day-to-day usage. I'm hoping the same will hold true for the CKA certification in 2024.
+After falling down the rabbit hole of learning about [Crossplane](https://www.crossplane.io/), it became clear that my underlying knowledge of Kubernetes itself needs to be deeper and thus I started re-reading "Kubernetes: Up and Running", along with new ones, such as "Core Kubernetes" and the "Certified Kubernetes Administrator (CKA) Study Guide" by Benjamin Muschko. The latter will hopefully serve me well in actually becoming a Certified Kubernetes Administrator as I've also took it upon myself to complete the certification sooner rather than later. I decided for the official certification route as I remember that when I did my [LPIC-1](https://www.lpi.org/our-certifications/lpic-1-overview/) certification way back when, it actually taught me things that would have taken far longer to unearth on my own through day-to-day usage. I'm hoping the same will hold true for the CKA certification in 2024.
 
 ### Switching to (Neo)Vim
 
-At one point during this summer, I completely switched away from Visual Studio Code over to using NeoVim as my editor of choice, and while it's difficult for me to quantify any increase or decrease in productivity, it is definitely a choice I do not regret! I was finally pushed over the line by [ThePrimeagen's "Vim As Your Editor" series](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) and [Dreams of Code's video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y) on turning Vim into a fully featured IDE. It does take a lot more effort to properly configure your setup compared to Visual Studio Code so that all the magic-y bits like type hints and code refactorings work, to say nothing of learning the actual motions to navigate within Vim. Once you get through the initial slog that may take a couple of weeks, everything starts to feel like second nature, and I've personally really enjoyed that I can now far more comfortably carry myself both on my personal machine and on any machine I SSH into where Vi is most likely always present.
+At one point during this summer, I completely switched away from Visual Studio Code over to using NeoVim as my editor of choice, and while it's difficult for me to quantify any increase or decrease in productivity, it is definitely a choice I do not regret. I was finally pushed over the edge by [ThePrimeagen's "Vim As Your Editor" series](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) and [Dreams of Code's video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y) on turning Vim into a fully featured IDE. It does take a lot more effort to properly configure compared to Visual Studio Code so that all the magic-y bits like type hints and code refactorings work, to say nothing of learning the actual motions to navigate within Vim, but once you get through the initial slog that may take a couple of weeks, everything starts to feel like second nature. I've really enjoyed that I can now far more comfortably carry myself both on my personal machine and on any machine I SSH into where Vi(m) is most likely always present.
 
-ThePrimeagen has recommended several times that since the NeoVim way of doing things does require configuring and tinkering, it's best not to fall into the trap of doing every bit of configuration right away, but to instead write down any annoyances or feature requests, if you will, that you may have and tackle them all at a later date. That is something I'm going to be doing going into the new year, as from time to time, there are some actions that I wish I had a better way of doing, and if I don't write them down and commit to learning them, I'll just keep on doing them in the semi-automatic way, which is far from ideal given all the power (Neo)Vim has.
+ThePrimeagen has recommended several times that since the Vim way of doing things does require configuring and tinkering, it's best not to fall into the trap of doing every bit of configuration right away, but to instead write down any annoyances or feature requests, if you will, that you may have and tackle them piece by piece at a later date. That is something I'm going to be doing going into the new year, as from time to time, there are some actions that I wish I had a better way of doing, and if I don't write them down and commit to learning them, I'll just keep on doing them in the semi-automatic way, which is far from ideal given all the power (Neo)Vim has.
 
 ## Podcast listening
 
@@ -30,7 +36,24 @@ ThePrimeagen has recommended several times that since the NeoVim way of doing th
 
 ## Books read
 
-Down to 13 from 17, as compared to last year, but amongst those a handful really stood out to me (on top of [the one I already reviewed](https://usrme.xyz/posts/book-review-how-minds-change-by-david-mcraney/)) and I would happily recommend the following.
+Borrowing a page out of Tom MacWright's book, going forward I'm going to be showing visually the number of books I have read. He had a lovely bar chart that was created automatically in [his year in review](https://macwright.com/2023/12/28/year-in-review.html), but I'm going down the text-based path and am presenting the [data in ASCII](https://alexwlchan.net/2018/ascii-bar-charts/). The earliest data point is from 2012, which is when I started noting down the books I read.
+
+2012  ▏    8 ████████▎
+2013  ▏    6 ██████▎
+2014  ▏    8 ████████▎
+2015  ▏   14 ██████████████▌
+2016  ▏    8 ████████▎
+2017  ▏    6 ██████▎
+2018  ▏    0 ▏
+2019  ▏   24 █████████████████████████
+2020  ▏   17 █████████████████▋
+2021  ▏   21 █████████████████████▉
+2022  ▏   17 █████████████████▋
+2023  ▏   13 █████████████▌
+Total ▏  142
+Avg.  ▏   12 ████████████▌
+
+2018 was the year I met the love of my life, so it seems as though I didn't have the inclination to read even a single book... Anyway, down to 13 from 17, as compared to last year, but as always a handful really stood out to me (on top of [the one I already reviewed](https://usrme.xyz/posts/book-review-how-minds-change-by-david-mcraney/)) that I've laid out below.
 
 ### "Immune" by Philipp Dettmer
 
