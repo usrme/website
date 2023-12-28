@@ -7,6 +7,8 @@ tags: ["yearly-review"]
 ---
 ## Few words
 
+I considered leaving this section out completely as most of what has transpired this year has been of the personal kind, but rest assured, dear definitely existing reader, all is well and I'm not sure could even be better! A year to look back on, for sure, but a year that is making me excited for all that is to come.
+
 ## Recap
 
 ### Learning Kubernetes
@@ -21,9 +23,9 @@ ThePrimeagen has recommended several times that since the NeoVim way of doing th
 
 ## Podcast listening
 
-* Total (hours): 541
-* Total (days): 22 days 13 hours
-* Average per week (hours): ~10.4
+* Total (hours): 562
+* Total (days): 23 days 10 hours
+* Average per week (hours): ~10.8
 * Average per day (hours): ~1.5
 
 ## Books read
