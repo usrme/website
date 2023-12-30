@@ -7,7 +7,7 @@ tags: ["yearly-review"]
 ---
 ## Few words
 
-I considered leaving this section out completely as most of what has transpired this year has been of the personal kind, but rest assured, dear definitely existing reader, all is well! A year to look back on, for sure, but a year that is making me excited for all that is yet to come.
+Yes, I'll most likely try to rhyme every yearly review post going forward, you'll definitely find the whimsy in it as much as I do. I considered leaving this section out completely as most of what has transpired this year has been of the personal kind, but rest assured, dear definitely existing reader, all is well! A year to look back on, for sure, but a year that is making me excited for all that is yet to come.
 
 ## Recap
 
@@ -29,8 +29,8 @@ ThePrimeagen has recommended several times that since the Vim way of doing thing
 
 ## Podcast listening
 
-* Total (hours): 562
-* Total (days): 23 days 10 hours
+* Total (hours): 563
+* Total (days): 23 days 11 hours
 * Average per week (hours): ~10.8
 * Average per day (hours): ~1.5
 
