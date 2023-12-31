@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2023-12-31
 title: Glee in 2023
-draft: true
+draft: false
 tags: ["yearly-review"]
 ---
 ## Few words
@@ -33,6 +33,8 @@ ThePrimeagen has recommended several times that since the Vim way of doing thing
 * Total (days): 23 days 11 hours
 * Average per week (hours): ~10.8
 * Average per day (hours): ~1.5
+
+Down a whopping 20% from last year's 706 hours, I think there's still hope for me yet! I really wish I could find out personal viewing statistics from YouTube. Might be slightly terrifying though...
 
 ## Books read
 
