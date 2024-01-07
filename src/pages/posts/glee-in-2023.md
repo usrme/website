@@ -38,7 +38,7 @@ Down a whopping 20% from last year's 706 hours, I think there's still hope for m
 
 ## Books read
 
-Borrowing a page out of Tom MacWright's book, going forward I'm going to be showing visually the number of books I have read. He had a lovely bar chart that was created automatically in [his year in review](https://macwright.com/2023/12/28/year-in-review.html), but I'm going down the text-based path and am presenting the [data in ASCII](https://alexwlchan.net/2018/ascii-bar-charts/). The earliest data point is from 2012, which is when I started noting down the books I read.
+Borrowing a page out of Tom MacWright's book, going forward I'm going to be showing visually the number of books I have read. He had a lovely bar chart that was created automatically in [his year in review](https://macwright.com/2023/12/28/year-in-review.html), but I'm going down the text-based path and am presenting the [data in ASCII](https://alexwlchan.net/2018/ascii-bar-charts/)[^1]. The earliest data point is from 2012, which is when I started noting down the books I read.
 
 ```bash
 2012  ▏    8 ████████▎
@@ -70,3 +70,5 @@ I think the first time I came across not treating free will as a given was in th
 ### "The Lincoln Highway" by Amor Towles
 
 I mentioned [last year](https://usrme.xyz/posts/hullabaloo-with-2022/#books-read) that after reading "A Gentleman in Moscow," I bought his other books as well: "Rules of Civility" and "The Lincoln Highway." I read the former first, and while Amor's way of captivating the reader is still strong, it wasn't anywhere near enough of a page-turner (for me) as "A Gentleman in Moscow" was. Maybe that's to be expected given that "Rules of Civility" was his first publication. His latest might just top all his previous books in my eyes. Instead of the story taking place over several years, decades even, this one unwinds its spool of literary genius over the course of just 10 days, which seems all the more amazing given that the physical book is thicker than an encyclopedia! I just could not stop reading one more chapter, and for a work of fiction, any book really, that has to be worth something. Here's to hoping his next one won't take five years to produce!
+
+[^1]: This is now its own thing that you too can use! Check out the [GoBarChar project](https://github.com/usrme/gobarchar) for more information.
