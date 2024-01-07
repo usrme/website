@@ -41,20 +41,20 @@ Down a whopping 20% from last year's 706 hours, I think there's still hope for m
 Borrowing a page out of Tom MacWright's book, going forward I'm going to be showing visually the number of books I have read. He had a lovely bar chart that was created automatically in [his year in review](https://macwright.com/2023/12/28/year-in-review.html), but I'm going down the text-based path and am presenting the [data in ASCII](https://alexwlchan.net/2018/ascii-bar-charts/)[^1]. The earliest data point is from 2012, which is when I started noting down the books I read.
 
 ```bash
-2012  ▏    8 ████████▎
-2013  ▏    6 ██████▎
-2014  ▏    8 ████████▎
-2015  ▏   14 ██████████████▌
-2016  ▏    8 ████████▎
-2017  ▏    6 ██████▎
-2018  ▏    0 ▏
-2019  ▏   24 █████████████████████████
-2020  ▏   17 █████████████████▋
-2021  ▏   21 █████████████████████▉
-2022  ▏   17 █████████████████▋
-2023  ▏   13 █████████████▌
-Total ▏  142
-Avg.  ▏   12 ████████████▌
+2012     8 ████████▎
+2013     6 ██████▎
+2014     8 ████████▎
+2015    14 ██████████████▌
+2016     8 ████████▎
+2017     6 ██████▎
+2018     0 ▏
+2019    24 █████████████████████████
+2020    17 █████████████████▋
+2021    21 █████████████████████▉
+2022    17 █████████████████▋
+2023    13 █████████████▌
+Avg.    12 ████████████▌
+Total  142 █████████████████████████
 ```
 
 2018 was the year I met the love of my life, so it seems as though I didn't have the inclination to read even a single book... Anyway, down to 13 from 17, as compared to last year, but as always a handful really stood out to me (on top of [the one I already reviewed](https://usrme.xyz/posts/book-review-how-minds-change-by-david-mcraney/)) that I've laid out below.
