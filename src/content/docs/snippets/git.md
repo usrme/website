@@ -188,3 +188,9 @@ Removing public/snippets/
 ## Various Git aliases
 
 [Here](https://www.hschne.at/git-aliases/)
+
+## Find out number of changes per author per file
+
+```bash
+git log --pretty=format:'%an' <file> | sort | uniq -c | sort -u | sort -n
+```
