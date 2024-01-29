@@ -4,7 +4,7 @@ pubDate: 2022-06-29
 title: Not to be afraid of GitLab's dynamic parent-child pipelines
 tags: ["git", "gitlab", "jinja2"]
 ---
-The time has finally come where I've truly needed to create a set of dynamic pipelines in GitLab, ones that can only be determined during runtime. So, what do I do? I crack open the [official documentation](https://docs.gitlab.com/ee/ci/pipelines/parent_child_pipelines.html#dynamic-child-pipelines) and see that their example project uses something called [Jsonnet](https://jsonnet.org/), which is something I've never used before.
+The time has finally come where I've truly needed to create a set of dynamic pipelines in GitLab, ones that can only be determined during runtime. So, what do I do? I crack open the [official documentation](https://docs.gitlab.com/ee/ci/pipelines/downstream_pipelines.html#parent-child-pipelines) and see that their example project uses something called [Jsonnet](https://jsonnet.org/), which is something I've never used before.
 
 The example seems simple enough to mold into what I need, but fairly quickly it becomes apparent that while the saved file in GitLab's own example, and in various examples across the Internet, is saved as `.yml` indicating that it's YAML. It is actually formatted as JSON[^1]. As soon as I needed to do more complicated things like multi-line `script` blocks it became unwieldy if not impossible to work with JSON without destroying readability.
 

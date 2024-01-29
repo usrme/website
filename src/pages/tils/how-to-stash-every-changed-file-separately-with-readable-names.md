@@ -4,7 +4,7 @@ pubDate: 2020-12-05
 title: How to stash every changed file separately with readable names
 tags: ["bash", "diffing", "git"]
 ---
-In [my last foray](https://usrme.xyz/posts/quickly-generating-patch-files-for-every-changed-file/) into not using Git entirely correctly I dabbled with generating patch files from changed files as a way to quickly store the state within a repository and being able to excise that state piece by piece elsewhere.
+In [my last foray](https://usrme.xyz/tils/a-way-to-quickly-generate-git-patch-files-for-every-changed-file/) into not using Git entirely correctly I dabbled with generating patch files from changed files as a way to quickly store the state within a repository and being able to excise that state piece by piece elsewhere.
 
 Looking back now it was a bit ham-handed and in all honesty done more for the sake of breaking my blog's dry spell. But this time! Oh, this time there even may be _some_ value in what I'm about bring forth.
 
