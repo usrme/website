@@ -14,7 +14,7 @@ scanelf --needed --nobanner --recursive /usr/local \
     | sort -u
 ```
 
-I had [initially](https://github.com/usrme/website/commit/d3320f5a6083cde4d514eff978841e130c50cf53) wanted to do this myself by building up each of the commands in the pipeline, but I also wanted to mess around with the latest hotness, which is [ChatGPT](https://chat.openai.com/chat), which can do a lot of crazy code-related things out of the box. So, I just asked it:
+I had initially wanted to do this myself by building up each of the commands in the pipeline, but I also wanted to mess around with the latest hotness, which is [ChatGPT](https://chat.openai.com/chat), which can do a lot of crazy code-related things out of the box. So, I just asked it:
 
 > **Me**: Explain this code:
 >

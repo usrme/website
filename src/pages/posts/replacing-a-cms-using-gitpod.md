@@ -63,5 +63,5 @@ While I'm fine with just writing in VS Code, I am sure there are extensions out 
 [^1]: Somewhat... it's still (at the time of writing) not available to personal accounts.
 [^2]: Actually I just want to pare down the various services I somewhat rely on, even if minimally.
 [^3]: More information here: https://github.com/Homebrew/discussions/discussions/2941.
-[^4]: This is just a subset of the configuration I have locally as other things don't make sense to have (i.e. Python-specific settings): https://github.com/usrme/website/blob/master/.vscode/settings.json
+[^4]: This is just a subset of the configuration I have locally as other things don't make sense to have (i.e. Python-specific settings)
 [^5]: The entirety of this post was written using the power of the cloud; how very modern! Though I weep inside that I my shitty little blog takes up some _extra_ amount of physical hardware somewhere... I may just scrap this sooner than I think.
