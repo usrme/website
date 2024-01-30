@@ -8,8 +8,5 @@ As an addendum to my praise of [GitHub's advanced search](https://usrme.xyz/tils
 
 * grep.app: [https://grep.app/](https://grep.app/ "https://grep.app/")
 * Sourcegraph: [https://sourcegraph.com/search](https://sourcegraph.com/search "https://sourcegraph.com/search")
-* Heline: [https://heline.dev/](https://heline.dev/ "https://heline.dev/")
-
-The latter seems to be somewhat lacking in its results compared to the others, but could still be helpful in a pinch!
 
 [^1]: I've now (21.07.22) discovered that there is a more extensive list of code search tools: https://codesearchguide.org/tools
