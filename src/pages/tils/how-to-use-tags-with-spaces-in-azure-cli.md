@@ -67,7 +67,7 @@ az snapshot create \
 
 The above works fine and will most likely keep working fine as long as a tag's value never contains a space. Introducing one will cause this solution to break down horribly. Cue the sad trombone.
 
-I tried various combinations of wrapping the both the tag names and values with single or double quotes, but no dice. After a bit of googling I started noticing that it's [not that uncommon](https://github.com/Azure/azure-cli/issues/1863 "Azure CLI GitHub issue with using spaces in tags") of [a problem](https://social.msdn.microsoft.com/Forums/azure/en-US/263f098e-a515-4a0b-b730-2e6e1fa35516/azure-cli-add-azure-tag-values-with-spaces?forum=azurescripting "MSDN post about using spaces in tags"). I did come across a potential [solution that relied on PowerShell](https://stackoverflow.com/questions/59198657/how-to-pass-tags-with-space "StackOverflow solution to using spaces in tags") and that got some gears going in my head.
+I tried various combinations of wrapping the both the tag names and values with single or double quotes, but no dice. After a bit of googling I started noticing that it's [not that uncommon](https://github.com/Azure/azure-cli/issues/1863 "Azure CLI GitHub issue with using spaces in tags") of [a problem](https://web.archive.org/web/20230206142321/https://social.msdn.microsoft.com/Forums/azure/en-US/263f098e-a515-4a0b-b730-2e6e1fa35516/azure-cli-add-azure-tag-values-with-spaces?forum=azurescripting "MSDN post about using spaces in tags"). I did come across a potential [solution that relied on PowerShell](https://stackoverflow.com/questions/59198657/how-to-pass-tags-with-space "StackOverflow solution to using spaces in tags") and that got some gears going in my head.
 
 ***
 

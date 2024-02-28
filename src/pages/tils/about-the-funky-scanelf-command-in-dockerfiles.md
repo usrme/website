@@ -55,5 +55,5 @@ I've seen people use ChatGPT for some amazing things[^3] and can't wait to poke 
 - <https://unix.stackexchange.com/questions/120015/how-to-find-out-the-dynamic-libraries-executables-loads-when-run>
 
 [^1]: <https://github.com/Azure/azure-cli/blob/c6abf9e43d5474373a8875f0cfef81cc95240f1f/Dockerfile>
-[^2]: <https://scribe.rip/c0d1um/building-django-docker-image-with-alpine-32de65d2706>
+[^2]: <https://medium.com/c0d1um/building-django-docker-image-with-alpine-32de65d2706>
 [^3]: <https://news.ycombinator.com/item?id=33851460>
