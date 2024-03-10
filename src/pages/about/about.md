@@ -93,3 +93,7 @@ Topics learned cover all the basic skills that are common to major Linux distrib
 ### Cometary - A conventional commit helper
 
 <https://github.com/usrme/cometary>
+
+### GoBarChar - A simple way to create bar charts using HTTP query parameters
+
+<https://github.com/usrme/gobarchar>
