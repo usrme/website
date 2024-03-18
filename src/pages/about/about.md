@@ -5,7 +5,7 @@ title: About Me
 ---
 ## Introduction
 
-I am a 31-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves around developing and maintaining a physical and cloud-based infrastructure (Azure and Google Cloud Platform), and writing software in Go and Python.
+I am a 32-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves around developing and maintaining a physical and cloud-based infrastructure (Azure and Google Cloud Platform), and writing software in Go and Python.
 
 ## Contacts
 
