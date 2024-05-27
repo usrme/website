@@ -10,7 +10,7 @@ Not to put down the author for taking the time and effort to even write a book, 
 
 Unfortunately the [documentation builds](https://readthedocs.org/projects/flask/downloads/) are [no longer provided](https://github.com/pallets/flask/issues/4231), which would make _those_ an immediate recommendation instead of the book at hand. Luckily, it's very easy to generate those yourself if you are so inclined. Here's the ceremony required to create an ePub:
 
-```bash
+```console frame="none"
 $ git clone git@github.com:pallets/flask.git
 $ cd flask
 $ python -m venv .docvenv
@@ -32,7 +32,7 @@ To make the PDF file[^1] is just as simple in the actual commands, but as aside 
 
 Where `cmap.sty` was one of multiple LaTeX style files and other missing bits of dependencies that I didn't want to spend time resolving, I just accepted the large file size and got on with it:
 
-```bash
+```console frame="none"
 # After doing all of the above, sans the "make epub"
 $ cd docs/
 $ make latexpdf

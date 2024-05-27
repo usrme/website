@@ -20,7 +20,7 @@ CMD ["app"]
 
 I've long wondered what would be the most efficient way to find out the minimum Go version an application can support, but thus far I've come up short. This is simple enough that I can easily create a copy-pastable variant to use in most of my own Go code:
 
-```bash
+```bash frame="none"
 for i in $(seq 17 21); do
   docker build -f - . << EOF
 FROM golang:1.${i}
@@ -36,7 +36,7 @@ I initially found an incantation like `docker build -`, but that didn't take int
 
 Here's what it looks like to try and build a simple application. I'm using my own [Cometary](https://github.com/usrme/cometary) as the basis and starting from Go 1.17 for brevity as all the older ones fail:
 
-```bash
+```console frame="none"
 $ for i in $(seq 17 21); do
   docker build -f - . << EOF
 FROM golang:1.${i}

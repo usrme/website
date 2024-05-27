@@ -66,7 +66,7 @@ So, now it's working in something that's close to the actual implementation that
 
 And shown straight-up errors:
 
-```bash
+```console frame="none"
 $ az resource list --query "[?tags."currently-used" == 'False' || tags."currently_used" == 'False'].name"
 argument --query: invalid jmespath_type value: "[?tags.currently-used == 'False' || tags.currently_used == 'False'].name"
 ```

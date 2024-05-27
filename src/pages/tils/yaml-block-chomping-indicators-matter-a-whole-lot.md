@@ -53,7 +53,7 @@ regular-job-more-pipes:
 
 While running this locally the result is deterministic, but within a CI job looking at the [debug output](https://docs.gitlab.com/ee/ci/variables/#debug-logging "GitLab CI/CD debug logging") it's apparent that the order in which the pipes are ran is not what is expected **when the first command is** `tail`:
 
-```bash
+```
 --- echo 'git@example.com:group/project
 subscription: sub1
 location: loc1
@@ -66,7 +66,7 @@ location: loc1
 
 Key piece is that `SUBSCRIPTION` should **not** be `loc1`, but rather `sub1`, because it should execute `tail` first and then `head`, not the other way around as it will end up targeting a totally different row in the given input. The same can be observed for the `LOCATION` variable:
 
-```bash
+```
 --- echo 'git@example.com:group/project
 subscription: sub1
 location: loc1

@@ -8,7 +8,7 @@ I recently had to transfer a roughly 90MB directory from a remote machine to my 
 
 I looked up the relevant options[^1] and with a combination of `r`, `C`, and `p` (`scp -rCp ...`) I was off to the races. If you can even call it a race as during the time that this invocation was running I was able to use `rsync` instead and come up with the whole of this post. Here's how long `rsync` took to copy said directory from the east coast of the US to Estonia:
 
-```
+```console frame="none"
 $ rsync -azv <user>@<remote>:<remote path> <local path>
 receiving incremental file list
 ...

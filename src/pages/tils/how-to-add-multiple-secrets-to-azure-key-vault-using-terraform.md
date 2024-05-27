@@ -6,9 +6,7 @@ tags: ["azure", "hashicorp", "keyvault", "terraform"]
 ---
 I previously had a set-up where I needed to create a type of Azure Key Vault secret that didn't need to have an expiration date and one that did:
 
-**main.tf**
-
-```hcl
+```hcl title="main.tf"
 module "key_vaults" {
   source         = "./modules/key-vaults"
   principals     = {
@@ -21,9 +19,7 @@ module "key_vaults" {
 }
 ```
 
-**./modules/key-vaults**
-
-```hcl
+```hcl title="./modules/key-vaults"
 resource "azurerm_key_vault_secret" "principal_appid" {
   for_each     = var.principals
   name         = "sp-${terraform.workspace}-${each.key}-appid"
@@ -40,18 +36,14 @@ resource "azurerm_key_vault_secret" "principal_token" {
 }
 ```
 
-**./modules/key-vaults/variables.tf**
-
-```hcl
+```hcl title="./modules/key-vaults/variables.tf"
 variable "principals" {
   type    = map(any)
   default = null
 }
 ```
 
-**./modules/service-principals/outputs.tf**
-
-```hcl
+```hcl title="./modules/service-principals/outputs.tf"
 output "ci_object" {
   description = "'ci' application object."
   value       = {
@@ -75,9 +67,7 @@ output "grafana_object" {
 
 While this worked as expected it had the downside of unnecessary duplication and inflexibility in that I couldn't `token`-type secrets that _don't_ have an expiration date. Here's what I came up with to solve this after reading [Terraform's Dependency Inversion documentation](https://www.terraform.io/language/modules/develop/composition#dependency-inversion):
 
-**main.tf**
-
-```hcl
+```hcl title="main.tf"
 module "key_vaults" {
   source         = "./modules/key-vaults"
   secrets = [
@@ -90,9 +80,7 @@ module "key_vaults" {
 }
 ```
 
-**./modules/key-vaults**
-
-```hcl
+```hcl title="./modules/key-vaults"
 resource "azurerm_key_vault_secret" "secret" {
   for_each        = { for pair in local.secret_pairs : "${pair.secret_name}" => pair.secret_value }
   name            = each.key
@@ -106,9 +94,7 @@ resource "azurerm_key_vault_secret" "secret" {
 }
 ```
 
-**./modules/key-vaults/variables.tf**
-
-```hcl
+```hcl title="./modules/key-vaults/variables.tf"
 variable "secrets" {
   type    = any
   default = []
@@ -121,9 +107,7 @@ locals {
 }
 ```
 
-**./modules/service-principals/outputs.tf**
-
-```hcl
+```hcl title="./modules/service-principals/outputs.tf"
 output "ci_object" {
   description = "'ci' application object."
   value       = {
@@ -155,9 +139,7 @@ output "grafana_object" {
 }
 ```
 
-**./modules/service-principals/variables.tf**
-
-```hcl
+```hcl title="./modules/service-principals/variables.tf"
 variable "principal_prefix" {
   type    = string
   default = "sp"

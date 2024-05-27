@@ -123,7 +123,7 @@ COPY script.sh ./
 
 One of the things I've noticed with this is that when running, for example, `az login` it says it is unable to load several modules, but then still proceeds to log in just fine:
 
-```shell
+```console frame="none"
 $ az login ...
 Error loading command module 'acs': No module named 'azure.mgmt.msi'
 Error loading command module 'aro': No module named 'azure.mgmt.redhatopenshift'
@@ -144,7 +144,7 @@ Another minor thing was that I had to use a Tailscale exit node for work-related
 
 Despite the wonderful tool ['dive'](https://github.com/wagoodman/dive) reporting an efficiency score of 98%, I still wanted to learn more about how to decrease the size further, which lead me to [DockerSlim](https://dockersl.im/) and tangentially [Slim Container Starter Pack](https://github.com/slimdevops/slim-containers/). I'm not a 100% if I understood the documentation of Docker Slim correctly, but what I gathered was that I was supposed to, for this scenario where there isn't a single package that I run but rather a hodge-podge of various binaries and libraries, include all the relevant paths and binaries, and give it a script to run so that it can understand what are the bits and pieces it needs to keep in the minified container image. I set up a small script (`slim-exec.sh`) that to my understanding should cover the entire usage:
 
-```shell
+```bash frame="none"
 #!/bin/bash
 
 az --version
@@ -157,7 +157,7 @@ az login <actual options and values>
 
 I then ran `docker-slim` with all the bits and pieces given to it:
 
-```shell
+```bash frame="none"
 docker-slim build \
     --http-probe=false \
     --continue-after=exec \
@@ -211,7 +211,7 @@ To find the relevant executables I just followed what the script did, noted any 
 
 The invocation of `docker-slim` now looked like this:
 
-```shell
+```bash frame="none"
 docker-slim build \
   --http-probe=false \
   --continue-after=exec \
@@ -225,11 +225,6 @@ docker-slim build \
 And everything worked as expected! To very little fanfare though as the resulting image was just 295MB compared to the 307MB from the previous iteration. Going through all that most definitely isn't worth a paltry 4% reduction. There is one more avenue I wanted to explore and that was installing everything Python-related in a virtual environment and including that instead. I made minor changes to the Dockerfile above and rebuilt the so called "fat" image:
 
 ```diff
-diff --git a/Dockerfile b/Dockerfile
-index 5a68ac8..08c078c 100644
---- a/Dockerfile
---- b/Dockerfile
-@@ -14,7 +14,7 @@ FROM python:3.10.8-alpine3.16
 ARG AZ_COPY_RELEASE=release20221108
 ARG AZ_COPY_VERSION=10.16.2
 
@@ -256,11 +251,6 @@ ARG AZ_COPY_VERSION=10.16.2
 I modified `slim-paths.txt` to reflect this change and also added AzCopy's binary to clean up the call to `docker-slim`:
 
 ```diff
-diff --git a/slim-paths.txt b/slim-paths.txt
-index f4e9c85..99648f7 100644
---- a/slim-paths.txt
---- b/slim-paths.txt
-@@ -5,6 +5,7 @@
  /bin/rm
  /bin/sed
  /lib/libssl.so.1.1
@@ -278,7 +268,7 @@ index f4e9c85..99648f7 100644
 
 Again, fired up `docker-slim`:
 
-```shell
+```console frame="none"
 $ docker-slim build \
   --http-probe=false \
   --continue-after=exec \
@@ -293,7 +283,7 @@ cmd=build info=results size.original='325 MB' size.optimized='290 MB' status='MI
 
 The original size is 325MB because now there is a virtual environment where one wasn't before. Other than though, the size is now 290MB[^6]! Does it work though? Nope:
 
-```shell
+```console frame="none"
 $ docker run --rm -it registry/existing-image.slim az login
 Auto upgrade failed. name 'exit_code' is not defined
 Traceback (most recent call last):
@@ -316,7 +306,7 @@ Even after adding `--system-site-packages` to when the virtual environment was i
 
 At what point does the size get out of control? I created a run-of-the-mill virtual environment locally, installed every dependency, but after installing each checked the size of the directory using `du`:
 
-```shell
+```console frame="none"
 $ pip install -qqq --no-dependencies azure-cli==2.40.0 && echo "After '--no-dependencies azure-cli'" && du -hc | tail -n 1
 pip install -qqq azure-cli-core && echo "After 'azure-cli-core'" && du -hc | tail -n 1
 pip install -qqq azure-common && echo "After 'azure-common'" && du -hc | tail -n 1

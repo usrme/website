@@ -17,7 +17,7 @@ While UPX succeeded in taking down the size of the binary from just 3.2MB when u
 
 For the regular build (using the command above):
 
-```console
+```console frame="none"
 $ ps_mem -p $(pgrep wishlistlite -d ",")
  Private  +   Shared  =  RAM used       Program
 
@@ -30,7 +30,7 @@ $ ps_mem -p $(pgrep wishlistlite -d ",")
 The Shared column indicates that some amount of memory is shared between the two instances. In a single instance scenario the Shared value is expectedly low:
 
 
-```console
+```console frame="none"
 $ ps_mem -p $(pgrep wishlistlite -d ",")
  Private  +   Shared  =  RAM used       Program
 
@@ -42,7 +42,7 @@ $ ps_mem -p $(pgrep wishlistlite -d ",")
 
 Now, after compressing with UPX in a single instance scenario:
 
-```console
+```console frame="none"
 $ ps_mem -p $(pgrep wishlistliteupx -d ",")
  Private  +   Shared  =  RAM used       Program
 
@@ -54,7 +54,7 @@ $ ps_mem -p $(pgrep wishlistliteupx -d ",")
 
 The memory usage has gone up somewhat, which isn't all that noticeable for an executable of an already small size, but crank up the instance count by just one and the differences are becoming more stark:
 
-```console
+```console frame="none"
 $ ps_mem -p $(pgrep wishlistliteupx -d ",")
  Private  +   Shared  =  RAM used       Program
 
@@ -72,7 +72,7 @@ Mention of start-up speed was also mentioned, which is something I'm extremely p
 
 The quickest way for me to measure things these days is to use a simple [alias that relies on the 'perf' command](https://usrme.xyz/tils/perf-is-more-robust-for-repeated-timings-than-time/) and the differences between the two executables are apparent. First, here's the regular build:
 
-```console
+```console frame="none"
 $ perf stat --null --table --repeat 10 ./wishlistlite
 
  Performance counter stats for './wishlistlite' (10 runs):
@@ -95,7 +95,7 @@ $ perf stat --null --table --repeat 10 ./wishlistlite
 
 And here's the compressed build:
 
-```console
+```console frame="none"
 $ perf stat --null --table --repeat 10 ./wishlistliteupx
 
  Performance counter stats for './wishlistliteupx' (10 runs):
@@ -118,7 +118,7 @@ $ perf stat --null --table --repeat 10 ./wishlistliteupx
 
 The compressed variant is roughly 50% slower according to `perf`. This is, of course, a micro benchmark, thus the real-world results might easily skew when number of executions is increased and a less noisy system is used, but there at the very least seems to be food for thought here. I also ran both through ['hyperfine'](https://github.com/sharkdp/hyperfine):
 
-```console
+```console frame="none"
 $ hyperfine --warmup 10 './wishlistlite' './wishlistliteupx'
 Benchmark 1: ./wishlistlite
   Time (mean ± σ):      29.8 ms ±   4.0 ms    [User: 8.6 ms, System: 8.8 ms]

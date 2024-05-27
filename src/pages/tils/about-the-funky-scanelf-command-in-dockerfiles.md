@@ -6,7 +6,7 @@ tags: ["bash", "chatgpt", "docker"]
 ---
 I've now ran into this funky `scanelf` command in enough Dockerfiles[^1][^2] that I got curious about what it actually means:
 
-```bash
+```bash frame="none"
 scanelf --needed --nobanner --recursive /usr/local \
     | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
     | sort -u \

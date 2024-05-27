@@ -13,7 +13,6 @@ At first I thought I would just be able to use the [HTTP upload](https://gorelea
 By default, however, GoReleaser's [snapshots](https://goreleaser.com/customization/snapshots/) functionality creates archives that contain the current commit ID as well as the currently released tag in its name. This would have meant that every new commit in relation to a merge request would result in an entirely new package (in terms of GitLab) being created which has the potential to balloon the space requirements for a single Git repository. Luckily, the name can be changed. The example to change the name of a snapshot release though is as follows:
 
 ```yaml
-# .goreleaser.yaml
 snapshot:
   # Default is `{{ .Version }}-SNAPSHOT-{{.ShortCommit}}`.
   # Templates: allowed
@@ -29,7 +28,6 @@ For a given merge request within a project, its own ID (i.e. the merge request's
 For local usage of GoReleaser I wanted to keep the `devel` string within the name, but for snapshot releases happening in merge requests I wanted to use the value of the environment variable `CI_MERGE_REQUEST_IID`. GoReleaser, again, has thought of pretty much everything and has [global environment variables](https://goreleaser.com/customization/env/), which I set up as follows:
 
 ```yaml
-# .goreleaser.yaml
 env:
   - ENV_MR_IID={{ if index .Env "CI_MERGE_REQUEST_IID" }}{{ .Env.CI_MERGE_REQUEST_IID }}{{ else }}devel{{ end }}
 
@@ -40,7 +38,6 @@ snapshot:
 This would result in a package version like `1.0.1-1` if this was the first merge request in the project. For GitLab's CI it's necessary to create a job that only triggers for merge request events. I usually use YAML anchoring for [rules](https://docs.gitlab.com/ee/ci/yaml/index.html#rules) as then I can just define them at the top and use aliases to reference them elsewhere. The following sets up two [variables](https://docs.gitlab.com/ee/ci/yaml/index.html#variables) - one for the [packages API](https://docs.gitlab.com/ee/api/packages.html) and one for the project-specific package registry - and one rule for triggering upon commits to an active merge request:
 
 ```yaml
-# .gitlab-ci.yml
 stages:
   - publish
 
@@ -56,7 +53,6 @@ variables:
 Now the actual job[^1]:
 
 ```yaml
-# .gitlab-ci.yml
 ...
 
 .publish:
@@ -107,7 +103,7 @@ The astute among you may have noticed the `GITLAB_TOKEN` variable. This is diffe
 
 Here's what an example run of this job would look like:
 
-```python
+```console frame="none"
 $ apk add jq
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz

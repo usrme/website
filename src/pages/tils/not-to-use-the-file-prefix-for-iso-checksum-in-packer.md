@@ -8,7 +8,7 @@ I spent quite a long time today fiddling with a Packer configuration for Hyper-V
 
 What we previously had was a PowerShell script that just spat out the hash into a file willy-nilly[^1]:
 
-```powershell
+```powershell frame="none"
 Get-FileHash ubuntu-server-cloudimg-amd64.vhdx | \
   Select-Object -Property Hash | \
   Out-File -FilePath D:\checksum
@@ -16,7 +16,7 @@ Get-FileHash ubuntu-server-cloudimg-amd64.vhdx | \
 
 Originally the Packer configuration was set up to actually ignore the checksum entirely[^2]:
 
-```hcl
+```hcl frame="none"
 source "hyperv-iso" "ubuntu_cloudimg" {
   disk_block_size      = 1
   cd_files             = [ "./files/meta-data", "./files/user-data" ]

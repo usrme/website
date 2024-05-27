@@ -6,7 +6,7 @@ tags: ["pip", "python"]
 ---
 Mind-boggling, I know, but having never actually run into this before I thought you could at least force the uninstallation process through `pip` somehow, but it turns out that you can't:
 
-```shell
+```console frame="none"
 $ cat pip_uninstall.txt | xargs -I {} pip uninstall -y {}
 Found existing installation: azure-keyvault 4.0.0
 Not uninstalling azure-keyvault at /usr/lib/python3/dist-packages, outside environment /usr
