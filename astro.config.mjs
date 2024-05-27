@@ -1,17 +1,18 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import expressiveCode from "astro-expressive-code";
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 export default defineConfig({
   site: 'https://usrme.xyz',
   markdown: {
     drafts: false,
-    shikiConfig: {
-      theme: 'github-dark-dimmed',
-      // https://github.com/shikijs/shiki/blob/main/docs/languages.md
-      wrap: false,
-    },
   },
   integrations: [
+    expressiveCode({
+      themes: ['github-dark-dimmed', 'github-light'],
+      plugins: [pluginLineNumbers()],
+    }),
     starlight({
       title: 'Back to home page',
       customCss: [
