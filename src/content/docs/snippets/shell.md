@@ -588,3 +588,9 @@ Sep 08 07:37:21 bupkis env[19948]: BOOT_IMAGE=/vmlinuz-3.11.0-0.rc5.git6.2.fc20.
 - Detach from session: `Ctrl+A+D`
 - List sessions: `screen -ls`
 - Attach to a running session: `screen -r <session ID>`
+
+## Don't send anything identifiable over SSH
+
+```bash frame="none"
+ssh -a -i /dev/null -o IdentityAgent=/dev/null whoami.filippo.io
+```
