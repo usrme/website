@@ -41,7 +41,8 @@ Reading [finswimmer's answer](https://github.com/python-poetry/poetry/issues/449
 
 Prior to this I had been using the [builder pattern](https://blog.alexellis.io/mutli-stage-docker-builds/ "Alex Ellis - Builder pattern vs. Multi-stage builds in Docker") for Docker, but there are also [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/ "Docker Docs: Use multi-stage builds") and those serve to greatly reduce complexity (and bring forth other improvements) when using multiple Dockerfiles. Let's see an example. Here is the first Dockerfile that contains the prerequisite software[^2]:
 
-```docker title="Dockerfile.prereq"
+```docker
+# Dockerfile.prereq
 FROM python:3.9.7-slim-buster
 
 RUN : \
@@ -64,6 +65,7 @@ RUN poetry config virtualenvs.create false && poetry install --no-root --no-dev
 And here's the Dockerfile that's supposed to set up the project itself:
 
 ```docker
+# Dockerfile
 FROM prereq:master
 
 WORKDIR /var/opt/group

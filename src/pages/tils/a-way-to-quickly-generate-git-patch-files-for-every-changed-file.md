@@ -10,7 +10,7 @@ Though I am aware of [git-stash](https://www.git-scm.com/docs/git-stash) it does
 
 Upon googling I found [Remy van Elst's blog post](https://raymii.org/s/tutorials/Bash_bits_split_a_file_in_blocks_and_do_something_with_each_block.html) about splitting a file into blocks and doing something with those blocks, which pretty much got me 90% of what I wanted without spending more time than necessary on this bike shed of a venture. Here is the code as it stands currently:
 
-```bash frame="none"
+```bash
 OLDIFS=$IFS
 IFS=';'
 blocks=$(git diff | sed -n '/diff/,/(diff|$)/ {/diff / s/^/\;/; p}')
@@ -36,6 +36,6 @@ The 10% that I added is in line number 5 where I just echo the contents of the `
 
 This works with a single changed file and with multiple, so everything that is needed is to save that code as a function within your `.bashrc` or `.bash_aliases` (the former of which is then sourced) or to run this one-liner:
 
-```bash frame="none"
+```bash
 OLDIFS=$IFS; IFS=';' blocks=$(git diff | sed -n '/diff/,/(diff|$)/ {/diff / s/^/\;/; p}'); for block in ${blocks#;}; do echo "$block" > $(echo "$block" | head -n 1 | rev | cut -d "/" -f 1 | rev).patch; done; IFS=$OLDIFS
 ```

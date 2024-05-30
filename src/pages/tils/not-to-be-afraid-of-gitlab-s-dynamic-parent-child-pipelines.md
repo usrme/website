@@ -10,7 +10,7 @@ The example seems simple enough to mold into what I need, but fairly quickly it 
 
 So, a lightbulb went off for my colleague. If it's supposedly YAML, but looks like JSON, and is parsed fine by GitLab then that means one should just be able to pass in a YAML file like in a regular `include`. How does one dynamically create a valid YAML file? With [Jinja2](https://palletsprojects.com/p/jinja/) of course! Since it's usually used as a library, for example within Ansible and Python, it was necessary to install an additional tool called [j2cli](https://pypi.org/project/j2cli/). After reading how to use the tool I had hoped I could just pass in a list through an environment variable, have it be looped over in a normal `for`-loop, and be done with it, but I had to first create a rudimentary INI file that contained all the elements of my list[^2] and pass that to the `j2` executable:
 
-```console frame="none"
+```shell
 $ cat jobs.ini
 [jobs]
 job1=job1

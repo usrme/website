@@ -6,7 +6,7 @@ description: Docker and Podman oneliners.
 
 From [here](https://ilhicas.com/2018/11/03/docker-build-with-build-arg-wit-multiple-arguments.html)
 
-```bash frame="none"
+```shell
 podman build -t foo \
   $(while IFS= read -r line; do args+="--build-arg ${line} "; \above
   done < <(cat .arg); \
@@ -15,25 +15,25 @@ echo "$args"; unset args) .
 
 ## Remove all 'exited' containers
 
-```bash frame="none"
+```shell
 podman rm $(podman ps --all -q -f status=exited)
 ```
 
 ## Build and run container based on Dockerfile in current context
 
-```bash frame="none"
+```shell
 podman build -t foo . && podman run --rm -it foo
 ```
 
 ## Prune everything that shouldn't exist anymore without any confirmation
 
-```bash frame="none"
+```shell
 podman system prune -a -f
 ```
 
 ## Remove all images except `latest`
 
-```bash frame="none"
+```shell
 podman images | grep -v "latest" | tail -n +2 | awk '{ print $3 }' | xargs --no-run-if-empty podman rmi
 ```
 
@@ -51,6 +51,6 @@ RUN set -eu; \
 
 ## Remove dangling `<none>:<none>` images
 
-```bash frame="none"
+```shell
 docker rmi $(docker images -f "dangling=true" -q)
 ```

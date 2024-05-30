@@ -16,7 +16,7 @@ The way you add an initial set of tags to a resource is usually during creation-
 
 So, being the engineer that I am I quickly created a Bash function to condense the set of tags from JSON into a single-line format that `az` expects:
 
-```bash frame="none"
+```bash
 function condense_resource_tags() {
   # $1 - JSON object of a resource's tags
 
@@ -41,7 +41,7 @@ function condense_resource_tags() {
 
 All of that can probably very well be achieved with a [JQ](https://stedolan.github.io/jq/ "jq is a lightweight and flexible command-line JSON processor") or [JMESPath](https://jmespath.org/ "JMESPath is a query language for JSON") expression, but what's done is done. Here's an example of the getting an input for the function, what it would output, and how it could be used down the line:
 
-```bash frame="none"
+```bash
 snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
 snapshot_tags=$(jq -r '.tags' <<< "$snapshot_metadata")
 echo "$snapshot_tags"
@@ -99,7 +99,7 @@ cli.azure.cli.core.sdk.policies: {"operation": "Replace", "properties": {"tags":
 
 You can see that it uses the `PATCH` HTTP request method against the `/Microsoft.Resources/tags/default` endpoint. If you are at all familiar with Azure you can spot that the bulk of the URL is composed of the target resource's ID with the latter portion tacked on, meaning you can (probably) target any valid resource. That final portion will clue you in on [the exact API endpoint ](https://docs.microsoft.com/en-us/rest/api/resources/tags/update-at-scope "Tags - Update At Scope REST API reference")you can look up in the reference. You can also see that the request has a body, which means that if you want to call that endpoint directly then you're the one who has to create the body. With all that it's off to function creation races!
 
-```bash frame="none"
+```bash
 function update_tags() {
   # Use 'az rest' to update tags instead of relying on 'az tag update'
   # to properly work with space-separated tag values
@@ -131,7 +131,7 @@ Note how the `\"tags\": ${tags}\` line does not contain double quotes around the
 
 Now it's very easy to just make minor alterations to the previous code (shown in full) and be able to support tags with spaces in them as well:
 
-```bash frame="none"
+```bash
 snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
 snapshot_tags=$(jq -r '.tags' <<< "$snapshot_metadata")
 echo "$snapshot_tags"

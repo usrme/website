@@ -4,48 +4,48 @@ description: PowerShell oneliners.
 ---
 ## Get today's date and time where time is set to midnight
 
-```powershell frame="none"
+```powershell
 [DateTime]::Today
 ```
 
 ## Show list of logged on users
 
-```powershell frame="none"
+```powershell
 query user /server:$SERVER
 ```
 
 ## Log off user by specifying session ID
 
-```powershell frame="none"
+```powershell
 logoff <session ID>
 ```
 
 ## Reload a local module
 
-```powershell frame="none"
+```powershell
 Import-Module -Name .\module.psd1 -Force
 ```
 
 ## Pretty-print minified JSON
 
-```powershell frame="none"
+```powershell
 $String | ConvertFrom-Json | ConvertTo-Json -Depth 100
 ```
 
 ## Convert from Base64
 
-```powershell frame="none"
+```powershell
 [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String($String))
 ```
 
 ## Convert string to boolean
 
-```powershell frame="none"
+```powershell
 [System.Convert]::ToBoolean($String)
 ```
 
 ## Resolve FQDN
 
-```powershell frame="none"
+```powershell
 [System.Net.Dns]::GetHostByName($FQDN)
 ```

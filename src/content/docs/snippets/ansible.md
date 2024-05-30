@@ -6,7 +6,7 @@ description: Ansible oneliners.
 
 From [here](https://stackoverflow.com/a/38384205). Note the comma after the IP or FQDN as described [here](https://groups.google.com/d/msg/ansible-project/G_9JRGp5jGE/PTBZdgDb5OEJ). Additional hosts can be added by supplying `-i` parameter with more arguments (comma at the end only if total count is 1).
 
-```bash frame="none"
+```bash
 ansible-playbook -i '<IP or FQDN>,' -u '<user name>' --extra-vars \
   'ansible_winrm_server_cert_validation=ignore \
   ansible_connection=winrm \
@@ -18,7 +18,7 @@ ansible-playbook -i '<IP or FQDN>,' -u '<user name>' --extra-vars \
 
 Replace the final 'all' with a more precise host pattern if you passed more than one IP or FQDN to the initial list (comma at the end only if total count is 1).
 
-```bash frame="none"
+```bash
 ansible -i '<IP or FQDN>,' -u '<user name>' --extra-vars \
   'ansible_winrm_server_cert_validation=ignore \
   ansible_connection=winrm \
@@ -43,6 +43,6 @@ ANSIBLE_STDOUT_CALLBACK='yaml'
 
 ## Debug variables without running entire playbook
 
-```bash frame="none"
+```bash
 ansible -m debug <host> -a "var=hostvars[inventory_hostname].<variable>"
 ```
