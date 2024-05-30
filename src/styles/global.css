@@ -9,7 +9,7 @@ html {
 /* Copy & Lists */
 p {
 	line-height: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: 0;
 	margin-top: 1.5rem;
 }
 ul, ol {
@@ -73,8 +73,9 @@ table td, table th {
 	line-height: 33px;
 	padding: 0;
 }
-.expressive-code {
-	margin-bottom: 1.5rem
+/* Code blocks */
+code {
+	vertical-align: bottom;
 }
 /* Leading paragraph text */
 .lead {
@@ -257,6 +258,22 @@ li.element > a.content {
 	text-decoration: none;
 }
 
+/* https://github.com/shikijs/shiki/issues/3#issuecomment-830564854 */
+code {
+	counter-increment: step 0;
+	counter-reset: step;
+}
+
+code .line::before {
+	color: #7683906e;
+	content: counter(step);
+	counter-increment: step;
+	display: inline-block;
+	margin-right: 1.5rem;
+	text-align: right;
+	width: 1rem;
+}
+
 footer {
 	border-style: dotted;
 	border-left: 0;
@@ -345,4 +362,3 @@ footer {
 	background-color: var(--dark-code-single-bg-color);
 	color: var(--dark-code-highlight-color);
 }
-
