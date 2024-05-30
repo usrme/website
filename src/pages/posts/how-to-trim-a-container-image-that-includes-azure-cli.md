@@ -123,7 +123,7 @@ COPY script.sh ./
 
 One of the things I've noticed with this is that when running, for example, `az login` it says it is unable to load several modules, but then still proceeds to log in just fine:
 
-```shell
+```console
 $ az login ...
 Error loading command module 'acs': No module named 'azure.mgmt.msi'
 Error loading command module 'aro': No module named 'azure.mgmt.redhatopenshift'
@@ -144,7 +144,7 @@ Another minor thing was that I had to use a Tailscale exit node for work-related
 
 Despite the wonderful tool ['dive'](https://github.com/wagoodman/dive) reporting an efficiency score of 98%, I still wanted to learn more about how to decrease the size further, which lead me to [DockerSlim](https://dockersl.im/) and tangentially [Slim Container Starter Pack](https://github.com/slimdevops/slim-containers/). I'm not a 100% if I understood the documentation of Docker Slim correctly, but what I gathered was that I was supposed to, for this scenario where there isn't a single package that I run but rather a hodge-podge of various binaries and libraries, include all the relevant paths and binaries, and give it a script to run so that it can understand what are the bits and pieces it needs to keep in the minified container image. I set up a small script (`slim-exec.sh`) that to my understanding should cover the entire usage:
 
-```shell
+```bash
 #!/bin/bash
 
 az --version
@@ -173,7 +173,7 @@ docker-slim build \
 
 It ran just fine and I thought I was off to the races, but then I saw that now that when `slim-exec.sh` was passed to it the size was a far cry from what I had hoped and when opening the container to run the same commands again there were errors all over the place:
 
-```
+```text
 ...
 cmd=build info=results by='1.06X' size.original='307 MB' size.optimized='291 MB' status='MINIFIED'
 ...
@@ -185,7 +185,7 @@ I guess this means that I should just take the 307MB I managed to conjur up befo
 
 I knew I'd be back at it, and not even 24 hours later I managed to get the above incantations to work, though the results are unremarkable. The `slim-exec.sh` was good as it was and didn't require any modifications, but the paths that I included got a complete overhaul. So much so that I switched to the `--include-path-file` option with a file (`slim-paths.txt`), which included all the relevant paths and files:
 
-```
+```text
 /bin/cat
 /bin/cp
 /bin/mkdir
@@ -278,7 +278,7 @@ index f4e9c85..99648f7 100644
 
 Again, fired up `docker-slim`:
 
-```shell
+```console
 $ docker-slim build \
   --http-probe=false \
   --continue-after=exec \
@@ -293,7 +293,7 @@ cmd=build info=results size.original='325 MB' size.optimized='290 MB' status='MI
 
 The original size is 325MB because now there is a virtual environment where one wasn't before. Other than though, the size is now 290MB[^6]! Does it work though? Nope:
 
-```shell
+```console
 $ docker run --rm -it registry/existing-image.slim az login
 Auto upgrade failed. name 'exit_code' is not defined
 Traceback (most recent call last):
@@ -316,14 +316,14 @@ Even after adding `--system-site-packages` to when the virtual environment was i
 
 At what point does the size get out of control? I created a run-of-the-mill virtual environment locally, installed every dependency, but after installing each checked the size of the directory using `du`:
 
-```shell
+```console
 $ pip install -qqq --no-dependencies azure-cli==2.40.0 && echo "After '--no-dependencies azure-cli'" && du -hc | tail -n 1
-pip install -qqq azure-cli-core && echo "After 'azure-cli-core'" && du -hc | tail -n 1
-pip install -qqq azure-common && echo "After 'azure-common'" && du -hc | tail -n 1
-pip install -qqq azure-mgmt-compute && echo "After 'azure-mgmt-compute'" && du -hc | tail -n 1
-pip install -qqq azure-mgmt-monitor && echo "After 'azure-mgmt-monitor'" && du -hc | tail -n 1
-pip install -qqq azure-mgmt-resource && echo "After 'azure-mgmt-resource'" && du -hc | tail -n 1
-pip install -qqq semver && echo "After 'semver'" && du -hc | tail -n 1
+$ pip install -qqq azure-cli-core && echo "After 'azure-cli-core'" && du -hc | tail -n 1
+$ pip install -qqq azure-common && echo "After 'azure-common'" && du -hc | tail -n 1
+$ pip install -qqq azure-mgmt-compute && echo "After 'azure-mgmt-compute'" && du -hc | tail -n 1
+$ pip install -qqq azure-mgmt-monitor && echo "After 'azure-mgmt-monitor'" && du -hc | tail -n 1
+$ pip install -qqq azure-mgmt-resource && echo "After 'azure-mgmt-resource'" && du -hc | tail -n 1
+$ pip install -qqq semver && echo "After 'semver'" && du -hc | tail -n 1
 After '--no-dependencies azure-cli'
 48M     total
 After 'azure-cli-core'

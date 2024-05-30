@@ -6,7 +6,7 @@ tags: ["cicd", "docker", "gitlab", "poetry", "python"]
 ---
 After upgrading one of the many development dependencies in a Python project I ran into an [issue](https://github.com/python-poetry/poetry/issues/4493 "GitHub.com  python-poetry/poetry issue: ModuleNotFoundError: No module named 'platformdirs' when doing poetry install --dev ") where Poetry wasn't able to install dependencies as it could before:
 
-```
+```text
 Step 4/4 : RUN poetry install --no-dev
  ---> Running in fc4ff2783ec4
 Traceback (most recent call last):

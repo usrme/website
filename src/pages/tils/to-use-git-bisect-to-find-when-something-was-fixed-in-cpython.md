@@ -6,7 +6,7 @@ tags: ["bash", "diffing", "git", "python"]
 ---
 A colleague of mine recently stumbled upon an error in a Python script that uses [asynchronous I/O](https://docs.python.org/3/library/asyncio.html):
 
-```
+```text
 Traceback (most recent call last):
   File "script.py", line 175, in <module>
     asyncio.run(multiple_commands(progress, nsg_resource_ids, args.lock))
@@ -47,7 +47,7 @@ I was reminded of [Anthony Sottile's video](https://www.youtube.com/watch?v=2ETZ
     * if dependencies were installed, then `prefix` directory needs to be deleted and `./configure` and `make` need to be ran again
 * confirm Python version:
 
-```
+```console
 $ ./prefix/bin/python3.10 --version
 Python 3.10.4
 ```
@@ -115,7 +115,7 @@ I spent a lot of time just trying pretty much an identical script, but using `gi
 
 Either way that negation makes the bisection work like a charm and made me find the commit that fixed the issue fairly quickly (around 15-20 minutes of continuous builds, installs, etc.):
 
-```shell
+```console
 $ git bisect run bash -c "! ./bisect.sh"
 ...
 0ec34cab9dd4a7bcddafaeeb445fae0f26afcdd1 is the first fixed commit

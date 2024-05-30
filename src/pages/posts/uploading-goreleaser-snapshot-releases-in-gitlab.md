@@ -107,7 +107,7 @@ The astute among you may have noticed the `GITLAB_TOKEN` variable. This is diffe
 
 Here's what an example run of this job would look like:
 
-```python
+```console
 $ apk add jq
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz

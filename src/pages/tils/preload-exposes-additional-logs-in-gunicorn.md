@@ -6,7 +6,7 @@ tags: ["python"]
 ---
 All good things start with curious error messages:
 
-```bash
+```console
 $ gunicorn start:app
 [2022-03-09 07:41:08 +0000] [35] [INFO] Starting gunicorn 20.1.0
 [2022-03-09 07:41:08 +0000] [35] [INFO] Listening at: http://0.0.0.0:5000 (35)
@@ -20,7 +20,7 @@ $ gunicorn start:app
 
 Not all that helpful, is it? How about if we increase the log level?
 
-```bash
+```console
 $ gunicorn start:app --log-level debug
 [2022-03-09 07:43:37 +0000] [40] [DEBUG] Current configuration:
   config: ./gunicorn.conf.py
@@ -45,7 +45,7 @@ $ gunicorn start:app --log-level debug
 
 What is this signal 15?
 
-```bash
+```console
 $ kill -l
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
  6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
@@ -64,7 +64,7 @@ $ kill -l
 
 So signal 15 is equivalent to `SIGTERM`, also known as the graceful termination signal. The [Gunicorn documentation on signals](https://docs.gunicorn.org/en/stable/signals.html#worker-process) says the same. But we still don't know what's causing it to not run properly and this is where the ['--preload' option](https://docs.gunicorn.org/en/stable/settings.html?highlight=preload#preload-app) comes in. It loads the application code prior to forking the worker processes in an attempt to conserve RAM usage and to speed up the server boot times. I have no real need for this option other than for its ability to provide insight into the failure. So, let's drop the `--log-level debug` in favor of `--preload`:
 
-```bash
+```console
 $ gunicorn start:app --preload
 Traceback (most recent call last):
   File "/app/.venv/bin/gunicorn", line 8, in <module>

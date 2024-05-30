@@ -36,7 +36,7 @@ I initially found an incantation like `docker build -`, but that didn't take int
 
 Here's what it looks like to try and build a simple application. I'm using my own [Cometary](https://github.com/usrme/cometary) as the basis and starting from Go 1.17 for brevity as all the older ones fail:
 
-```bash
+```console
 $ for i in $(seq 17 21); do
   docker build -f - . << EOF
 FROM golang:1.${i}

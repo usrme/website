@@ -6,7 +6,7 @@ description: Docker and Podman oneliners.
 
 From [here](https://ilhicas.com/2018/11/03/docker-build-with-build-arg-wit-multiple-arguments.html)
 
-```shell
+```bash
 podman build -t foo \
   $(while IFS= read -r line; do args+="--build-arg ${line} "; \above
   done < <(cat .arg); \

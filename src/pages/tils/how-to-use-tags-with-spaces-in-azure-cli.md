@@ -41,28 +41,27 @@ function condense_resource_tags() {
 
 All of that can probably very well be achieved with a [JQ](https://stedolan.github.io/jq/ "jq is a lightweight and flexible command-line JSON processor") or [JMESPath](https://jmespath.org/ "JMESPath is a query language for JSON") expression, but what's done is done. Here's an example of the getting an input for the function, what it would output, and how it could be used down the line:
 
-```bash
-snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
-snapshot_tags=$(jq -r '.tags' <<< "$snapshot_metadata")
-echo "$snapshot_tags"
+```console
+$ snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
+$ snapshot_tags=$(jq -r '.tags' <<< "$snapshot_metadata")
+$ echo "$snapshot_tags"
 {
   "owner": "Me"
 }
-
-snapshot_tags_condensed=$(condense_resource_tags "$snapshot_tags")
-echo "$snapshot_tags_condensed"
+$ snapshot_tags_condensed=$(condense_resource_tags "$snapshot_tags")
+$ echo "$snapshot_tags_condensed"
 owner=Me
-
 # Adding quotes around '$snapshot_tags_condensed' will
 # cause command to improperly add tags
 #
 # shellcheck disable=SC2086
-az snapshot create \
+$ az snapshot create \
   --name "$SNAPSHOT_NAME" \
   --resource-group "$TARGET_RESOURCE_GROUP" \
   --source "$SNAPSHOT_RESOURCE_ID" \
   --tags $snapshot_tags_condensed \
   --output none
+...
 ```
 
 The above works fine and will most likely keep working fine as long as a tag's value never contains a space. Introducing one will cause this solution to break down horribly. Cue the sad trombone.
@@ -79,7 +78,7 @@ To use `az rest` you need to know what endpoint to target and with which HTTP me
 
 I started by trying to add the same broken tags with that command, but adding the `--debug` parameter at the very end. That exposes all the nitty-gritty details of everything a command does, including any and all API endpoints it calls:
 
-```
+```text
 <output omitted>
 cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Compute/snapshots/<snapshot name>/providers/Microsoft.Resources/tags/default?api-version=2021-04-01'
 cli.azure.cli.core.sdk.policies: Request method: 'PATCH'
@@ -131,24 +130,23 @@ Note how the `\"tags\": ${tags}\` line does not contain double quotes around the
 
 Now it's very easy to just make minor alterations to the previous code (shown in full) and be able to support tags with spaces in them as well:
 
-```bash
-snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
-snapshot_tags=$(jq -r '.tags' <<< "$snapshot_metadata")
-echo "$snapshot_tags"
+```console
+$ snapshot_metadata=$(az resource show --ids "$SNAPSHOT_RESOURCE_ID")
+$ snapshot_tags=$(jq -r '.tags' <<< "$snapshot_metadata")
+$ echo "$snapshot_tags"
 {
   "name": "Tag with spaces in it",
   "owner": "Me"
 }
-
-snapshot_create_result=$(az snapshot create \
+$ snapshot_create_result=$(az snapshot create \
   --name "$SNAPSHOT_NAME" \
   --resource-group "$TARGET_RESOURCE_GROUP" \
   --source "$SNAPSHOT_RESOURCE_ID")
-
-update_tags \
+$ update_tags \
   "$(jq -r '.id' <<< "$snapshot_create_result")" \
   'Replace' \
   "$snapshot_tags"
+...
 ```
 
 As far as I've tested using double or single quotes within the tag value also works as expected, so happy tagging!
