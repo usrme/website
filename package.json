@@ -11,11 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.6",
-    "@astrojs/starlight": "^0.23.1",
-    "@expressive-code/plugin-line-numbers": "^0.35.3",
-    "astro": "^4.9.1",
-    "astro-expressive-code": "^0.35.3",
+    "@astrojs/rss": "^4.0.1",
+    "@astrojs/starlight": "^0.11.1",
+    "astro": "^4.0.4",
     "sanitize-html": "^2.9.0"
   }
 }
