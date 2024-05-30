@@ -13,7 +13,7 @@ Environment=SYSTEMD_LOG_LEVEL=debug
 
 And restarted the service. Now though I didn't want to go spelunking for the override file myself (I know it lives under `/etc/systemd/system`, but still) and go through the rigamarole of reverting it myself. Turns out one can just use the `systemctl revert` command:
 
-```console frame="none"
+```shell
 $ systemctl revert systemd-resolved.service
 Removed "/etc/systemd/system/systemd-resolved.service.d/override.conf".
 Removed "/etc/systemd/system/systemd-resolved.service.d".

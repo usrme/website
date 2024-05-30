@@ -40,7 +40,7 @@ Down a whopping 20% from last year's 706 hours, I think there's still hope for m
 
 Borrowing a page out of Tom MacWright's book, going forward I'm going to be showing visually the number of books I have read. He had a lovely bar chart that was created automatically in [his year in review](https://macwright.com/2023/12/28/year-in-review.html), but I'm going down the text-based path and am presenting the [data in ASCII](https://alexwlchan.net/2018/ascii-bar-charts/)[^1]. The earliest data point is from 2012, which is when I started noting down the books I read.
 
-```bash frame="none"
+```bash
 2012     8 ████████▎
 2013     6 ██████▎
 2014     8 ████████▎

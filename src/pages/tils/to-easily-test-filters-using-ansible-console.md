@@ -6,7 +6,7 @@ tags: ["ansible"]
 ---
 Today's [release](https://github.com/ansible-collections/ansible.netcommon/commit/538a9036e781e8504656f1a85bb53a5805ec78f8) of version 2.6.0 for `ansible.netcommon` [broke](https://github.com/ansible-collections/ansible.netcommon/issues/375) at least some people's environments and in the course of trying to debug that myself I wound up learning a bit more how to effectively use ['ansible-console'](https://docs.ansible.com/ansible/latest/cli/ansible-console.html). While I had known about 'ansible-console' for some time[^1], my usage of it had stayed relatively low, thus I didn't really know how to best interact with it. Here's how I validated that version 2.6.0 explicitly was to blame:
 
-```console frame="none"
+```bash
 $ ansible --version
 ansible 2.10.14
 config file = None

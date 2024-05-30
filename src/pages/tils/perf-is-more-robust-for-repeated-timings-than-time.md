@@ -12,7 +12,7 @@ After doing a bit of digging and finding on more than one occasion the suggestio
 
 This time, for some reason or another, I was determined to find a quick and easy way to repeatedly measure a single command with arbitrary parameters without having to faff about with scripting; though I do enjoy a good bikeshedding every now and then. So, I started off with the very first command in the _Counting Events_ section, which produced a very scary-looking output:
 
-```console frame="none"
+```bash
 $ perf stat az tag create --resource-id {} --tags my-tag=my-value --output none
 
   Performance counter stats for 'az tag create --resource-id {} --tags my-tag=my-value --output none':
@@ -37,7 +37,7 @@ $ perf stat az tag create --resource-id {} --tags my-tag=my-value --output none
 
 While that the immediate benefit of adding an air of legitimacy to what I was presenting (only those who suffer through cryptic examples of system call reports can have that), it still didn't alleviate the smaller issue of being automatically repeatable. Looking at the `perf-stat` [man page](https://linux.die.net/man/1/perf%2Dstat "Linux man page for 'perf-stat' command") there is an obvious `-r, --repeat=<n>` option that seems to do exactly that:
 
-```console frame="none"
+```bash
 $ perf stat --repeat 5 az tag create --resource-id {} --tags my-tag=my-value --output none
 
   Performance counter stats for 'az tag create --resource-id {} --tags my-tag=my-value --output none' (5 runs):
@@ -59,7 +59,7 @@ $ perf stat --repeat 5 az tag create --resource-id {} --tags my-tag=my-value --o
 
 That's _much_ better, but I am still left with those pesky CPU counters that would provide no benefit to the developers tasked with solving my original issue. Though the manual doesn't explicitly say _CPU_ counters for the `-n, --null` option, it supposedly does not start _any_ counters when running the command, so it was enough for me to give it a try:
 
-```console frame="none"
+```bash
 $ perf stat --repeat 5 --null az tag create --resource-id {} --tags my-tag=my-value --output none
 
   Performance counter stats for 'az tag create --resource-id {} --tags my-tag=my-value --output none' (5 runs):
@@ -69,7 +69,7 @@ $ perf stat --repeat 5 --null az tag create --resource-id {} --tags my-tag=my-va
 
 I feel like a veil has been lifted! For so many years I've relied on ad hoc repeated executions of the `time` command all the while being oblivious to such a great tool such as `perf`. Hardly ever being content with anything I kept looking around and somewhere along the line I came across a [subtly different manual page](https://www.man7.org/linux/man-pages/man1/perf-stat.1.html "Different Linux man page for 'perf-stat' command") for `perf-stat`, which made me aware of an additional option called `--table` that was missing from the original manual, which displays the time for each run in a table format; the missing link in the ultimately pretty output:
 
-```console frame="none"
+```bash
 $ perf stat --repeat 5 --null --table az tag create --resource-id {} --tags my-tag=my-value --output none
 
   Performance counter stats for 'az tag create --resource-id {} --tags my-tag=my-value --output none' (5 runs):

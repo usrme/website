@@ -36,6 +36,7 @@ Since this Dockerfile is using an older syntax it has no way to cache the packag
 After reading Itamar Turner-Trauring's article on speeding up 'pip' downloads[^1] I had modified my Dockerfile to be like this:
 
 ```diff
++# syntax = docker/dockerfile:1.3
  FROM python:3.10.2-slim
  
  # https://docs.python.org/3/using/cmdline.html#cmdoption-u

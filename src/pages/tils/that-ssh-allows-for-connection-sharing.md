@@ -30,8 +30,8 @@ I needed to set this to something that times out eventually as I wanted the cont
 
 What these formatting options end up resulting is something like this:
 
-```console frame="none"
-$ ls -la /dev/shm
+```shell
+ls -la /dev/shm
 total 0
 drwxrwxrwt.  2 root  root    60 19. märts 12:29 .
 drwxr-xr-x. 21 root  root  4420 19. märts 12:01 ..
@@ -44,9 +44,9 @@ I chose `/dev/shm` over `/tmp` because if it is available to me then I'd much ra
 
 Once that background process with those options is started, Wishlist Lite uses `syscall.Exec` to completely replace the existing Wishlist Lite process with another SSH process, but this time with a single option that just tells it which control socket to use instead of initiating a brand new connection: `-S /dev/shm/control:%h:%p:%r`. Since the entirety of Wishlist Lite relies on the SSH executable, which in turn relies on the validity of the user's SSH configuration, then this too just ends up automatically translating the formatting options into something it can use to find out the correct socket. After all this (it's not _too_ complicated in my eyes) a connection to the desired host just appears as if nothing had happened in the background. This can be demonstrated without Wishlist Lite as well:
 
-```console frame="none"
+```shell
 $ # in one terminal
-$ ssh <user name>@<hostname> -o ControlMaster=yes -o ControlPersist=5s -o ControlPath=/dev/shm/control:%h:%p:%r
+ssh <user name>@<hostname> -o ControlMaster=yes -o ControlPersist=5s -o ControlPath=/dev/shm/control:%h:%p:%r
 Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-1036-azure x86_64)
 
   System information as of Sun Mar 19 10:29:53 UTC 2023
@@ -60,7 +60,7 @@ Last login: Fri Mar 17 14:22:40 2023 from ...
 <user name>@<hostname>:~$
 
 $ # in another terminal
-$ ssh <user name>@<hostname> -S /dev/shm/control:%h:%p:%r
+ssh <user name>@<hostname> -S /dev/shm/control:%h:%p:%r
 Last login: Sun Mar 19 10:30:29 2023 from ...
 <user name>@<hostname>:~$
 <user name>@<hostname>:~$ logout

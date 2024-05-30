@@ -28,6 +28,7 @@ Before showing the difference between the default GitHub template's workflow con
 And here is the meat of what is going on to make things happen. I'll number every change and describe them below:
 
 ```diff
+@@ -3,6 +3,8 @@ name: Take screenshots
  on:
    push:
    workflow_dispatch:
@@ -117,7 +118,7 @@ And here is the meat of what is going on to make things happen. I'll number ever
 
 After all is said and done (i.e. a change occurred in the `after.png` image, ImageMagick did its thing, and changes were committed) then the source tree looks something like this:
 
-```console frame="none"
+```bash
 $ tree
 .
 ├── amazon
