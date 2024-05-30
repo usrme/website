@@ -38,13 +38,13 @@ current-context: prod
 
 ## Use specific context (i.e. cluster)
 
-```bash
+```shell
 kubectl config use-context <context>
 ```
 
 ## List namespaces
 
-```bash
+```shell
 kubectl get ns
 ```
 
@@ -52,7 +52,7 @@ kubectl get ns
 
 This will also update the relevant context's `namespace` value in the `~/.kube/config` file.
 
-```bash
+```shell
 kubectl config set-context --current --namespace=<namespace>
 ```
 
@@ -60,7 +60,7 @@ kubectl config set-context --current --namespace=<namespace>
 
 This doesn't actually list _everything_. See below for more.
 
-```bash
+```shell
 kubectl get all
 ```
 
@@ -68,15 +68,16 @@ Actually list everything. May take awhile.
 
 ```bash
 function k_get_all () {
-    for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
-        kubectl get --show-kind --ignore-not-found ${i};
+    for i in $(kubectl api-resources --verbs=list --namespaced -o name | \
+        grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+            kubectl get --show-kind --ignore-not-found ${i};
     done
 }
 ```
 
 ## Show pod logs
 
-```bash
+```shell
 kubectl logs pod/<pod>
 ```
 
@@ -84,6 +85,6 @@ kubectl logs pod/<pod>
 
 This is far simpler than a more complex `helm install` command with tons of `--set` options. More infomration [here](https://helm.sh/docs/helm/helm_upgrade/)
 
-```bash
+```shell
 helm upgrade <release name> <chart name> --reuse-values
 ```

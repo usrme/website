@@ -27,25 +27,25 @@ Here's what everything does:
 
 Now, when listing the contents of the stash we can see each changed file as a separate entry in the stash that can be acted upon:
 
-```bash
-> git stash list
+```console
+$ git stash list
 stash@{0}: On master: Dockerfile.az
 stash@{1}: On master: Dockerfile
 ```
 
 Whereas previously if you had just done `git stash --all` to push everything to the stash, then your stash would have ended up looking like this:
 
-```bash
-> git stash list
+```console
+$ git stash list
 stash@{0}: WIP on master: 9baefb6 Add bells and whistles
 ```
 
 And you would have had to, as far as I know, popped or applied it all at once. That's a definite no-no in the eyes of this Git novice. Something that can be aliased to result in the following seems much cleaner:
 
-```bash
-> alias gsd
+```console
+$ alias gsd
 alias gsd='git status -s | cut -d " " -f 3 | xargs -I {} git stash push {} -m "{}"'
-> gsd
+$ gsd
 Saved working directory and index state On master: Dockerfile
 Saved working directory and index state On master: Dockerfile.az
 ```
@@ -54,8 +54,8 @@ Two parting tidbits if you didn't already know:
 
 * you can view the patch form of any given entry by executing `git stash show -p [stash@{N}]`, where if you don't provide the optional name of the entry it will default to the one at the top of the list, namely `stash@{0}`:
 
-```bash
-> git stash show -p stash@{0}
+```console
+$ git stash show -p stash@{0}
 diff --git a/Dockerfile.az b/Dockerfile.az
 index 9342daa..622a007 100644
 --- a/Dockerfile.az
@@ -72,8 +72,8 @@ index 9342daa..622a007 100644
 
 * you can either `pop` or `apply` everything back to the working tree with this one-liner (not gonna make a separate post about that, I swear):
 
-```bash
-> git stash list | cut -d ":" -f 1 | xargs -I {} git stash pop
+```console
+$ git stash list | cut -d ":" -f 1 | xargs -I {} git stash pop
 On branch master
 Your branch is up to date with 'origin/master'.
 

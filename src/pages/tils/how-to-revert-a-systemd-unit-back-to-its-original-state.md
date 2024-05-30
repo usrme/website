@@ -6,14 +6,14 @@ tags: ["linux", "cli"]
 ---
 I was faffing about with the `systemd-resolved` service today and wanted to increase the verbosity of its logging, which I did through `systemctl edit systemd-resolved`. That opened up an editor where I just added the following:
 
-```
+```ini
 [Service]
 Environment=SYSTEMD_LOG_LEVEL=debug
 ```
 
 And restarted the service. Now though I didn't want to go spelunking for the override file myself (I know it lives under `/etc/systemd/system`, but still) and go through the rigamarole of reverting it myself. Turns out one can just use the `systemctl revert` command:
 
-```shell
+```console
 $ systemctl revert systemd-resolved.service
 Removed "/etc/systemd/system/systemd-resolved.service.d/override.conf".
 Removed "/etc/systemd/system/systemd-resolved.service.d".

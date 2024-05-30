@@ -45,19 +45,19 @@ Feed that into the [JMESPath](https://jmespath.org/ "JMESPath is a query languag
 
 Got it? Great! It took me a heck of a lot more time than I initially expected because I was adding quotes around the names of the tags. That is required when you're working on the command line, even though I wasn't... The following will work on the website:
 
-```
+```text
 [?tags.currently-used == 'False' || tags.currently_used == 'False'].name
 ```
 
 Now, I knew I definitely needed to add quotes around the names of the tags when moving over to the command line, but I didn't want to do a bunch of unnecessary queries against Azure, so I turned to [jpterm](https://github.com/jmespath/jmespath.terminal "JMESPath exploration tool in the terminal"). I thought that if I got it working there then it would just be directly applicable for my ultimate usage with Azure CLI. How foolish of me. This query will yield the same result in `jpterm`
 
-```
+```text
 [?tags."currently-used" == 'False' || tags."currently_used" == 'False'].name
 ```
 
 So, now it's working in something that's close to the actual implementation that Azure CLI will use. Should be smooth sailing from here on out, but after many failed attempts where I was returned both **True** and **False**:
 
-```
+```text
 "[?tags.\"currently-used\" == "False" || tags.\"currently_used\" == "False"].name"
 "[?tags.\"currently-used\" == "False" || tags.currently_used == "False"].name"
 "[?tags.\"currently-used\" == \"False\" || tags.\"currently_used\" == \"False\"].name"
@@ -66,14 +66,14 @@ So, now it's working in something that's close to the actual implementation that
 
 And shown straight-up errors:
 
-```bash
+```console
 $ az resource list --query "[?tags."currently-used" == 'False' || tags."currently_used" == 'False'].name"
 argument --query: invalid jmespath_type value: "[?tags.currently-used == 'False' || tags.currently_used == 'False'].name"
 ```
 
 I finally stumbled on the correct incantation:
 
-```
+```text
 "[?tags.\"currently-used\" == 'False' || tags.\"currently_used\" == 'False'].name"
 ```
 

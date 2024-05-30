@@ -23,7 +23,7 @@ done
 
 This does not hang your console as opposed to using `tail -f`.
 
-```bash
+```shell
 watch -n 0.5 sudo tail /var/log/named/queries.log
 ```
 
@@ -60,13 +60,13 @@ types=($(grep -oE 'pattern' input.txt))
 
 ## Grab block of text between two patterns
 
-```bash
+```shell
 sed -n '/pattern1/,/pattern2/p' input.txt
 ```
 
 ## Just see octal permissions for a file or directory
 
-```bash
+```shell
 stat -c '%a' /etc/passwd
 ```
 
@@ -88,31 +88,31 @@ grep -rl '\-\- MARK \-\-' /var/log/* | \
 
 ## Include lines before and after a `grep` match
 
-```bash
+```shell
 grep -B 3 -A 3 -i "hv_fcopy" /var/log/messages
 ```
 
 ## Find all unique directories in listed directories that contain files modified 10 minutes ago since the command was ran
 
-```bash
+```shell
 ls | xargs -I {} find {} -type f -mmin -10 | cut -d "/" -f2 | sort -u
 ```
 
 ## Find all files in the current directories that were modified at least a minute ago, are larger than 500MB, and long list them
 
-```bash
+```shell
 find . -type f -mmin -1 -size +500M -exec ls -lsh {} \;
 ```
 
 ## Find all files in the current directories that were modified at least a day ago, are larger than 2GB, and empty their contents
 
-```bash
+```shell
 find . -type f -mtime -1 -size +2G -exec bash -c 'echo > {}' \;
 ```
 
 ## Run arbitrary command against a list of directories
 
-```bash
+```shell
 ls | xargs -I {} git -C {} pull
 ```
 
@@ -127,19 +127,19 @@ trap read debug
 
 ## Change timezone interactively
 
-```bash
+```shell
 dpkg-reconfigure tzdata
 ```
 
 ## Search binary file that looks like text while ignoring case
 
-```bash
+```shell
 grep -ai "end:" /var/log/syslog
 ```
 
 ## Count time, calls, and errors for each system call when performing a directory listing
 
-```bash
+```shell
 strace -c ls test/
 ```
 
@@ -151,13 +151,13 @@ echo "DEBUG: ${LINENO}"
 
 ## Remove duplicated lines from a file without messing up the order
 
-```bash
+```shell
 awk '!visited[$0]++' your_file > deduplicated_file
 ```
 
 ## Run local script on a remote endpoint using SSH
 
-```bash
+```shell
 ssh -q <username>@<endpoint> "sudo bash -s" < local_script.sh
 ```
 
@@ -165,7 +165,7 @@ ssh -q <username>@<endpoint> "sudo bash -s" < local_script.sh
 
 ### Oneliner
 
-```bash
+```shell
 mkdir new_directory && cd $_
 ```
 
@@ -174,7 +174,7 @@ mkdir new_directory && cd $_
 From [here](https://unix.stackexchange.com/a/9124).
 
 ```bash
-mkcd () {
+function mkcd () {
   mkdir "$1"
   cd "$1"
 }
@@ -196,32 +196,32 @@ Alt + .
 
 ### SHA-256
 
-```bash
+```shell
 ssh-keygen -lf ~/.ssh/id_rsa.pub
 ```
 
 ### MD5
 
-```bash
+```shell
 ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
 ```
 
 ## Find broken symbolic links in current directory
 
-```bash
+```shell
 find . -xtype l
 ```
 
 ## Bulk fix relative symbolic links
 
-```bash
+```shell
 find . -lname '<relative-to-source target>*' \
   -exec sh -c 'ln -sfn "<new relative-to-source target>/$(basename $0)" $0' {} \;
 ```
 
 ## Run remote script on remote endpoint using SSH
 
-```bash
+```shell
 ssh -q <username>@<endpoint> './location/to/script'
 ```
 
@@ -229,13 +229,13 @@ ssh -q <username>@<endpoint> './location/to/script'
 
 Also by not replacing hyphens with underscores (`-iso-level 4`).
 
-```bash
+```shell
 genisoimage -o data.iso -iso-level 4 -R -l data/
 ```
 
 ## List ISO file contents without having to mount it
 
-```bash
+```shell
 isoinfo -l -i data.iso
 ```
 
@@ -243,7 +243,7 @@ isoinfo -l -i data.iso
 
 From [here](https://automationrhapsody.com/coloured-log-files-linux/).
 
-```bash
+```shell
 cat test.log | perl -pe 's/^\[\*\].*/\e[0;36m$&\e[0m/g; s/^\[\+\].*/\e[0;32m$&\e[0m/g; s/^\[\!\].*/\e[0;31m$&\e[0m/g'
 ```
 
@@ -251,7 +251,7 @@ cat test.log | perl -pe 's/^\[\*\].*/\e[0;36m$&\e[0m/g; s/^\[\+\].*/\e[0;32m$&\e
 
 For situations like [these](https://github.com/Azure/azure-cli/pull/13435).
 
-```bash
+```shell
 export PYTHONWARNINGS='ignore'
 ```
 
@@ -283,9 +283,9 @@ function pretty_csv {
     perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
 }
 
-$ pretty_csv data.csv
-$ pretty_csv < data.csv
-$ sort data.csv | pretty_csv
+pretty_csv data.csv
+pretty_csv < data.csv
+sort data.csv | pretty_csv
 ```
 
 ## Pretty print TSV files
@@ -295,14 +295,14 @@ function pretty_tsv {
     perl -pe 's/((?<=\t)|(?<=^))\t/ \t/g;' "$@" | column -t -s $'\t' | less  -F -S -X -K
 }
 
-$ pretty_tsv data.tsv
-$ pretty_tsv < data.tsv
-$ sort data.tsv | pretty_tsv
+pretty_tsv data.tsv
+pretty_tsv < data.tsv
+sort data.tsv | pretty_tsv
 ```
 
 ## Diff two files and save unified output to file
 
-```bash
+```shell
 diff -u file1 file2 > files.diff
 ```
 
@@ -316,7 +316,7 @@ serial: 20201211.1
 
 ## Show top disk usage and exclude certain directories under root
 
-```bash
+```shell
 du -Sh / --exclude=/{proc,sys,dev,var} | sort -rh | head -n 10
 ```
 
@@ -328,7 +328,7 @@ while :; do "looping"; done
 
 ## Re-execute a Bash to 'unsource' variables and aliases
 
-```bash
+```shell
 exec /bin/bash
 ```
 
@@ -336,7 +336,7 @@ exec /bin/bash
 
 This provides access to more information. From [here](https://stackoverflow.com/questions/9006596/is-the-unix-time-command-accurate-enough-for-benchmarks).
 
-```bash
+```shell
 $(which time) --verbose echo "test"
 ```
 
@@ -344,7 +344,7 @@ $(which time) --verbose echo "test"
 
 Also provides additional useful measurements. More examples [here](https://usrme.xyz/tils/perf-is-more-robust-for-repeated-timings-than-time/)
 
-```bash
+```shell
 perf stat --null --repeat 5 --table echo "test"
 ```
 
@@ -369,43 +369,43 @@ done
 
 ## Test terminal's colors
 
-```bash
+```shell
 msgcat --color=test
 ```
 
 ## Bulk rename files in place
 
-```bash
+```shell
 find . -type f -name '<file name>' -execdir mv {} "description.txt" \;
 ```
 
 ## Encode with Base64 on a single line
 
-```bash
+```shell
 echo "text" | base64 -w 0
 ```
 
 ## Convert PEM to single-line
 
-```bash
+```shell
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' combined.pem
 ```
 
 ## Install requirements for Poetry using existing `requirements.txt`
 
-```bash
+```shell
 cat requirements.txt | xargs poetry add
 ```
 
 ## Direct standard output to a file in a directory that might not yet exist
 
-```bash
+```shell
 echo "something" | install -D /dev/stdin directory/file.txt
 ```
 
 ## Find and delete files older than 1 year
 
-```bash
+```shell
 find /the/dir/to/start/in -type f -mtime +365 -ls -exec rm -f -- {} \;
 ```
 
@@ -417,19 +417,19 @@ find /the/dir/to/start/in -type f -mtime +365 -ls -exec rm -f -- {} \;
 - `-i`: don't print indentation lines
 - `-d`: print directories only
 
-```bash
+```shell
 tree -pufid
 ```
 
 ## Bulk uninstall `pip` packages according to a wildcard
 
-```bash
+```shell
 pip freeze | grep "azure*" | xargs -n 1 pip uninstall -y
 ```
 
 ## Show transaction history for a package
 
-```bash
+```shell
 dnf history list <package>
 ```
 
@@ -437,32 +437,32 @@ dnf history list <package>
 
 More on ['history'](https://www.putorius.net/dnf-history.html)
 
-```bash
+```shell
 dnf history info <transaction ID>
 ```
 
 ## Undo last transaction
 
-```bash
+```shell
 dnf history undo last
 ```
 
 ## List SystemD timers
 
-```bash
+```shell
 systemctl list-timers
 ```
 
 ## Show execution of service tied to a timer of an identical name
 
-```bash
+```shell
 journalctl -u name.timer
 journalctl -u name.service
 ```
 
 ## Copy remote directory to local system
 
-```bash
+```shell
 scp -rCp <user>@<remote>:<remote path> <local path>
 # OR (faster)
 rsync -azvhP <user>@<remote>:<remote path> <local path>
@@ -470,7 +470,7 @@ rsync -azvhP <user>@<remote>:<remote path> <local path>
 
 ## Overwrite existing directory with contents from another
 
-```bash
+```shell
 rsync -av --delete ~/new/ ~/old
 ```
 
@@ -522,13 +522,13 @@ $ systemctl restart systemd-resolved.service
 
 Equivalent to `cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`. More on [brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html).
 
-```bash
+```shell
 cp /etc/ssh/sshd_config{,.bak}
 ```
 
 The same can be applied for directories:
 
-```bash
+```shell
 cp -aR public{,.bak}
 ```
 
@@ -536,7 +536,7 @@ cp -aR public{,.bak}
 
 Equivalent to `cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config`.
 
-```bash
+```shell
 cp /etc/ssh/sshd_config{.bak,}
 ```
 
@@ -549,20 +549,20 @@ cp /etc/ssh/sshd_config{.bak,}
 
 Fedora Discussion [here](https://discussion.fedoraproject.org/t/how-do-i-install-an-old-kernel/76942).
 
-```bash
+```shell
 koji download-build --arch=x86_64 <kernel package name>
 ```
 
 ## Read lines from a file into an array and execute in parallel
 
-```bash
-$ readarray -t items < items.txt
-$ parallel -kj 20 echo {1} ::: "${items[@]}"
+```shell
+readarray -t items < items.txt
+parallel -kj 20 echo {1} ::: "${items[@]}"
 ```
 
 ## Verify SSL certificate against domain
 
-```bash
+```shell
 openssl s_client -connect google.com:443 2> /dev/null | openssl x509 -noout -dates
 ```
 
@@ -570,7 +570,7 @@ openssl s_client -connect google.com:443 2> /dev/null | openssl x509 -noout -dat
 
 Documentation [here](https://www.freedesktop.org/software/systemd/man/systemd-run.html).
 
-```bash
+```console
 $ systemd-run env
 Running as unit: run-19945.service
 $ journalctl -u run-19945.service
@@ -591,6 +591,6 @@ Sep 08 07:37:21 bupkis env[19948]: BOOT_IMAGE=/vmlinuz-3.11.0-0.rc5.git6.2.fc20.
 
 ## Don't send anything identifiable over SSH
 
-```bash frame="none"
+```shell
 ssh -a -i /dev/null -o IdentityAgent=/dev/null whoami.filippo.io
 ```

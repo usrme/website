@@ -6,7 +6,7 @@ tags: ["azure-cli", "json", "python"]
 ---
 I wanted to find out how other people use the `AZURE_CONFIG_DIR` environment variable[^1] and I came across a rather ingenious way[^2] to not rely on [JQ](https://stedolan.github.io/jq/) for working with JSON in simpler use cases in the process, namely:
 
-```shell
+```console
 jq() {
     echo -n "$1" | python3 -c "import json, sys; print(json.load(sys.stdin)${2})"
 }
@@ -21,7 +21,7 @@ This is wholly unnecessary when working Azure CLI as that already has the `--que
 
 I've recently been using the command line interface of ['json'](https://docs.python.org/3/library/json.html#module-json.tool) as well as it can very easily do simple things like indenting:
 
-```shell
+```console
 $ python -m json.tool --indent 2 < file.json
 [
   {
@@ -41,7 +41,7 @@ $ python -m json.tool --indent 2 < file.json
 
 And sorting:
 
-```shell
+```console
 $ python -m json.tool --sort-keys < file.json
 [
     {
@@ -61,14 +61,14 @@ $ python -m json.tool --sort-keys < file.json
 
 And validating:
 
-```shell
+```console
 $ echo '[{"id": 1, username: "john.doe"}]' | python -m json.tool
 Expecting property name enclosed in double quotes: line 1 column 12 (char 11)
 ```
 
 Consider this example from [Skopeo's](https://github.com/containers/skopeo) README (I've shortened the target image from `registry.fedoraproject.org/fedora:latest` to `image` to avoid horizontal scrolling):
 
-```shell
+```console
 $ skopeo inspect --config docker://image  | jq
 {
   "created": "2022-12-09T05:50:20Z",
@@ -107,7 +107,7 @@ $ skopeo inspect --config docker://image  | jq
 
 This is equivalent to:
 
-```shell
+```console
 $ skopeo inspect --config docker://image | python -m json.tool --indent 2
 {
   "created": "2022-12-09T05:50:20Z",
@@ -148,14 +148,14 @@ The only thing that might be different for you is that the output of `jq` might 
 
 Here's another one:
 
-```shell
+```console
 $ skopeo inspect docker://image | jq -r '.Digest'
 sha256:ce08a91085403ecbc637eb2a96bd3554d75537871a12a14030b89243501050f2
 ```
 
 The exact same value can be grabbed with:
 
-```shell
+```console
 $ skopeo inspect docker://image | python3 -c "import json, sys; print(json.load(sys.stdin)['Digest'])"
 sha256:ce08a91085403ecbc637eb2a96bd3554d75537871a12a14030b89243501050f2
 ```
