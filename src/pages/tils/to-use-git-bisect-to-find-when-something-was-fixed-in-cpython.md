@@ -6,7 +6,7 @@ tags: ["bash", "diffing", "git", "python"]
 ---
 A colleague of mine recently stumbled upon an error in a Python script that uses [asynchronous I/O](https://docs.python.org/3/library/asyncio.html):
 
-```text
+```plaintext
 Traceback (most recent call last):
   File "script.py", line 175, in <module>
     asyncio.run(multiple_commands(progress, nsg_resource_ids, args.lock))

@@ -78,7 +78,7 @@ To use `az rest` you need to know what endpoint to target and with which HTTP me
 
 I started by trying to add the same broken tags with that command, but adding the `--debug` parameter at the very end. That exposes all the nitty-gritty details of everything a command does, including any and all API endpoints it calls:
 
-```text
+```plaintext
 <output omitted>
 cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Compute/snapshots/<snapshot name>/providers/Microsoft.Resources/tags/default?api-version=2021-04-01'
 cli.azure.cli.core.sdk.policies: Request method: 'PATCH'

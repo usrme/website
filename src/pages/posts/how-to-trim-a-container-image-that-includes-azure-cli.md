@@ -173,7 +173,7 @@ docker-slim build \
 
 It ran just fine and I thought I was off to the races, but then I saw that now that when `slim-exec.sh` was passed to it the size was a far cry from what I had hoped and when opening the container to run the same commands again there were errors all over the place:
 
-```text
+```plaintext
 ...
 cmd=build info=results by='1.06X' size.original='307 MB' size.optimized='291 MB' status='MINIFIED'
 ...
@@ -185,7 +185,7 @@ I guess this means that I should just take the 307MB I managed to conjur up befo
 
 I knew I'd be back at it, and not even 24 hours later I managed to get the above incantations to work, though the results are unremarkable. The `slim-exec.sh` was good as it was and didn't require any modifications, but the paths that I included got a complete overhaul. So much so that I switched to the `--include-path-file` option with a file (`slim-paths.txt`), which included all the relevant paths and files:
 
-```text
+```plaintext
 /bin/cat
 /bin/cp
 /bin/mkdir

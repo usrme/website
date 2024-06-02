@@ -350,7 +350,7 @@ perf stat --null --repeat 5 --table echo "test"
 
 ## Change nested key value in an array of JSON objects with `jq`
 
-```text
+```plaintext
 .parameters.vmObjects.value |= map(if .vmName == "router" then .moduleSnapshot = "fixed" else . end)
 ```
 
@@ -483,7 +483,7 @@ $ sudo dnf list --installed kernel-core* | tail -n +2 | wc -l
 
 ## Increase number of installed kernels in `/etc/dnf/dnf.conf`
 
-```text
+```plaintext
 ...
 installonly_limit=10
 ...
