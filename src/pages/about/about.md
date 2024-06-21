@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2024-03-18
+pubDate: 2024-06-21
 title: About Me
 ---
 ## Introduction
 
-I am a 32-year-old guy who hails from Estonia and currently works in RangeForce as a DevSecOps engineer for the Infrastructure team. My day-to-day revolves around developing and maintaining a physical and cloud-based infrastructure (Azure and Google Cloud Platform), and writing software in Go and Python.
+I am a 32-year-old guy who hails from Estonia and currently works in XYB as a Cloud DevOps engineer for the Infrastructure team. My day-to-day revolves around developing a rock-solid CI/CD system on top of GitHub and Kubernetes, and creating a cloud-native infrastructure in AWS to provide a stellar banking platform for clients.
 
 ## Contacts
 
@@ -14,14 +14,20 @@ I am a 32-year-old guy who hails from Estonia and currently works in RangeForce 
 
 ## Experience
 
+### XYB
+
+#### Cloud DevOps engineer from March 2024–today
+
 ### RangeForce
 
-#### DevSecOps engineer from December 2019–today
+#### DevSecOps engineer from December 2019–June 2024
 
 * Created a robust infrastructure to support instantiation of virtual-machine-based learning content in Azure.
 * Ensured reproducibility by creating continuous deployment pipelines.
 * Developed internal tooling for developers to quickly and comfortably interact with the back-end required to create learning content for end users.
 * Lead push to manage the entirety of the infrastructure with Ansible and Terraform.
+
+**Reason for leaving**: something in me wanted to put down roots in a new company
 
 **Keywords**: Ansible, Azure, Bash, CI/CD, Docker, Flask, GitLab, Go, Python, Terraform
 
