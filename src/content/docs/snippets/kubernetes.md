@@ -88,3 +88,17 @@ This is far simpler than a more complex `helm install` command with tons of `--s
 ```shell
 helm upgrade <release name> <chart name> --reuse-values
 ```
+
+## Get secret with a dot in its name
+
+The normal access would be something like this:
+
+```shell
+kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
+But doing the same thing for a secret with a dot in its name wouldn't work, thus:
+
+```shell
+kubectl get secret docker-config -o 'go-template={{index .data ".dockerconfigjson"}}' | base64 -d
+```
