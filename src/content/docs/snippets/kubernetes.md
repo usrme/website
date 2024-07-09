@@ -100,5 +100,12 @@ kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | 
 But doing the same thing for a secret with a dot in its name wouldn't work, thus:
 
 ```shell
+kubectl get secret docker-config -o jsonpath="{.data.\.dockerconfigjson}" | base64 -d
+```
+
+An alternative would be to use `go-template`:
+
+```shell
 kubectl get secret docker-config -o 'go-template={{index .data ".dockerconfigjson"}}' | base64 -d
 ```
+
