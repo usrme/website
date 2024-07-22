@@ -594,3 +594,31 @@ Sep 08 07:37:21 bupkis env[19948]: BOOT_IMAGE=/vmlinuz-3.11.0-0.rc5.git6.2.fc20.
 ```shell
 ssh -a -i /dev/null -o IdentityAgent=/dev/null whoami.filippo.io
 ```
+
+## Using Ctrl keys
+
+From [here](https://github.com/onceupon/Bash-Oneliner?tab=readme-ov-file#using-ctrl-keys).
+
+- `Ctrl + a`: move to the beginning of the line
+- `Ctrl + d`: if you've type something, it deletes the character under the cursor, otherwise it quits the current shell
+- `Ctrl + e`: move to the end of the line
+- `Ctrl + k`: delete all text from the cursor to the end of the line
+- `Ctrl + l`: equivalent to clear
+- `Ctrl + p`: same as Up arrow
+- `Ctrl + n`: same as Down arrow
+- `Ctrl + s`: to stop output to terminal
+- `Ctrl + q`: to resume output to terminal after `Ctrl + s`
+- `Ctrl + r`: begins a backward search through command history, keep pressing to continue moving backwards
+- `Ctrl + t`: transpose the character before the cursor with the one under the cursor
+  - `Esc + t`: transposes the two words before the cursor
+- `Ctrl + u`: cut the line before the cursor
+  - `Ctrl + y` to paste it
+- `Ctrl + w`: cut the word before the cursor
+  - `Ctrl + y` to paste it
+- `Ctrl + x + Backspace`: delete all text from the beginning of line to the cursor
+- `Ctrl + x + Ctrl + e`: launch editor defined by `$EDITOR` to input your command
+  - useful for multi-line commands
+- `Ctrl + z`: stop current running process and keep it in background
+  - `fg` to continue the process in the foreground
+  - `bg` to continue the process in the background
+- `Ctrl + _`: undo typing
