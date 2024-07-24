@@ -32,3 +32,10 @@ Shift+V from point of cursor and press D key to delete
 * `s/^/#/g` to replace first character on the lines with a `#`
 
 The prompt will look something like when all done: `:'<,'>s/^/#/g`
+
+## Format to certain column width
+
+* Set text width to desired width: `:set textwidth=80`
+* Move to start of file: `gg`
+* Format text from start to the end: `gqG`
+  * Use visual mode the selectively format (don't move to start of the file in that case)
