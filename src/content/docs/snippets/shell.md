@@ -617,6 +617,7 @@ From [here](https://github.com/onceupon/Bash-Oneliner?tab=readme-ov-file#using-c
   - `Ctrl + y` to paste it
 - `Ctrl + x + Backspace`: delete all text from the beginning of line to the cursor
 - `Ctrl + x + Ctrl + e`: launch editor defined by `$EDITOR` to input your command
+  - exit the editor (e.g. `wq`) and the command will be ran automatically
   - useful for multi-line commands
 - `Ctrl + z`: stop current running process and keep it in background
   - `fg` to continue the process in the foreground
