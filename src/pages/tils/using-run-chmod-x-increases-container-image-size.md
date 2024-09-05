@@ -25,10 +25,14 @@ uv                 large     c530abdb5937   16 minutes ago   53.9MB
 
 On first glance there's nothing inherently off here, but I'll try and do better:
 
-```docker
-FROM alpine:latest
+```diff
+@@ -1,5 +1,3 @@
+ FROM alpine:latest
 
-COPY --chmod=755 uv uv
+-COPY uv uv
+-
+-RUN chmod +x uv
++COPY --chmod=755 uv uv
 ```
 
 After using the ['--chmod' option](https://docs.docker.com/reference/dockerfile/#copy---chown---chmod) (and there's also a `--chown` option) the size decreases noticeably:
