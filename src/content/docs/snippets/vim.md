@@ -39,3 +39,8 @@ The prompt will look something like when all done: `:'<,'>s/^/#/g`
 * Move to start of file: `gg`
 * Format text from start to the end: `gqG`
   * Use visual mode the selectively format (don't move to start of the file in that case)
+
+## Measure start-up speed
+
+* `hyperfine "nvim --headless +qa" --warmup 5`
+* `nvim --startuptime startup.log -c exit && tail -100 startup.log`
