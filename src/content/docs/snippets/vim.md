@@ -44,3 +44,10 @@ The prompt will look something like when all done: `:'<,'>s/^/#/g`
 
 * `hyperfine "nvim --headless +qa" --warmup 5`
 * `nvim --startuptime startup.log -c exit && tail -100 startup.log`
+
+## Re-indent according to file type
+
+* A single line: `==`
+* A range of lines: `<range>==`
+* Entire file: `gg=G`
+  * Probably won't be as intelligent as a language-specific formatter
