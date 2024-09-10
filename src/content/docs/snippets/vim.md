@@ -14,9 +14,20 @@ Shift+V from point of cursor and press D key to delete
 
 ## Search and replace
 
+### In the current file
+
 ```vim
 :%s/search/replace/g
 ```
+
+### Across all directories
+
+* Open Telescope with fuzzy finding: `<leader>fw`
+* Type in search term
+* Add all results to quickfix list: `<Ctrl-q>`
+  * Alternatively, press Tab on every desired entry
+* Type the following command: `:cfdo %s/search/replace/g`
+* Write all changes: `:wa`
 
 ## Disable search highlight
 
