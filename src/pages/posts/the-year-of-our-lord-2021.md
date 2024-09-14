@@ -48,7 +48,7 @@ While I can count this year as another successful year of reading books, I'm not
 
 ***
 
-Earlier this year I made [a post about kicking a habit](https://usrme.xyz/posts/a-habit-almost-a-year-in/ "Üllar Seerme - A habit (almost) a year in") and for a while it seemed like a great success, but as of late the consumption of energy drinks has been trending upwards again. On one hand I'm not all _that_ bothered as there are surely worse things to consume on a semi-regular basis, but on the other hand there's something that bothers me about the fact that I'm relying on it at all. In my head it should be easily possible to not consume it and be just fine.
+Earlier this year I made [a post about kicking a habit](https://usrme.xyz/posts/a-habit-almost-a-year-in/ "Üllar Maasik - A habit (almost) a year in") and for a while it seemed like a great success, but as of late the consumption of energy drinks has been trending upwards again. On one hand I'm not all _that_ bothered as there are surely worse things to consume on a semi-regular basis, but on the other hand there's something that bothers me about the fact that I'm relying on it at all. In my head it should be easily possible to not consume it and be just fine.
 
 ## Podcast listening
 

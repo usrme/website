@@ -206,7 +206,7 @@ docker-image:
 
 So much better! While there a lot of seemingly scary environment variables that seem to bulk up the Dockerfile, they are nothing out of this world and serve to make the actual `RUN` instructions more concise, in my opinion.
 
-[^1]: [This](https://usrme.xyz/tils/it-makes-sense-to-pin-even-patch-versions-of-dependencies/ "Üllar Seerme - It makes sense to pin even patch versions of dependencies") is where the configuration option was used initially and what it basically did was to install packages globally as the environment was isolated through containerization anyway.
+[^1]: [This](https://usrme.xyz/tils/it-makes-sense-to-pin-even-patch-versions-of-dependencies/ "Üllar Maasik - It makes sense to pin even patch versions of dependencies") is where the configuration option was used initially and what it basically did was to install packages globally as the environment was isolated through containerization anyway.
 
 [^2]: Pay no mind to the other mistakes... The most of egregious of which is not pinning the version of `poetry` I was installing.
 

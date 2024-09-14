@@ -2,7 +2,7 @@ import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 
 export async function GET(context) {
   return rss({
-    title: 'Üllar Seerme',
+    title: 'Üllar Maasik',
     description: 'Personal website',
     site: context.site,
     items: (await pagesGlobToRssItems(
