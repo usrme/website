@@ -5,7 +5,10 @@ export default defineConfig({
   markdown: {
     drafts: false,
     shikiConfig: {
-      theme: 'github-dark-dimmed',
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark-dimmed',
+      },
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       wrap: false,
       // https://github.com/shikijs/shiki/issues/3#issuecomment-2272168959

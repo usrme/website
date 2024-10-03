@@ -362,3 +362,9 @@ footer {
 	background-color: var(--dark-code-single-bg-color);
 	color: var(--dark-code-highlight-color);
 }
+
+html.dark .astro-code,
+html.dark .astro-code span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+}
