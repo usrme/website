@@ -15,7 +15,7 @@ Yes, I'll most likely try to rhyme every yearly review post going forward, you'l
 
 Continuing with last year's [Learning Go](https://usrme.xyz/posts/hullabaloo-with-2022/#learning-go) section, I've continued to double down on learning it, so much so that I requested to take the lead solo to rewrite a critical system at work that was previously a mix of Go _and_ Python to just Go. On top of that I've kept trying to improve [Cometary](https://github.com/usrme/cometary) and [Wishlist Lite](https://github.com/usrme/wishlistlite), both of which serve as a wonderful test bed in a familiar codebase. (Wishlist Lite also got [its first feature request](https://github.com/usrme/wishlistlite/issues/30) in July that wasn't by me, which just made my heart melt!) During all of that Go writing I also wanted to get a little bit of Python in and released a [Powerline segment for Tailscale](https://github.com/usrme/powerline-tailscale).
 
-There is also a secret Go project in the works that is a little less derivative in terms of its core functionality. Whereas both of the Go projects above where inspired by existing solutions and were just adapted to fit my own needs (and to learn!), this one will be something I haven't yet come across. I hope to write this in a way where at the end I feel like I can really hold my own with Go.
+There is also a secret Go project in the works that is a little less derivative in terms of its core functionality. Whereas both of the Go projects above were inspired by existing solutions and were just adapted to fit my own needs (and to learn!), this one will be something I haven't yet come across. I hope to write this in a way where at the end I feel like I can really hold my own with Go.
 
 ### Learning Kubernetes
 
