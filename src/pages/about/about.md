@@ -10,7 +10,7 @@ I am a 32-year-old guy who hails from Estonia and currently works in XYB as a Cl
 ## Contacts
 
 * [GitHub](https://github.com/usrme)
-* [LinkedIn](https://ee.linkedin.com/pub/%C3%BCllar-seerme/4a/365/ba2)
+* [LinkedIn](https://www.linkedin.com/in/üllar-maasik)
 
 ## Experience
 
