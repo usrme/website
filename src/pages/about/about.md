@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2024-06-21
+pubDate: 2024-11-12
 title: About Me
 ---
 ## Introduction
@@ -17,6 +17,13 @@ I am a 32-year-old guy who hails from Estonia and currently works in XYB as a Cl
 ### XYB
 
 #### Cloud DevOps engineer from March 2024–today
+
+* Lead migration from Jenkins’ CI/CD to GitHub Actions with great automation around workflows and their distribution.
+* Working on automating infrastructure creation
+
+**Keywords**: CI/CD, Kubernetes, Terraform
+
+***
 
 ### RangeForce
 
