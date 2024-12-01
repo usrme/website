@@ -39,7 +39,7 @@ index a88f093..749ce98 100644
 -}
 ```
 
-Okay, so it looks like some of the keys under `address` moved around and the value for `address.city` changed, but were `phone` and `address` really removed? Something doesn't feel right about that. Looking at the file confirms the suspicions:
+Okay, so it looks like some of the keys under `address` moved around and the value for `address.city` changed, but were `phone` and `website` really removed? Something doesn't feel right about that. Looking at the file confirms the suspicions:
 
 ```json
 {
