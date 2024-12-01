@@ -104,7 +104,7 @@ Given just the existence of this tool on our system, the output of `git diff` ag
 
 2. adjust your Git configuration to include the following:
 
-```plaintext
+```ini
 [diff "gron"]
     textconv = gron
 ```
