@@ -74,13 +74,7 @@ Avg.   11.54 ████████████
 Total    150 █████████████████████████
 ```
 
-I usually aim for around 10 as that seems like a fairly achievable number given that I don't listen to audiobooks at all, but with the craziness that went on this year, the count is noticeably smaller than usual. I'm not at all bothered by the number itself, I just wish I had found more time to learn more. The usual pick of the litter as follows.
+I usually aim for around 10 as that seems like a fairly achievable number given that I don't listen to audiobooks at all, but with the craziness that went on this year, the count is noticeably smaller than usual. I'm not at all bothered by the number itself, I just wish I had found more time to learn more. Standouts were as follows (no explanatory comments yet):
 
-
-### "The Grapes of Wrath" by John Steinbeck
-
-...
-
-### "Scarcity Brain" by Michael Easter
-
-...
+* "The Grapes of Wrath" by John Steinbeck
+* "Scarcity Brain" by Michael Easter
