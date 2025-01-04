@@ -101,9 +101,9 @@ I'm not yet ready to consider this thing to be done because there are various li
 * add an API to be able to make programmatic requests;
 * add automatic source data retrieval.
 
-None of these are critical in any way and the site is already a marked improvement on the rest, in my opinion, it's that I feel having a concrete outlet for learning will make the learning go much smoother. I have no specific end goal for learning PHP and Laravel, though, it's just something I enjoy doing.
+None of these are critical in any way and the site is already a marked improvement on the rest, in my opinion, it's that I very much enjoy having some project to work on when I'm not involved with my day job. There are no grand aspirations for the site other than to have a concrete outlet for what I'm learning and dabbling with. All done [because _I_ wanted to](https://aaronfrancis.com/2024/because-i-wanted-to-12c5137c) and I hope more people do the same.
 
-Because I'm most definitely not a software developer by profession I've probably made mistakes in the front-end and back-end. If without reading the source code you, dear reader, are able to spot oddities, then do please write to me at **yates+blog at protonmail.ch**. If you know of ways to make the querying even faster, then please also do contact me, I'd love to learn more!
+I'm most definitely not a software developer by profession, so I've probably made mistakes in the front-end and back-end. If without reading the source code you, dear reader, are able to spot oddities, then do please write to me at **yates+blog at protonmail.ch**. If you know of ways to make the querying even faster, then please also do contact me, I'd love to learn more!
 
 [^1]: At this point I really had no idea just how easy things would be made for me.
 [^2]: I guess PHP _does_ make the kind of bank that is amenable to giving things away.
