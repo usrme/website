@@ -10,7 +10,7 @@ Finding the right postal code in Estonia shouldn't be this hard, but it turns ou
 
 Either the search field was expecting input in a very specific format (i.e. I couldn't just type the street name and building number, and get a fuzzy match of results across the country), or the results would be in an overly long list that would have to be scrolled through, or the site would present the information in a way that was far too verbose for the task at hand, or there not being a way to bookmark the found result(s). There was not a single site that I felt took the adequate time to provide such functionality in a truly user-friendly way.
 
-Yes, I would have eventually remembered the postal code. Yes, most of the gripes were non-issues (the very specific input format still irks me). But by this point my heart was already set, set on creating a proper solution to the problem of querying and displaying postal codes.
+Yes, I would have eventually remembered the postal code. Yes, most of the gripes were non-issues (the very specific input format still irks me). But by this point my heart was already set on creating a proper solution to the problem of querying and displaying postal codes.
 
 As to not bury the lede any longer: enter [Sihtnumbrid](https://sihtnumbrid.ee/).
 
