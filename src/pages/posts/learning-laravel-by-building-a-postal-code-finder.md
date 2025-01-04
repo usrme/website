@@ -61,7 +61,7 @@ The query speeds tanked, but I was still happy that I got the searching to be mo
 
 ## Deployment
 
-This site is hosted on [Fly](https://fly.io/), which was chosen mostly because I have a bunch of credits left over that I wanted to use[^6] and being a Fly stan making up another chunk of the reasoning. On top of that, since this project is written using Laravel, Fly's [guide to deploying Laravel](https://fly.io/docs/laravel/) made it very easy to get something up and running. To my great surprise I didn't have to specifically set up any volumes to support the fact that there is a database because Fly packaged the database file right along with the application itself, making everything even easier on me.
+The site is hosted on [Fly](https://fly.io/), which was chosen mostly because I have a bunch of credits left over that I wanted to use[^6] and being a Fly stan making up another chunk of the reasoning. On top of that, since the project is written using Laravel, Fly's [guide to deploying Laravel](https://fly.io/docs/laravel/) made it very easy to get something up and running. To my great surprise I didn't have to specifically set up any volumes to support the fact that there is a database because Fly packaged the database file right along with the application itself, making everything even easier on me.
 
 Because the site is meant to cater to Estonian visitors, I had wanted to locate the application right in Estonia to avoid any round-trips farther away, but another pleasant surprise was that despite the deployment being in Bucharest (as suggested by Fly), the speed of the site hasn't suffered whatsoever, in my opinion.
 
