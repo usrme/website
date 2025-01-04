@@ -12,7 +12,7 @@ Either the search field was expecting input in a very specific format (i.e. I co
 
 Yes, I would have eventually remembered the postal code. Yes, most of the gripes were non-issues (the very specific input format still irks me). But by this point my heart was already set on creating a proper solution to the problem of querying and displaying postal codes.
 
-As to not bury the lede any longer: enter [Sihtnumbrid](https://sihtnumbrid.ee/).
+As to not bury the lede any longer: enter [Sihtnumbrid](https://sihtnumbrid.ee/) (a word for "postal codes" in Estonian).
 
 Last year it felt like the commotion around PHP was at an all-time high and I guess that spurred me on to revisit it again, which the site is written in. I had dabbled with PHP years ago back in college and I don't remember having any sort of negative experience. Nothing like the kind that gets thrown around in internet discourse whenever it gets mentioned. That's why I had no qualms giving it another look with a fresh perspective.
 
