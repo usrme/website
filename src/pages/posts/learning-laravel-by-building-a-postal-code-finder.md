@@ -30,9 +30,7 @@ After gathering the knowledge I thought would be required to build what I imagin
 
 I'm by no means an expert in PHP nor Laravel at the time of writing this, don't think it would even be possible given that I quite literally started learning at the start of November, 2024, but I'm now at least comfortable reading some PHP without only seeing hieroglyphs and I'm able to navigate a typical project's structure thanks to the convention over configuration nature of Laravel.
 
-## The nits and grits
-
-### Hey, that's my data
+## Hey, that's my data
 
 > Where do postal codes even come from?
 
@@ -53,7 +51,7 @@ And making temporary back-ups was only a matter of copying the `database.sqlite`
 
 I intentionally wanted to keep any other data processing to a minimum if at all possible to make the maintenance of this site as frictionless as possible. There is no way I'll want to perform some sort of sacred ritual potentially years down the line just to keep the site running. Always try to keep it simple for as long as possible.
 
-### Performance
+## Performance
 
 While I knew that the site itself wouldn't be anything technically impressive like a more full-fledged application with a lot of user interaction possibilities, I still wanted to give my all into making it snappy; I didn't want any of the perceptible slowness I felt with most of the existing solutions.
 
