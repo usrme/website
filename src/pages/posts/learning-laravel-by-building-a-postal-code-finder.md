@@ -59,6 +59,14 @@ I went through a few iterations early on where I only allowed a literal short ad
 
 The query speeds tanked, but I was still happy that I got the searching to be more intuitive in that anything could be entered to get a result, thus I actually shipped that version of the site as well. As I've demonstrated [before](https://usrme.xyz/posts/how-to-trim-a-container-image-that-includes-azure-cli/) though, I'm not one to leave gains on the table without just cause. There was no way I'd leave it at that. And I'm thrilled that I didn't because after creating the necessary indeces and simplifying the queries, the delays are once again near-imperceptible and were improved from around 600ms to less than 100μs.
 
+## Deployment
+
+This site is hosted on [Fly](https://fly.io/), which was chosen mostly because I have a bunch of credits left over that I wanted to use[^6] and being a Fly stan making up another chunk of the reasoning. On top of that, since this project is written using Laravel, Fly's [guide to deploying Laravel](https://fly.io/docs/laravel/) made it very easy to get something up and running. To my great surprise I didn't have to specifically set up any volumes to support the fact that there is a database because Fly packaged the database file right along with the application itself, making everything even easier on me.
+
+Because the site is meant to cater to Estonian visitors, I had wanted to locate the application right in Estonia to avoid any round-trips farther away, but another pleasant surprise was that despite the deployment being in Bucharest (as suggested by Fly), the speed of the site hasn't suffered whatsoever, in my opinion.
+
+Using Fly is basically making whatever changes I want, running `fly deploy --ha=false`, and that's it. I'm using a single machine, with a single shared CPU with the lowest amount of memory possible at 256MB. All because I don't want to consume credits when it isn't strictly necessary; the site _can_ afford to go down after all. Thus far the memory usage has been half of what has been allotted, so I'm curious to see what happens should the traffic ever pick up.
+
 ## Current state
 
 I ragged on other sites at the beginning, but did I even improve upon them? I like to think that I did and here's why.
@@ -102,3 +110,4 @@ Because I'm most definitely not a software developer by profession I've probably
 [^3]: There's actually 30 lessons, but the last four videos are about creating a final project that Jeffrey had in mind. I desperately wanted nothing more to get started on mine.
 [^4]: To make sense of the sub-heading, check out this classic [SQL Server ad featuring Bill Gates](https://www.youtube.com/watch?v=5ycx9hFGHog)
 [^5]: A thousand (as if I have that many readers) database engineers just winced.
+[^6]: [Here's](https://www.tigrisdata.com/blog/docker-registry-at-home/) a blog post over at [Tigris](https://tigrisdata.com) that gives away $50 in credits.
