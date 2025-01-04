@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2025-01-03
+pubDate: 2025-01-04
 title: Learning Laravel by building a postal code finder
 tags: ["php", "laravel"]
 ---
