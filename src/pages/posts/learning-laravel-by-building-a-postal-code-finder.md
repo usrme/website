@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2025-01-04
+pubDate: 2025-01-05
 title: Learning Laravel by building a postal code finder
 tags: ["php", "laravel"]
 ---
@@ -38,7 +38,7 @@ That was the first thought that came to my head when starting Sihtnumbrid[^4]. I
 
 This segment is brought to you through [Geoportal by the Land and Spatial Development Board of the Republic of Estonia](https://geoportaal.maaamet.ee/eng/spatial-data/address-data/postal-codes-p661.htm). A round of non-ironic applause, please! Really, my project quite literally wouldn't exist without such easy access to all the relevant data.
 
-There's a ZIP file up for download that is updated on the fifth of every month that contains a single CSV file with only six columns: address ID, postal code, short address, long address, and X and Y coordinates. I knew I wanted to make the deployment scenario as simple as possible, so when setting up the Laravel project I chose SQLite as the database driver. This made developing locally a breeze as I could just import the CSV file into an existing database using a command like:
+There's a ZIP file up for download that is updated on the fifth of every month that contains a single CSV file with only six columns: address ID, postal code, short address, long address, and X and Y coordinates. I knew I wanted to make the deployment scenario as simple as possible, so when setting up the Laravel project I chose SQLite as the database driver. This made developing locally a breeze as I could basically just import the CSV file into an existing database using a command like:
 
 ```shell
 sqlite3 database/database.sqlite \
@@ -47,9 +47,11 @@ sqlite3 database/database.sqlite \
   '.import --skip 1 <path to the CSV file> <table name>'
 ```
 
-And making temporary back-ups was only a matter of copying the `database.sqlite` file to some other path. The only amount of processing that occurs when data is added is the `--skip 1`, which tells SQLite to ignore the first row of headers in the CSV file. This is required because the database migrations already set up the table and if the table already exists, then trying to import _with_ headers will not work. If you are working with a brand new database with no tables, then you can forego the `--skip 1` option and everything should still work.
+And making temporary back-ups was only a matter of copying the `database.sqlite` file to some other path. There is a very small amount of processing before the data is imported and that had to do with how the long address column was originally given. It shows the full address, yes, but it's given going from least specific to most specific. What that means is that since SQLite optimizes queries with no leading wildcard characters, I couldn't support querying for addresses whose components weren't given as going from most specific to least specific because I didn't want to wrap the search term around wildcard characters. I tried to do it, but it made querying unbearably slow. So, what I did was take the long address column, reverse the comma-separated components within it (the other columns were semicolon-separated) to make the components go from most to least specific, and add that to the end of the CSV file. This worked like a charm and I was able to retain blazingly fast query speeds.
 
-I intentionally wanted to keep any other data processing to a minimum if at all possible to make the maintenance of this site as frictionless as possible. There is no way I'll want to perform some sort of sacred ritual potentially years down the line just to keep the site running. Always try to keep it simple for as long as possible.
+The only other amount of processing that occurs when data is added is the `--skip 1`, which tells SQLite to ignore the first row of headers in the CSV file. This is required because the database migrations already set up the table and if the table already exists, then trying to import _with_ headers will not work. If you are working with a brand new database with no tables, then you can forego the `--skip 1` option and everything should still work.
+
+I initially wanted to keep any other data processing to a minimum if at all possible to make the maintenance of this site as frictionless as possible. There is no way I'll want to perform some sort of sacred ritual potentially years down the line just to keep the site running, but I've now documented these steps thoroughly in the project's README and have gone through the exact steps several times, so I'm not expecting anything to go awry even in a few years time.
 
 ## Performance
 
