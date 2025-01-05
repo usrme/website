@@ -47,7 +47,7 @@ sqlite3 database/database.sqlite \
   '.import --skip 1 <path to the CSV file> <table name>'
 ```
 
-And making temporary back-ups was only a matter of copying the `database.sqlite` file to some other path. There is a very small amount of processing before the data is imported and that had to do with how the long address column was originally given. It shows the full address, yes, but it's given going from least specific to most specific. What that means is that since SQLite optimizes queries with no leading wildcard characters, I couldn't support querying for addresses whose components weren't given as going from most specific to least specific because I didn't want to wrap the search term around wildcard characters. I tried to do it, but it made querying unbearably slow. So, what I did was take the long address column, reverse the comma-separated components within it (the other columns were semicolon-separated) to make the components go from most to least specific, and add that to the end of the CSV file. This worked like a charm and I was able to retain blazingly fast query speeds.
+And making temporary back-ups was only a matter of copying the `database.sqlite` file to some other path. There is a very small amount of processing before the data is imported and that had to do with how the long address column was originally given. It shows the full address, yes, but it's given going from least specific to most specific. What that means is that since SQLite optimizes queries with no leading wildcard characters, I couldn't support querying for addresses whose components weren't given as going from most specific to least specific because I didn't want to wrap the search term around wildcard characters. I tried to do it, but it made querying unbearably slow. So, what I did was take the long address column, reverse the comma-separated components within it (the other columns were semicolon-separated) to make the components go from most to least specific, and add that to the end of the CSV file. This worked like a charm and I was able to retain blazingly fast query speeds.[^5]
 
 The only other amount of processing that occurs when data is added is the `--skip 1`, which tells SQLite to ignore the first row of headers in the CSV file. This is required because the database migrations already set up the table and if the table already exists, then trying to import _with_ headers will not work. If you are working with a brand new database with no tables, then you can forego the `--skip 1` option and everything should still work.
 
@@ -57,13 +57,13 @@ I initially wanted to keep any other data processing to a minimum if at all poss
 
 While I knew that the site itself wouldn't be anything technically impressive like a more full-fledged application with a lot of user interaction possibilities, I still wanted to give my all into making it snappy; I didn't want any of the perceptible slowness I felt with most of the existing solutions.
 
-I went through a few iterations early on where I only allowed a literal short address to be searched with a wildcard added to the end to make it sort of like a fuzzy search. This worked absolutely fine and was quite performant in that there was no delay in searching for something and getting back a result. It constantly tripped up my friend though who felt it more natural to search for just the street name and a building number with no clarifying terms like "street" or "avenue" in-between. So, as anyone bound to make simple mistakes, I turned to regular expressions to solve the matter[^5].
+I went through a few iterations early on where I only allowed a literal short address to be searched with a wildcard added to the end to make it sort of like a fuzzy search. This worked absolutely fine and was quite performant in that there was no delay in searching for something and getting back a result. It constantly tripped up my friend though who felt it more natural to search for just the street name and a building number with no clarifying terms like "street" or "avenue" in-between. So, as anyone bound to make simple mistakes, I turned to regular expressions to solve the matter[^6].
 
 The query speeds tanked, but I was still happy that I got the searching to be more intuitive in that anything could be entered to get a result, thus I actually shipped that version of the site as well. As I've demonstrated [before](https://usrme.xyz/posts/how-to-trim-a-container-image-that-includes-azure-cli/) though, I'm not one to leave gains on the table without just cause. There was no way I'd leave it at that. And I'm thrilled that I didn't because after creating the necessary indeces and simplifying the queries, the delays are once again near-imperceptible and were improved from around 600ms to less than 300μs.
 
 ## Deployment
 
-The site is hosted on [Fly](https://fly.io/), which was chosen mostly because I have a bunch of credits left over that I wanted to use[^6] and being a Fly stan making up another chunk of the reasoning. On top of that, since the project is written using Laravel, Fly's [guide to deploying Laravel](https://fly.io/docs/laravel/) made it very easy to get something up and running. To my great surprise I didn't have to specifically set up any volumes to support the fact that there is a database because Fly packaged the database file right along with the application itself, making everything even easier on me.
+The site is hosted on [Fly](https://fly.io/), which was chosen mostly because I have a bunch of credits left over that I wanted to use[^7] and being a Fly stan making up another chunk of the reasoning. On top of that, since the project is written using Laravel, Fly's [guide to deploying Laravel](https://fly.io/docs/laravel/) made it very easy to get something up and running. To my great surprise I didn't have to specifically set up any volumes to support the fact that there is a database because Fly packaged the database file right along with the application itself, making everything even easier on me.
 
 Because the site is meant to cater to Estonian visitors, I had wanted to locate the application right in Estonia to avoid any round-trips farther away, but another pleasant surprise was that despite the deployment being in Bucharest (as suggested by Fly), the speed of the site hasn't suffered whatsoever, in my opinion.
 
@@ -91,7 +91,7 @@ This goes back to the first section where I mentioned how Laravel simplifies cre
 
 Even if thousands or hundreds of thousands of results are found, the search is still very much instant, even if a brand new search term is entered. This all in an effort to break the mold to show that nowadays there's hardly ever any good technical reason for not making simple applications such as this fast.
 
-Since the querying is only contained within one table and _only_ across 1.35M records, it's expected to be quick with additional thanks to the wonders of modern database engineering and query optimizations, but I'm still happy I got it to be _this_ quick.
+Since the querying is only contained within one table and _only_ across 1.35M records, it's expected to be quick with, additional thanks to the wonders of modern database engineering and query optimizations, but I'm still happy I got it to be _this_ quick.
 
 ## Future
 
@@ -111,5 +111,6 @@ I'm most definitely not a software developer by profession, so I've probably mad
 [^2]: I guess PHP _does_ make the kind of bank that is amenable to giving things away.
 [^3]: There's actually 30 lessons, but the last four videos are about creating a final project that Jeffrey had in mind. I desperately wanted nothing more to get started on mine.
 [^4]: To make sense of the sub-heading, check out this classic [SQL Server ad featuring Bill Gates](https://www.youtube.com/watch?v=5ycx9hFGHog)
-[^5]: A thousand (as if I have that many readers) database engineers just winced.
-[^6]: [Here's](https://www.tigrisdata.com/blog/docker-registry-at-home/) a blog post over at [Tigris](https://tigrisdata.com) that gives away $50 in credits.
+[^5]: I'm now aware of [generated columns in SQLite](https://sqlite.org/gencol.html) and will be looking into them to maybe solve this in a more elegant way.
+[^6]: A thousand (as if I have that many readers) database engineers just winced.
+[^7]: [Here's](https://www.tigrisdata.com/blog/docker-registry-at-home/) a blog post over at [Tigris](https://tigrisdata.com) that gives away $50 in credits.
