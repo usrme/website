@@ -110,3 +110,7 @@ Topics learned cover all the basic skills that are common to major Linux distrib
 ### GoBarChar - A simple way to create bar charts using HTTP query parameters
 
 <https://github.com/usrme/gobarchar>
+
+### Sihtnumbrid - A site dedicated to searching for postal codes in Estonia
+
+<https://sihtnumbrid.ee/>
