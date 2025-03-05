@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.10",
-    "astro": "^5.0.5",
+    "astro": "^5.4.2",
     "sanitize-html": "^2.9.0"
   }
 }
