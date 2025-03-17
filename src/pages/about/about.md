@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-pubDate: 2025-02-17
+pubDate: 2025-03-17
 title: About Me
 ---
 ## Introduction
 
-I am a 32-year-old guy who hails from Estonia and currently works in XYB as a Cloud DevOps engineer for the Infrastructure team. I’ve been working with a wide range of infrastructure for almost 10 years now and I absolutely love working with systems that bring joy to users, be it internal or external. When it comes to programming languages I’m very proficient in Bash, Python, and Go, but I won’t shy away from any new language! I’ve managed infrastructure with Chef, Ansible, and most often with Terraform. I tackle problems in a pragmatic way and truly enjoy it when a team comes together to solve a problem.
+I am a 33-year-old guy who hails from Estonia and currently works in XYB as a Cloud DevOps engineer for the Infrastructure team. I’ve been working with a wide range of infrastructure for almost 10 years now and I absolutely love working with systems that bring joy to users, be it internal or external. When it comes to programming languages I’m very proficient in Bash, Python, and Go, but I won’t shy away from any new language! I’ve managed infrastructure with Chef, Ansible, and most often with Terraform. I tackle problems in a pragmatic way and truly enjoy it when a team comes together to solve a problem.
 
 ## Contacts
 
@@ -21,7 +21,7 @@ I am a 32-year-old guy who hails from Estonia and currently works in XYB as a Cl
 * Lead migration from Jenkins’ CI/CD to GitHub Actions with great automation around workflow creation and workflow distribution.
 * Responsible for driving hermetic infrastructure creation.
 
-**Keywords**: AWS, CI/CD, Kubernetes, Terraform
+**Keywords**: AWS, Argo CD, CI/CD, Kubernetes, Terraform
 
 ***
 
